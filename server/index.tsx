@@ -20,7 +20,7 @@ const { upgradeWebSocket, websocket } =
 
 let subscribers: { tableName: string, ws: WSContext<ServerWebSocket<undefined>>}[] = [];
 const app = new Hono().use('/*', cors({
-  origin: process.env['CLIENT_URL'] ?? 'http://localhost:3000',
+  origin: process.env['NODE_ENV'] === 'production' ? 'https://hono.wetarseel.ai' : 'http://localhost:3000',
   credentials: true,
 })).get(
   '/ws',
