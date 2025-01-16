@@ -9,10 +9,7 @@ import { zValidator } from '@hono/zod-validator'
 
 import {
   getCookie,
-  getSignedCookie,
   setCookie,
-  setSignedCookie,
-  deleteCookie,
 } from 'hono/cookie'
 
 import { db } from './db'
@@ -23,7 +20,7 @@ const { upgradeWebSocket, websocket } =
 
 let subscribers: { tableName: string, ws: WSContext<ServerWebSocket<undefined>>}[] = [];
 const app = new Hono().use('/*', cors({
-  origin: 'http://localhost:3001',
+  origin: process.env['CLIENT_URL'] ?? 'http://localhost:3000',
   credentials: true,
 })).get(
   '/ws',
@@ -125,6 +122,7 @@ const app = new Hono().use('/*', cors({
 });
 
 export default {
+  port: 3061,
   fetch: app.fetch,
   websocket,
 }

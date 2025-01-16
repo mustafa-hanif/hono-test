@@ -3,8 +3,10 @@
   "type": "module",
   "scripts": {
     "server-dev": "bun run --bun --watch --inspect server/index.tsx",
+    "server-run": "NODE_ENV=production bun run --bun server/index.tsx",
     "client-dev": "VITE_CJS_TRACE=true vite --port=3001 --config ./client/vite.config.ts",
     "build": "vite build  --config ./client/vite.config.ts",
+    "server-build": "echo 1",
     "preview": "NODE_ENV=production bun run server/index.tsx & vite preview --port=3001  --config ./client/vite.config.ts"
   },
   "dependencies": {
