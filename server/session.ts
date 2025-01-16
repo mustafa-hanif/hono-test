@@ -66,6 +66,6 @@ export type SessionValidationResult =
   export function setSessionTokenCookie(c: Context, token: string): void {
     // When deployed over HTTP (localhost)
     setCookie(c, 'session', token, {
-      sameSite: 'lax',
+      sameSite: 'None',
     });
   }

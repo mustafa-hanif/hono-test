@@ -70,7 +70,7 @@ const app = new Hono().use('/*', cors({
       session = createSession(user.tokenKey, Number(user.id));
     }
     setCookie(c, 'token', user.tokenKey, {
-      sameSite: 'lax',
+      sameSite: 'None',
       expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
     });
     return c.json(
@@ -104,7 +104,9 @@ const app = new Hono().use('/*', cors({
     tokenKey: token,
     username: username
   }).run();
-  setCookie(c, 'token', token);
+  setCookie(c, 'token', token, {
+    sameSite: 'None',
+  });
   return c.json(
     {
       username, password,

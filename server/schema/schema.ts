@@ -1,31 +1,12 @@
 import { sqliteTable, AnySQLiteColumn, integer, index, text, numeric, uniqueIndex } from "drizzle-orm/sqlite-core"
   import { InferSelectModel, sql } from "drizzle-orm"
 
-export const migrations = sqliteTable("_migrations", {
-	file: text({ length: 255 }).primaryKey().notNull(),
-	applied: integer().notNull(),
-});
-
-export const collections = sqliteTable("_collections", {
-	id: text().primaryKey().notNull(),
-	system: numeric().default(sql`(FALSE)`).notNull(),
-	name: text().notNull(),
-	listRule: text().default("sql`(NULL)`"),
-	viewRule: text().default("sql`(NULL)`"),
-	createRule: text().default("sql`(NULL)`"),
-	updateRule: text().default("sql`(NULL)`"),
-	deleteRule: text().default("sql`(NULL)`"),
-	options: numeric().default(sql`('{}')`).notNull(),
-	created: text().default("sql`(strftime('%Y-%m-%d %H:%M:%fZ'))`").notNull(),
-	updated: text().default("sql`(strftime('%Y-%m-%d %H:%M:%fZ'))`").notNull(),
-});
-
 export const users = sqliteTable("users", {
 	avatar: text().default("").notNull(),
 	created: text().default("sql`(strftime('%Y-%m-%d %H:%M:%fZ'))`").notNull(),
 	email: text().default("").notNull(),
 	emailVisibility: numeric().default(sql`(FALSE)`).notNull(),
-	id: text().default("sql`('r'||lower(hex(randomblob(7))))`").primaryKey().notNull(),
+	id: numeric().default(sql`(random())`).primaryKey().notNull(),
 	name: text().default("").notNull(),
 	password: text().notNull(),
 	tokenKey: text().notNull(),
