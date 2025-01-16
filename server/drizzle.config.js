@@ -4,6 +4,6 @@ export default defineConfig({
   schema: './server/schema/',
   dialect: 'sqlite',
   dbCredentials: {
-    url: 'data.db',
+    url: '/data/data.db',
   },
 });
