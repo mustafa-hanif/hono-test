@@ -70,7 +70,8 @@ const app = new Hono().use('/*', cors({
       session = createSession(user.tokenKey, Number(user.id));
     }
     setCookie(c, 'token', user.tokenKey, {
-      sameSite: 'None',
+      sameSite: 'Lax',
+      domain: '.hashmani.taskmate.ae',
       expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
     });
     return c.json(
