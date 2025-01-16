@@ -6,7 +6,7 @@ export const users = sqliteTable("users", {
 	created: text().default("sql`(strftime('%Y-%m-%d %H:%M:%fZ'))`").notNull(),
 	email: text().default("").notNull(),
 	emailVisibility: numeric().default(sql`(FALSE)`).notNull(),
-	id: numeric().default(sql`(random())`).primaryKey().notNull(),
+	id: integer().primaryKey({ autoIncrement: true }).notNull(),
 	name: text().default("").notNull(),
 	password: text().notNull(),
 	tokenKey: text().notNull(),
