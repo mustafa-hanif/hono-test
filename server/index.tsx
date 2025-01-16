@@ -17,10 +17,10 @@ import { createSession, generateSessionToken, validateSessionToken } from './ses
 
 const { upgradeWebSocket, websocket } =
   createBunWebSocket<ServerWebSocket>();
-
+const clientDomain = process.env['NODE_ENV'] === 'production' ? 'https://client.hashmani.taskmate.ae' : 'http://localhost:3000';
 let subscribers: { tableName: string, ws: WSContext<ServerWebSocket<undefined>>}[] = [];
 const app = new Hono().use('/*', cors({
-  origin: process.env['NODE_ENV'] === 'production' ? 'https://hono.wetarseel.ai' : 'http://localhost:3000',
+  origin: clientDomain,
   credentials: true,
 })).get(
   '/ws',
