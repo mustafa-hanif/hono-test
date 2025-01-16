@@ -14,10 +14,22 @@ import {
 
 import { db } from './db'
 import { createSession, generateSessionToken, validateSessionToken } from './session'
+import type { CookieOptions } from 'hono/utils/cookie'
 
 const { upgradeWebSocket, websocket } =
   createBunWebSocket<ServerWebSocket>();
+
 const clientDomain = process.env['NODE_ENV'] === 'production' ? 'https://client.hashmani.taskmate.ae' : 'http://localhost:3000';
+const cookieConfig: CookieOptions = process.env['NODE_ENV'] === 'production' ? {
+  sameSite: 'None',
+  secure: true,
+  domain: '.hashmani.taskmate.ae',
+  expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
+} : {
+  sameSite: 'Lax',
+  expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
+}
+
 let subscribers: { tableName: string, ws: WSContext<ServerWebSocket<undefined>>}[] = [];
 const app = new Hono().use('/*', cors({
   origin: clientDomain,
@@ -49,7 +61,6 @@ const app = new Hono().use('/*', cors({
   username: z.string(),
   password: z.string(),
 })), async (c) => {
-  const origin = c.req.header('Origin');
   const { username, password } = c.req.valid('form');
   const user = await db.query.users.findFirst({
     where: (users, { eq }) => eq(users.username, username),
@@ -69,11 +80,7 @@ const app = new Hono().use('/*', cors({
     if (!session) {
       session = createSession(user.tokenKey, Number(user.id));
     }
-    setCookie(c, 'token', user.tokenKey, {
-      sameSite: 'Lax',
-      domain: '.hashmani.taskmate.ae',
-      expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
-    });
+    setCookie(c, 'token', user.tokenKey, cookieConfig);
     return c.json(
       {
         username, session
