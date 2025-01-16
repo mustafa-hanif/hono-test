@@ -30,7 +30,7 @@ const cookieConfig: CookieOptions = process.env['NODE_ENV'] === 'production' ? {
   expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
 }
 
-let subscribers: { tableName: string, ws: WSContext<ServerWebSocket<undefined>>}[] = [];
+let subscribers: { tableName: string, ws: WSContext<ServerWebSocket<undefined>> }[] = [];
 const app = new Hono().use('/*', cors({
   origin: clientDomain,
   credentials: true,
@@ -39,7 +39,7 @@ const app = new Hono().use('/*', cors({
   upgradeWebSocket((c) => {
     return {
       onOpen(_event, ws) {
-        
+
       },
       onMessage(event, ws) {
         const data = JSON.parse(event.data.toString());
@@ -86,10 +86,10 @@ const app = new Hono().use('/*', cors({
         username, session
       },
       200
-    )  
+    )
   }
   return c.json({ message: 'invalid password' }, 400);
-}).post('/users/register', zValidator('form', z.object({  
+}).post('/users/register', zValidator('form', z.object({
   username: z.string(),
   password: z.string(),
 })), async (c) => {
@@ -107,14 +107,12 @@ const app = new Hono().use('/*', cors({
   }
   const token = generateSessionToken();
   const hash = await Bun.password.hash(password, "argon2d")
-  db.insert(schema.users).values({ 
+  db.insert(schema.users).values({
     password: hash,
     tokenKey: token,
     username: username
   }).run();
-  setCookie(c, 'token', token, {
-    sameSite: 'None',
-  });
+  setCookie(c, 'token', token, cookieConfig);
   return c.json(
     {
       username, password,
