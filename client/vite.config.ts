@@ -1,6 +1,8 @@
 import path from "path"
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import react from "@vitejs/plugin-react-swc";
+import Unfonts from 'unplugin-fonts/vite';
+
 import { TanStackRouterVite } from '@tanstack/router-plugin/vite'
 
 // https://vitejs.dev/config/
@@ -18,5 +20,14 @@ export default defineConfig({
     routesDirectory: path.resolve(__dirname, './routes'),  // Changed to absolute path
     generatedRouteTree: path.resolve(__dirname, './routeTree.gen.ts'),
     routeFileIgnorePrefix: "-",
-  }), react()],
+  }), react(), Unfonts({
+    custom: {
+      families: [
+        {
+          name: 'GeistSans',
+          src: './assets/fonts/*.woff2'
+        },
+      ],
+    }
+  })],
 })

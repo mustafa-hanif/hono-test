@@ -7,10 +7,10 @@ export const Route = createFileRoute('/')({
 
 function HomeComponent() {
   return (
-    <div className="p-20">
-      <h3>Welcome Home!</h3>
-      <ul>
-        hi whats up
+    <div className="transition-all p-20 bg-slate-100">
+      <h3 className='text-blue-800 animate-pulse text-9xl font-semibold'>Welcome Home!</h3>
+      <ul className='text-6xl text-blue-600'>
+        ok so good
       </ul>
     </div>
   )

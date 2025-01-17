@@ -12,7 +12,7 @@ function AboutComponent() {
   
   return (
     <div className="p-20">
-      <h3>About</h3>
+      <h3>About1</h3>
       <Button>Click me</Button>
       <p>{posts.message}</p>
     </div>

@@ -3,6 +3,9 @@ export const darkMode = ["class"];
 export const content = ["./client/routes/**/*.{ts,tsx}", "./client/components/**/*.{ts,tsx}"];
 export const theme = {
   extend: {
+    fontFamily: {
+      sans: ['GeistSans', 'sans-serif'],
+    },
     colors: {
       border: "hsl(var(--border))",
       input: "hsl(var(--input))",
