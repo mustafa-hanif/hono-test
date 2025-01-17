@@ -1,5 +1,5 @@
-import { sqliteTable, AnySQLiteColumn, integer, index, text, numeric, uniqueIndex } from "drizzle-orm/sqlite-core"
-  import { InferSelectModel, sql } from "drizzle-orm"
+import { sqliteTable, integer, text, numeric } from "drizzle-orm/sqlite-core"
+  import { sql } from "drizzle-orm"
 
 export const users = sqliteTable("users", {
 	avatar: text().default("").notNull(),
