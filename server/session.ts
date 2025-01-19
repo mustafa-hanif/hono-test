@@ -1,7 +1,6 @@
 import { sha256 } from "@oslojs/crypto/sha2";
 
 import { encodeBase32LowerCaseNoPadding, encodeHexLowerCase } from "@oslojs/encoding";
-import { invariant } from "@tanstack/react-router";
 import { Context } from "hono";
 import { setCookie } from "hono/cookie";
 import { PrismaClient, session, users } from "@prisma/client";
@@ -50,7 +49,6 @@ export async function validateSessionToken(token: string): Promise<SessionValida
 	if (!session) {
 		return { session: null, user: null };
 	}
-  invariant(session, 'we have a session');
 	const { user } = session;
 	const _time = new Date(session.expiresAt).getTime();
 	if (Date.now() >= _time) {
