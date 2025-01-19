@@ -107,4 +107,4 @@ export interface IStocksAndUsers {
 export type ContextType = {
   user: users | null;
   session: session | null;
-} | undefined;
+};

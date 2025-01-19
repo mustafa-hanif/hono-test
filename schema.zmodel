@@ -14,6 +14,7 @@ model competition {
   pause   Boolean @default(false)
   updated String  @default("strftime('%Y-%m-%d %H:%M:%fZ')")
   ended   Boolean @default(false)
+  @@allow('all', true)
 }
 
 model days {
@@ -23,16 +24,18 @@ model days {
   name        String  @default("")
   updated     String  @default("strftime('%Y-%m-%d %H:%M:%fZ')")
   active      Boolean @default(false)
+  @@allow('all', true)
 }
 
 model headings {
   created        String  @default("strftime('%Y-%m-%d %H:%M:%fZ')")
-  id             String  @id @default("'r'||lower(hex(randomblob(7)))")
+  id             String  @id @default(cuid())
   name           String  @default("")
   updated        String  @default("strftime('%Y-%m-%d %H:%M:%fZ')")
   day            String  @default("")
   active         Boolean @default(false)
   heading_number Decimal @default(0)
+  @@allow('all', true)
 }
 
 model stocks {
@@ -40,6 +43,7 @@ model stocks {
   created   String @default("strftime('%Y-%m-%d %H:%M:%fZ')")
   id        String @id @default("'r'||lower(hex(randomblob(7)))")
   updated   String @default("strftime('%Y-%m-%d %H:%M:%fZ')")
+  @@allow('all', true)
 }
 
 model stocks_headings {
@@ -52,6 +56,7 @@ model stocks_headings {
   current_price              Decimal @default(0)
   change_in_price            Decimal @default(0)
   percentage_change_in_price String  @default("")
+  @@allow('all', true)
 }
 
 model stocks_users {
@@ -63,6 +68,7 @@ model stocks_users {
   share_count           String @default("")
   balance_when_shorting String @default("")
   short_share_count     String @default("")
+  @@allow('all', true)
 }
 
 model timer {
@@ -73,6 +79,7 @@ model timer {
   id                String  @id @default("'r'||lower(hex(randomblob(7)))")
   updated           String  @default("strftime('%Y-%m-%d %H:%M:%fZ')")
   round_time        Decimal @default(0)
+  @@allow('all', true)
 }
 
 model users {

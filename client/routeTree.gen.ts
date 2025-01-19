@@ -18,7 +18,9 @@ import { Route as LoginImport } from './routes/login'
 import { Route as AboutImport } from './routes/about'
 import { Route as IndexImport } from './routes/index'
 import { Route as AdminUserIdLayoutImport } from './routes/admin/$userId/_layout'
+import { Route as AdminUserIdDaysIndexImport } from './routes/admin/$userId/days/index'
 import { Route as AdminUserIdLayoutUserImport } from './routes/admin/$userId/_layout.user'
+import { Route as AdminUserIdLayoutHeadingsDayIdImport } from './routes/admin/$userId/_layout.headings.$dayId'
 
 // Create Virtual Routes
 
@@ -61,11 +63,24 @@ const AdminUserIdLayoutRoute = AdminUserIdLayoutImport.update({
   getParentRoute: () => AdminUserIdRoute,
 } as any)
 
+const AdminUserIdDaysIndexRoute = AdminUserIdDaysIndexImport.update({
+  id: '/days/',
+  path: '/days/',
+  getParentRoute: () => AdminUserIdRoute,
+} as any)
+
 const AdminUserIdLayoutUserRoute = AdminUserIdLayoutUserImport.update({
   id: '/user',
   path: '/user',
   getParentRoute: () => AdminUserIdLayoutRoute,
 } as any)
+
+const AdminUserIdLayoutHeadingsDayIdRoute =
+  AdminUserIdLayoutHeadingsDayIdImport.update({
+    id: '/headings/$dayId',
+    path: '/headings/$dayId',
+    getParentRoute: () => AdminUserIdLayoutRoute,
+  } as any)
 
 // Populate the FileRoutesByPath interface
 
@@ -120,6 +135,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminUserIdLayoutUserImport
       parentRoute: typeof AdminUserIdLayoutImport
     }
+    '/admin/$userId/days/': {
+      id: '/admin/$userId/days/'
+      path: '/days'
+      fullPath: '/admin/$userId/days'
+      preLoaderRoute: typeof AdminUserIdDaysIndexImport
+      parentRoute: typeof AdminUserIdImport
+    }
+    '/admin/$userId/_layout/headings/$dayId': {
+      id: '/admin/$userId/_layout/headings/$dayId'
+      path: '/headings/$dayId'
+      fullPath: '/admin/$userId/headings/$dayId'
+      preLoaderRoute: typeof AdminUserIdLayoutHeadingsDayIdImport
+      parentRoute: typeof AdminUserIdLayoutImport
+    }
   }
 }
 
@@ -127,10 +156,12 @@ declare module '@tanstack/react-router' {
 
 interface AdminUserIdLayoutRouteChildren {
   AdminUserIdLayoutUserRoute: typeof AdminUserIdLayoutUserRoute
+  AdminUserIdLayoutHeadingsDayIdRoute: typeof AdminUserIdLayoutHeadingsDayIdRoute
 }
 
 const AdminUserIdLayoutRouteChildren: AdminUserIdLayoutRouteChildren = {
   AdminUserIdLayoutUserRoute: AdminUserIdLayoutUserRoute,
+  AdminUserIdLayoutHeadingsDayIdRoute: AdminUserIdLayoutHeadingsDayIdRoute,
 }
 
 const AdminUserIdLayoutRouteWithChildren =
@@ -138,10 +169,12 @@ const AdminUserIdLayoutRouteWithChildren =
 
 interface AdminUserIdRouteChildren {
   AdminUserIdLayoutRoute: typeof AdminUserIdLayoutRouteWithChildren
+  AdminUserIdDaysIndexRoute: typeof AdminUserIdDaysIndexRoute
 }
 
 const AdminUserIdRouteChildren: AdminUserIdRouteChildren = {
   AdminUserIdLayoutRoute: AdminUserIdLayoutRouteWithChildren,
+  AdminUserIdDaysIndexRoute: AdminUserIdDaysIndexRoute,
 }
 
 const AdminUserIdRouteWithChildren = AdminUserIdRoute._addFileChildren(
@@ -155,6 +188,8 @@ export interface FileRoutesByFullPath {
   '/register': typeof RegisterRoute
   '/admin/$userId': typeof AdminUserIdLayoutRouteWithChildren
   '/admin/$userId/user': typeof AdminUserIdLayoutUserRoute
+  '/admin/$userId/days': typeof AdminUserIdDaysIndexRoute
+  '/admin/$userId/headings/$dayId': typeof AdminUserIdLayoutHeadingsDayIdRoute
 }
 
 export interface FileRoutesByTo {
@@ -164,6 +199,8 @@ export interface FileRoutesByTo {
   '/register': typeof RegisterRoute
   '/admin/$userId': typeof AdminUserIdLayoutRouteWithChildren
   '/admin/$userId/user': typeof AdminUserIdLayoutUserRoute
+  '/admin/$userId/days': typeof AdminUserIdDaysIndexRoute
+  '/admin/$userId/headings/$dayId': typeof AdminUserIdLayoutHeadingsDayIdRoute
 }
 
 export interface FileRoutesById {
@@ -175,6 +212,8 @@ export interface FileRoutesById {
   '/admin/$userId': typeof AdminUserIdRouteWithChildren
   '/admin/$userId/_layout': typeof AdminUserIdLayoutRouteWithChildren
   '/admin/$userId/_layout/user': typeof AdminUserIdLayoutUserRoute
+  '/admin/$userId/days/': typeof AdminUserIdDaysIndexRoute
+  '/admin/$userId/_layout/headings/$dayId': typeof AdminUserIdLayoutHeadingsDayIdRoute
 }
 
 export interface FileRouteTypes {
@@ -186,6 +225,8 @@ export interface FileRouteTypes {
     | '/register'
     | '/admin/$userId'
     | '/admin/$userId/user'
+    | '/admin/$userId/days'
+    | '/admin/$userId/headings/$dayId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -194,6 +235,8 @@ export interface FileRouteTypes {
     | '/register'
     | '/admin/$userId'
     | '/admin/$userId/user'
+    | '/admin/$userId/days'
+    | '/admin/$userId/headings/$dayId'
   id:
     | '__root__'
     | '/'
@@ -203,6 +246,8 @@ export interface FileRouteTypes {
     | '/admin/$userId'
     | '/admin/$userId/_layout'
     | '/admin/$userId/_layout/user'
+    | '/admin/$userId/days/'
+    | '/admin/$userId/_layout/headings/$dayId'
   fileRoutesById: FileRoutesById
 }
 
@@ -254,18 +299,28 @@ export const routeTree = rootRoute
     "/admin/$userId": {
       "filePath": "admin/$userId",
       "children": [
-        "/admin/$userId/_layout"
+        "/admin/$userId/_layout",
+        "/admin/$userId/days/"
       ]
     },
     "/admin/$userId/_layout": {
       "filePath": "admin/$userId/_layout.tsx",
       "parent": "/admin/$userId",
       "children": [
-        "/admin/$userId/_layout/user"
+        "/admin/$userId/_layout/user",
+        "/admin/$userId/_layout/headings/$dayId"
       ]
     },
     "/admin/$userId/_layout/user": {
       "filePath": "admin/$userId/_layout.user.tsx",
+      "parent": "/admin/$userId/_layout"
+    },
+    "/admin/$userId/days/": {
+      "filePath": "admin/$userId/days/index.tsx",
+      "parent": "/admin/$userId"
+    },
+    "/admin/$userId/_layout/headings/$dayId": {
+      "filePath": "admin/$userId/_layout.headings.$dayId.tsx",
       "parent": "/admin/$userId/_layout"
     }
   }

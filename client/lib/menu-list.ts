@@ -29,37 +29,37 @@ type Group = {
 
 export function getMenuList(
   pathname: string,
-  params: any,
+  params: { userId?: string; },
   searchParams: any
 ): Group[] {
-  const user_id = params.user_id;
+  const user_id = params.userId;
   return [
     {
       groupLabel: "",
       menus: [
         {
-          href: `/stock-market/${user_id}/admin/stock-prices`,
+          href: `/admin/${user_id}/stock-prices`,
           label: "Stock Prices",
           active: pathname.includes("/stock-prices"),
           icon: LayoutGrid,
           submenus: []
         },
         {
-          href: `/stock-market/${user_id}/admin/headings`,
+          href: `/admin/${user_id}/headings`,
           label: "Headings",
           active: pathname.includes("/headings"),
           icon: SquarePen,
           submenus: []
         },
         {
-          href: `/stock-market/${user_id}/admin/users-setting`,
+          href: `/admin/${user_id}/users-setting`,
           label: "Users setting",
           active: pathname.includes("/users-setting"),
           icon: Bookmark,
           submenus: []
         },
         {
-          href: `/stock-market/${user_id}/admin/users-asset`,
+          href: `/admin/${user_id}/users-asset`,
           label: "Users Assets",
           active: pathname.includes("/users-asset"),
           icon: Tag,

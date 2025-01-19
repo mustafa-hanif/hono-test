@@ -32,7 +32,7 @@ model days {
 
 model headings {
   created        String  @default("strftime('%Y-%m-%d %H:%M:%fZ')")
-  id             String  @id() @default("'r'||lower(hex(randomblob(7)))")
+  id             String  @id() @default(cuid())
   name           String  @default("")
   updated        String  @default("strftime('%Y-%m-%d %H:%M:%fZ')")
   day            String  @default("")

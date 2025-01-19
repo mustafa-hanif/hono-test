@@ -1,6 +1,7 @@
 import { Hono } from 'hono'
+import { swaggerUI } from '@hono/swagger-ui'
 import { cors } from 'hono/cors'
-import { createBunWebSocket } from 'hono/bun'
+import { createBunWebSocket, serveStatic } from 'hono/bun'
 import { enhance } from '@zenstackhq/runtime';
 import type { ServerWebSocket } from 'bun'
 import { WSContext } from 'hono/ws'
@@ -18,7 +19,7 @@ let subscribers: { tableName: string, ws: WSContext<ServerWebSocket<undefined>> 
 const app = new Hono().use('/*', cors({
   origin: clientDomain,
   credentials: true,
-})).use(
+})).get('/ui', swaggerUI({ url: '/doc' })).use(
   '/api/model/*',
   createHonoHandler({
     getPrisma: (ctx) => {
@@ -46,7 +47,8 @@ const app = new Hono().use('/*', cors({
   return c.json({
     message: 'created!',
   })
-}).route('/users', user);
+}).route('/users', user).
+  get('/doc', serveStatic({ path: '/openapi.json' }));
 
 export default {
   port: 3000,

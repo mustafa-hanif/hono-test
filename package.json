@@ -10,6 +10,7 @@
     "preview": "NODE_ENV=production bun run server/index.tsx & vite preview --port=3001  --config ./client/vite.config.ts"
   },
   "dependencies": {
+    "@hono/swagger-ui": "^0.5.0",
     "@hono/zod-validator": "^0.4.2",
     "@libsql/client": "^0.14.0",
     "@oslojs/crypto": "^1.0.1",
@@ -40,7 +41,8 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tailwind-merge": "^2.6.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
     "@tanstack/router-plugin": "^1.95.3",

@@ -1,3 +1,4 @@
+import AdminPanelLayout from '@/components/admin-panel/admin-panel-layout'
 import { createFileRoute, Outlet } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/admin/$userId/_layout')({
@@ -5,5 +6,7 @@ export const Route = createFileRoute('/admin/$userId/_layout')({
 })
 
 function RouteComponent() {
-  return <Outlet />
+  return <AdminPanelLayout>
+    <Outlet />
+  </AdminPanelLayout>
 }

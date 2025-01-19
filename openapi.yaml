@@ -6778,6 +6778,7 @@ paths:
       description: Create a new Competition
       tags:
         - competition
+      security: []
       responses:
         "201":
           description: Successful operation
@@ -6823,6 +6824,7 @@ paths:
       description: Create several Competition
       tags:
         - competition
+      security: []
       responses:
         "201":
           description: Successful operation
@@ -6868,6 +6870,7 @@ paths:
       description: Find one unique Competition
       tags:
         - competition
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -6923,6 +6926,7 @@ paths:
       description: Find the first Competition matching the given condition
       tags:
         - competition
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -6978,6 +6982,7 @@ paths:
       description: Find a list of Competition
       tags:
         - competition
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -7035,6 +7040,7 @@ paths:
       description: Update a Competition
       tags:
         - competition
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -7080,6 +7086,7 @@ paths:
       description: Update Competitions matching the given condition
       tags:
         - competition
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -7125,6 +7132,7 @@ paths:
       description: Upsert a Competition
       tags:
         - competition
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -7170,6 +7178,7 @@ paths:
       description: Delete one unique Competition
       tags:
         - competition
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -7225,6 +7234,7 @@ paths:
       description: Delete Competitions matching the given condition
       tags:
         - competition
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -7280,6 +7290,7 @@ paths:
       description: Find a list of Competition
       tags:
         - competition
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -7337,6 +7348,7 @@ paths:
       description: Aggregate Competitions
       tags:
         - competition
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -7392,6 +7404,7 @@ paths:
       description: Group Competitions by fields
       tags:
         - competition
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -7449,6 +7462,7 @@ paths:
       description: Create a new Days
       tags:
         - days
+      security: []
       responses:
         "201":
           description: Successful operation
@@ -7494,6 +7508,7 @@ paths:
       description: Create several Days
       tags:
         - days
+      security: []
       responses:
         "201":
           description: Successful operation
@@ -7539,6 +7554,7 @@ paths:
       description: Find one unique Days
       tags:
         - days
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -7594,6 +7610,7 @@ paths:
       description: Find the first Days matching the given condition
       tags:
         - days
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -7649,6 +7666,7 @@ paths:
       description: Find a list of Days
       tags:
         - days
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -7706,6 +7724,7 @@ paths:
       description: Update a Days
       tags:
         - days
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -7751,6 +7770,7 @@ paths:
       description: Update Dayss matching the given condition
       tags:
         - days
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -7796,6 +7816,7 @@ paths:
       description: Upsert a Days
       tags:
         - days
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -7841,6 +7862,7 @@ paths:
       description: Delete one unique Days
       tags:
         - days
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -7896,6 +7918,7 @@ paths:
       description: Delete Dayss matching the given condition
       tags:
         - days
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -7951,6 +7974,7 @@ paths:
       description: Find a list of Days
       tags:
         - days
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -8008,6 +8032,7 @@ paths:
       description: Aggregate Dayss
       tags:
         - days
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -8063,6 +8088,7 @@ paths:
       description: Group Dayss by fields
       tags:
         - days
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -8120,6 +8146,7 @@ paths:
       description: Create a new Headings
       tags:
         - headings
+      security: []
       responses:
         "201":
           description: Successful operation
@@ -8165,6 +8192,7 @@ paths:
       description: Create several Headings
       tags:
         - headings
+      security: []
       responses:
         "201":
           description: Successful operation
@@ -8210,6 +8238,7 @@ paths:
       description: Find one unique Headings
       tags:
         - headings
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -8265,6 +8294,7 @@ paths:
       description: Find the first Headings matching the given condition
       tags:
         - headings
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -8320,6 +8350,7 @@ paths:
       description: Find a list of Headings
       tags:
         - headings
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -8377,6 +8408,7 @@ paths:
       description: Update a Headings
       tags:
         - headings
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -8422,6 +8454,7 @@ paths:
       description: Update Headingss matching the given condition
       tags:
         - headings
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -8467,6 +8500,7 @@ paths:
       description: Upsert a Headings
       tags:
         - headings
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -8512,6 +8546,7 @@ paths:
       description: Delete one unique Headings
       tags:
         - headings
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -8567,6 +8602,7 @@ paths:
       description: Delete Headingss matching the given condition
       tags:
         - headings
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -8622,6 +8658,7 @@ paths:
       description: Find a list of Headings
       tags:
         - headings
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -8679,6 +8716,7 @@ paths:
       description: Aggregate Headingss
       tags:
         - headings
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -8734,6 +8772,7 @@ paths:
       description: Group Headingss by fields
       tags:
         - headings
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -8791,6 +8830,7 @@ paths:
       description: Create a new Stocks
       tags:
         - stocks
+      security: []
       responses:
         "201":
           description: Successful operation
@@ -8836,6 +8876,7 @@ paths:
       description: Create several Stocks
       tags:
         - stocks
+      security: []
       responses:
         "201":
           description: Successful operation
@@ -8881,6 +8922,7 @@ paths:
       description: Find one unique Stocks
       tags:
         - stocks
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -8936,6 +8978,7 @@ paths:
       description: Find the first Stocks matching the given condition
       tags:
         - stocks
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -8991,6 +9034,7 @@ paths:
       description: Find a list of Stocks
       tags:
         - stocks
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -9048,6 +9092,7 @@ paths:
       description: Update a Stocks
       tags:
         - stocks
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -9093,6 +9138,7 @@ paths:
       description: Update Stockss matching the given condition
       tags:
         - stocks
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -9138,6 +9184,7 @@ paths:
       description: Upsert a Stocks
       tags:
         - stocks
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -9183,6 +9230,7 @@ paths:
       description: Delete one unique Stocks
       tags:
         - stocks
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -9238,6 +9286,7 @@ paths:
       description: Delete Stockss matching the given condition
       tags:
         - stocks
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -9293,6 +9342,7 @@ paths:
       description: Find a list of Stocks
       tags:
         - stocks
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -9350,6 +9400,7 @@ paths:
       description: Aggregate Stockss
       tags:
         - stocks
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -9405,6 +9456,7 @@ paths:
       description: Group Stockss by fields
       tags:
         - stocks
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -9462,6 +9514,7 @@ paths:
       description: Create a new Stocks_headings
       tags:
         - stocks_headings
+      security: []
       responses:
         "201":
           description: Successful operation
@@ -9507,6 +9560,7 @@ paths:
       description: Create several Stocks_headings
       tags:
         - stocks_headings
+      security: []
       responses:
         "201":
           description: Successful operation
@@ -9552,6 +9606,7 @@ paths:
       description: Find one unique Stocks_headings
       tags:
         - stocks_headings
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -9607,6 +9662,7 @@ paths:
       description: Find the first Stocks_headings matching the given condition
       tags:
         - stocks_headings
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -9662,6 +9718,7 @@ paths:
       description: Find a list of Stocks_headings
       tags:
         - stocks_headings
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -9719,6 +9776,7 @@ paths:
       description: Update a Stocks_headings
       tags:
         - stocks_headings
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -9764,6 +9822,7 @@ paths:
       description: Update Stocks_headingss matching the given condition
       tags:
         - stocks_headings
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -9809,6 +9868,7 @@ paths:
       description: Upsert a Stocks_headings
       tags:
         - stocks_headings
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -9854,6 +9914,7 @@ paths:
       description: Delete one unique Stocks_headings
       tags:
         - stocks_headings
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -9909,6 +9970,7 @@ paths:
       description: Delete Stocks_headingss matching the given condition
       tags:
         - stocks_headings
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -9964,6 +10026,7 @@ paths:
       description: Find a list of Stocks_headings
       tags:
         - stocks_headings
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -10021,6 +10084,7 @@ paths:
       description: Aggregate Stocks_headingss
       tags:
         - stocks_headings
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -10076,6 +10140,7 @@ paths:
       description: Group Stocks_headingss by fields
       tags:
         - stocks_headings
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -10133,6 +10198,7 @@ paths:
       description: Create a new Stocks_users
       tags:
         - stocks_users
+      security: []
       responses:
         "201":
           description: Successful operation
@@ -10178,6 +10244,7 @@ paths:
       description: Create several Stocks_users
       tags:
         - stocks_users
+      security: []
       responses:
         "201":
           description: Successful operation
@@ -10223,6 +10290,7 @@ paths:
       description: Find one unique Stocks_users
       tags:
         - stocks_users
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -10278,6 +10346,7 @@ paths:
       description: Find the first Stocks_users matching the given condition
       tags:
         - stocks_users
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -10333,6 +10402,7 @@ paths:
       description: Find a list of Stocks_users
       tags:
         - stocks_users
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -10390,6 +10460,7 @@ paths:
       description: Update a Stocks_users
       tags:
         - stocks_users
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -10435,6 +10506,7 @@ paths:
       description: Update Stocks_userss matching the given condition
       tags:
         - stocks_users
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -10480,6 +10552,7 @@ paths:
       description: Upsert a Stocks_users
       tags:
         - stocks_users
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -10525,6 +10598,7 @@ paths:
       description: Delete one unique Stocks_users
       tags:
         - stocks_users
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -10580,6 +10654,7 @@ paths:
       description: Delete Stocks_userss matching the given condition
       tags:
         - stocks_users
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -10635,6 +10710,7 @@ paths:
       description: Find a list of Stocks_users
       tags:
         - stocks_users
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -10692,6 +10768,7 @@ paths:
       description: Aggregate Stocks_userss
       tags:
         - stocks_users
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -10747,6 +10824,7 @@ paths:
       description: Group Stocks_userss by fields
       tags:
         - stocks_users
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -10804,6 +10882,7 @@ paths:
       description: Create a new Timer
       tags:
         - timer
+      security: []
       responses:
         "201":
           description: Successful operation
@@ -10849,6 +10928,7 @@ paths:
       description: Create several Timer
       tags:
         - timer
+      security: []
       responses:
         "201":
           description: Successful operation
@@ -10894,6 +10974,7 @@ paths:
       description: Find one unique Timer
       tags:
         - timer
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -10949,6 +11030,7 @@ paths:
       description: Find the first Timer matching the given condition
       tags:
         - timer
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -11004,6 +11086,7 @@ paths:
       description: Find a list of Timer
       tags:
         - timer
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -11061,6 +11144,7 @@ paths:
       description: Update a Timer
       tags:
         - timer
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -11106,6 +11190,7 @@ paths:
       description: Update Timers matching the given condition
       tags:
         - timer
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -11151,6 +11236,7 @@ paths:
       description: Upsert a Timer
       tags:
         - timer
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -11196,6 +11282,7 @@ paths:
       description: Delete one unique Timer
       tags:
         - timer
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -11251,6 +11338,7 @@ paths:
       description: Delete Timers matching the given condition
       tags:
         - timer
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -11306,6 +11394,7 @@ paths:
       description: Find a list of Timer
       tags:
         - timer
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -11363,6 +11452,7 @@ paths:
       description: Aggregate Timers
       tags:
         - timer
+      security: []
       responses:
         "200":
           description: Successful operation
@@ -11418,6 +11508,7 @@ paths:
       description: Group Timers by fields
       tags:
         - timer
+      security: []
       responses:
         "200":
           description: Successful operation
