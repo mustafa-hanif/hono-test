@@ -20,7 +20,7 @@ COPY . .
 ENV NODE_ENV=production
 
 # Adjust permissions
-RUN sudo chmod -R 777 node_modules
+RUN chmod -R 777 node_modules
 
 # Or change ownership
 RUN bun run server-build

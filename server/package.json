@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "server-dev": "bun run --bun --watch --inspect index.tsx",
-    "server-run": "cp -r .zenstack node_modules/ && NODE_ENV=production bun run --bun index.tsx",
+    "server-run": "bunx zenstack generate && NODE_ENV=production bun run --bun index.tsx",
     "server-build": "bunx zenstack generate -o .zenstack && cp -r .zenstack node_modules/ && bunx prisma db push"
   },
   "zenstack": {
