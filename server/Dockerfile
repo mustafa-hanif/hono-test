@@ -21,8 +21,11 @@ ENV NODE_ENV=production
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-RUN chown -R nextjs:nodejs ./
-RUN chmod 777 ./
+# Adjust permissions
+RUN chmod -R 777 node_modules
+
+# Or change ownership
+RUN chown -R nextjs:nodejs node_modules
 RUN bun run server-build
 
 # run the app
