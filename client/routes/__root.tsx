@@ -1,5 +1,5 @@
-import { Outlet, createRootRouteWithContext, useRouterState } from '@tanstack/react-router'
-import { TanStackRouterDevtools } from '@tanstack/router-devtools'
+import { Outlet, createRootRouteWithContext } from '@tanstack/react-router'
+// import { TanStackRouterDevtools } from '@tanstack/router-devtools'
 import '../index.css';
 import 'unfonts.css';
 import { hclient } from '@/lib/api';
@@ -23,7 +23,7 @@ function RootComponent() {
     <>      
       <hr />
       <Outlet />
-      <TanStackRouterDevtools position="bottom-right" />
+      {/* <TanStackRouterDevtools position="bottom-right" /> */}
     </>
   )
 }
