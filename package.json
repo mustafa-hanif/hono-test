@@ -2,19 +2,12 @@
   "name": "hono-test",
   "type": "module",
   "scripts": {
-    "server-dev": "bun run --bun --watch --inspect server/index.tsx",
-    "server-run": "NODE_ENV=production bun run --bun server/index.tsx",
-    "client-dev": "VITE_CJS_TRACE=true vite --port=3001 --config ./client/vite.config.ts",
+    "dev": "VITE_CJS_TRACE=true vite --port=3001 --config ./client/vite.config.ts",
     "build": "vite build  --config ./client/vite.config.ts",
     "server-build": "echo 1",
-    "preview": "NODE_ENV=production bun run server/index.tsx & vite preview --port=3001  --config ./client/vite.config.ts"
+    "preview": "NODE_ENV=production vite preview --port=3001  --config ./client/vite.config.ts"
   },
   "dependencies": {
-    "@hono/swagger-ui": "^0.5.0",
-    "@hono/zod-validator": "^0.4.2",
-    "@libsql/client": "^0.14.0",
-    "@oslojs/crypto": "^1.0.1",
-    "@oslojs/encoding": "^1.1.0",
     "@prisma/client": "^6.2.1",
     "@radix-ui/react-avatar": "^1.1.2",
     "@radix-ui/react-collapsible": "^1.1.2",
@@ -29,10 +22,8 @@
     "@tanstack/react-table": "^8.20.6",
     "@tanstack/router-devtools": "^1.95.3",
     "@zenstackhq/runtime": "^2.11.4",
-    "@zenstackhq/server": "^2.11.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "drizzle-orm": "^0.38.3",
     "geist": "^1.3.1",
     "hono": "^4.6.16",
     "lucide-react": "^0.471.1",
@@ -44,24 +35,19 @@
     "zustand": "^5.0.3"
   },
   "devDependencies": {
-    "prisma": "^6.2.1",
     "@tanstack/router-plugin": "^1.95.3",
-    "@types/bun": "latest",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^4.3.4",
     "@vitejs/plugin-react-swc": "^3.7.2",
     "@zenstackhq/openapi": "^2.11.4",
     "autoprefixer": "^10.4.20",
-    "drizzle-kit": "^0.30.1",
     "openapi-typescript": "^7.5.2",
     "postcss": "^8.5.0",
-    "rolldown": "^1.0.0-beta.1",
     "rollup-plugin-swc3": "^0.12.1",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.3",
     "unplugin-fonts": "^1.3.1",
-    "vite": "^6.0.7",
-    "zenstack": "^2.11.4"
+    "vite": "^6.0.7"
   }
 }
