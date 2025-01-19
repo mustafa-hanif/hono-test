@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { createFileRoute, redirect, useNavigate } from '@tanstack/react-router'
-import { client } from '@/lib/api';
+import { createFileRoute, useNavigate } from '@tanstack/react-router'
+import { hclient } from '@/lib/api';
 
 export const Route = createFileRoute('/login')({
   component: LoginComponent,
@@ -15,7 +15,7 @@ function LoginComponent() {
     const formData = new FormData(e.target as HTMLFormElement)
     const username = formData.get('username') as string
     const password = formData.get('password') as string
-    (await client.users.login.$post({ form: { username, password } }, {
+    (await hclient.users.login.$post({ form: { username, password } }, {
       init: {
         credentials: 'include'
       }
@@ -23,9 +23,9 @@ function LoginComponent() {
       console.log(data)
       if ((data as { username: string}).username) {
         navigate({
-          to: `/stock-market/$userId/user`,
+          to: '/admin/$userId/user',
           params: {
-            userId: (data as { username: string}).username
+            userId: (data as { username: string }).username
           }
         })
       }

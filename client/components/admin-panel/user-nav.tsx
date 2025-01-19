@@ -17,8 +17,11 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
+import { hclient } from "@/lib/api";
+import { useNavigate } from "@tanstack/react-router";
 
 export function UserNav({ user }) {
+  const navigate = useNavigate();
   return (
     <DropdownMenu>
       <TooltipProvider disableHoverableContent>
@@ -55,7 +58,10 @@ export function UserNav({ user }) {
         <DropdownMenuSeparator />
         <DropdownMenuItem
           className="hover:cursor-pointer"
-          // onClick={() => logoutUser()}
+          onClick={async () => {
+            await hclient.users.logout.$post();
+            navigate({ to: '/' });
+          }}
         >
           <LogOut className="w-4 h-4 mr-3 text-muted-foreground" />
           Sign out

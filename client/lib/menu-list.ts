@@ -1,3 +1,6 @@
+
+import { routeTree } from "@/routeTree.gen";
+import { ParseRoute } from "@tanstack/react-router";
 import {
   Tag,
   Users,
@@ -14,6 +17,8 @@ type Submenu = {
   active: boolean;
 };
 
+type ValidRoutes = ParseRoute<typeof routeTree>['fullPath'];
+
 type Menu = {
   href: string;
   label: string;
@@ -22,10 +27,14 @@ type Menu = {
   submenus: Submenu[];
 };
 
+
 type Group = {
   groupLabel: string;
   menus: Menu[];
 };
+
+
+
 
 export function getMenuList(
   pathname: string,
@@ -48,6 +57,13 @@ export function getMenuList(
           href: `/admin/${user_id}/headings`,
           label: "Headings",
           active: pathname.includes("/headings"),
+          icon: SquarePen,
+          submenus: []
+        },
+        {
+          href: `/admin/${user_id}/days`,
+          label: "Days",
+          active: pathname.includes("/days"),
           icon: SquarePen,
           submenus: []
         },

@@ -12,7 +12,8 @@ import {
   TooltipContent,
   TooltipProvider
 } from "@/components/ui/tooltip";
-import { Link, useParams, useSearch } from "@tanstack/react-router";
+import { Link, useNavigate, useParams, useSearch } from "@tanstack/react-router";
+import { hclient } from "@/lib/api";
 
 interface MenuProps {
   isOpen: boolean | undefined;
@@ -25,7 +26,7 @@ export function Menu({ isOpen }: MenuProps) {
     strict: false,
   })
   const menuList = getMenuList(pathname, params, searchParams);
-
+  const navigate = useNavigate();
   return (
     <ScrollArea className="[&>div>div[style]]:!block">
       <nav className="mt-8 h-full w-full">
@@ -110,7 +111,10 @@ export function Menu({ isOpen }: MenuProps) {
               <Tooltip delayDuration={100}>
                 <TooltipTrigger asChild>
                   <Button
-                    // onClick={() => logoutUser()}
+                    onClick={async () => {
+                      await hclient.users.logout.$post();
+                      navigate({ to: '/' });
+                    }}
                     variant="outline"
                     className="w-full justify-center h-10 mt-5"
                   >
