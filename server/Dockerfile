@@ -19,6 +19,7 @@ COPY . .
 # [optional] tests & build
 ENV NODE_ENV=production
 RUN bun run server-build
+COPY . .
 
 # run the app
 USER bun
