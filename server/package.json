@@ -3,8 +3,8 @@
   "type": "module",
   "scripts": {
     "server-dev": "bun run --bun --watch --inspect index.tsx",
-    "server-run": "bunx zenstack generate && NODE_ENV=production bun run --bun index.tsx",
-    "server-build": "bunx zenstack generate -o .zenstack && cp -r .zenstack node_modules/ && bunx prisma db push"
+    "server-run": "bunx zenstack generate && bunx prisma db push && NODE_ENV=production bun run --bun index.tsx",
+    "server-build": "echo 1"
   },
   "zenstack": {
     "schema": "./schema.zmodel"
