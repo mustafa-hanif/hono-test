@@ -19,6 +19,9 @@ COPY . .
 # [optional] tests & build
 ENV NODE_ENV=production
 
+# Adjust permissions
+RUN chmod -R 777 node_modules
+
 # Or change ownership
 RUN bun run server-build
 

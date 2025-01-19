@@ -4,7 +4,7 @@
   "scripts": {
     "server-dev": "bun run --bun --watch --inspect index.tsx",
     "server-run": "bunx zenstack generate && NODE_ENV=production bun run --bun index.tsx",
-    "server-build": "echo 1"
+    "server-build": "bunx zenstack generate -o .zenstack && cp -r .zenstack node_modules/ && bunx prisma db push"
   },
   "zenstack": {
     "schema": "./schema.zmodel"
