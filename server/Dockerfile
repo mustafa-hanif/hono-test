@@ -23,6 +23,5 @@ COPY . .
 
 # run the app
 USER bun
-EXPOSE 3060/tcp
-# ENTRYPOINT [ "bun", "run", "server-run" ]
-CMD ["bash"]
+EXPOSE 3061/tcp
+ENTRYPOINT [ "bun", "run", "server-run" ]
