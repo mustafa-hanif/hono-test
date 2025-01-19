@@ -109,9 +109,9 @@ model session {
   @@allow('all', true)
 }
 
-plugin openapi {
-  provider = "@zenstackhq/openapi"
-  output = "openapi.yaml"
-  title = "Stock"
-  version = "1.0.0"
-}
+// plugin openapi {
+//   provider = "@zenstackhq/openapi"
+//   output = "openapi.yaml"
+//   title = "Stock"
+//   version = "1.0.0"
+// }
