@@ -25,4 +25,4 @@ COPY . .
 USER bun
 EXPOSE 3060/tcp
 # ENTRYPOINT [ "bun", "run", "server-run" ]
-ENTRYPOINT [ "echo", "1" ]
+CMD ["bash"]
