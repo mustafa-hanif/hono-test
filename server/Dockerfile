@@ -19,7 +19,7 @@ COPY . .
 # [optional] tests & build
 ENV NODE_ENV=production
 RUN bun run server-build
-COPY . .
+COPY .zenstack/enhance ./node_modules/@zenstackhq/runtime/
 
 # run the app
 USER bun
