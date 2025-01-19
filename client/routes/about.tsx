@@ -1,10 +1,10 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { Button } from '@/components/ui/button';
-import { client } from '@/lib/api';
+import { hclient } from '@/lib/api';
 
 export const Route = createFileRoute('/about')({
   component: AboutComponent,
-  loader: async () => await (await client.stuff.$get()).json(),
+  loader: async () => await (await hclient.stuff.$get()).json(),
 })
 
 function AboutComponent() {

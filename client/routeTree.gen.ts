@@ -17,12 +17,12 @@ import { Route as RegisterImport } from './routes/register'
 import { Route as LoginImport } from './routes/login'
 import { Route as AboutImport } from './routes/about'
 import { Route as IndexImport } from './routes/index'
-import { Route as StockMarketUserIdLayoutImport } from './routes/stock-market/$userId/_layout'
-import { Route as StockMarketUserIdLayoutUserImport } from './routes/stock-market/$userId/_layout.user'
+import { Route as AdminUserIdLayoutImport } from './routes/admin/$userId/_layout'
+import { Route as AdminUserIdLayoutUserImport } from './routes/admin/$userId/_layout.user'
 
 // Create Virtual Routes
 
-const StockMarketUserIdImport = createFileRoute('/stock-market/$userId')()
+const AdminUserIdImport = createFileRoute('/admin/$userId')()
 
 // Create/Update Routes
 
@@ -50,23 +50,22 @@ const IndexRoute = IndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const StockMarketUserIdRoute = StockMarketUserIdImport.update({
-  id: '/stock-market/$userId',
-  path: '/stock-market/$userId',
+const AdminUserIdRoute = AdminUserIdImport.update({
+  id: '/admin/$userId',
+  path: '/admin/$userId',
   getParentRoute: () => rootRoute,
 } as any)
 
-const StockMarketUserIdLayoutRoute = StockMarketUserIdLayoutImport.update({
+const AdminUserIdLayoutRoute = AdminUserIdLayoutImport.update({
   id: '/_layout',
-  getParentRoute: () => StockMarketUserIdRoute,
+  getParentRoute: () => AdminUserIdRoute,
 } as any)
 
-const StockMarketUserIdLayoutUserRoute =
-  StockMarketUserIdLayoutUserImport.update({
-    id: '/user',
-    path: '/user',
-    getParentRoute: () => StockMarketUserIdLayoutRoute,
-  } as any)
+const AdminUserIdLayoutUserRoute = AdminUserIdLayoutUserImport.update({
+  id: '/user',
+  path: '/user',
+  getParentRoute: () => AdminUserIdLayoutRoute,
+} as any)
 
 // Populate the FileRoutesByPath interface
 
@@ -100,64 +99,62 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RegisterImport
       parentRoute: typeof rootRoute
     }
-    '/stock-market/$userId': {
-      id: '/stock-market/$userId'
-      path: '/stock-market/$userId'
-      fullPath: '/stock-market/$userId'
-      preLoaderRoute: typeof StockMarketUserIdImport
+    '/admin/$userId': {
+      id: '/admin/$userId'
+      path: '/admin/$userId'
+      fullPath: '/admin/$userId'
+      preLoaderRoute: typeof AdminUserIdImport
       parentRoute: typeof rootRoute
     }
-    '/stock-market/$userId/_layout': {
-      id: '/stock-market/$userId/_layout'
-      path: '/stock-market/$userId'
-      fullPath: '/stock-market/$userId'
-      preLoaderRoute: typeof StockMarketUserIdLayoutImport
-      parentRoute: typeof StockMarketUserIdRoute
+    '/admin/$userId/_layout': {
+      id: '/admin/$userId/_layout'
+      path: '/admin/$userId'
+      fullPath: '/admin/$userId'
+      preLoaderRoute: typeof AdminUserIdLayoutImport
+      parentRoute: typeof AdminUserIdRoute
     }
-    '/stock-market/$userId/_layout/user': {
-      id: '/stock-market/$userId/_layout/user'
+    '/admin/$userId/_layout/user': {
+      id: '/admin/$userId/_layout/user'
       path: '/user'
-      fullPath: '/stock-market/$userId/user'
-      preLoaderRoute: typeof StockMarketUserIdLayoutUserImport
-      parentRoute: typeof StockMarketUserIdLayoutImport
+      fullPath: '/admin/$userId/user'
+      preLoaderRoute: typeof AdminUserIdLayoutUserImport
+      parentRoute: typeof AdminUserIdLayoutImport
     }
   }
 }
 
 // Create and export the route tree
 
-interface StockMarketUserIdLayoutRouteChildren {
-  StockMarketUserIdLayoutUserRoute: typeof StockMarketUserIdLayoutUserRoute
+interface AdminUserIdLayoutRouteChildren {
+  AdminUserIdLayoutUserRoute: typeof AdminUserIdLayoutUserRoute
 }
 
-const StockMarketUserIdLayoutRouteChildren: StockMarketUserIdLayoutRouteChildren =
-  {
-    StockMarketUserIdLayoutUserRoute: StockMarketUserIdLayoutUserRoute,
-  }
-
-const StockMarketUserIdLayoutRouteWithChildren =
-  StockMarketUserIdLayoutRoute._addFileChildren(
-    StockMarketUserIdLayoutRouteChildren,
-  )
-
-interface StockMarketUserIdRouteChildren {
-  StockMarketUserIdLayoutRoute: typeof StockMarketUserIdLayoutRouteWithChildren
+const AdminUserIdLayoutRouteChildren: AdminUserIdLayoutRouteChildren = {
+  AdminUserIdLayoutUserRoute: AdminUserIdLayoutUserRoute,
 }
 
-const StockMarketUserIdRouteChildren: StockMarketUserIdRouteChildren = {
-  StockMarketUserIdLayoutRoute: StockMarketUserIdLayoutRouteWithChildren,
+const AdminUserIdLayoutRouteWithChildren =
+  AdminUserIdLayoutRoute._addFileChildren(AdminUserIdLayoutRouteChildren)
+
+interface AdminUserIdRouteChildren {
+  AdminUserIdLayoutRoute: typeof AdminUserIdLayoutRouteWithChildren
 }
 
-const StockMarketUserIdRouteWithChildren =
-  StockMarketUserIdRoute._addFileChildren(StockMarketUserIdRouteChildren)
+const AdminUserIdRouteChildren: AdminUserIdRouteChildren = {
+  AdminUserIdLayoutRoute: AdminUserIdLayoutRouteWithChildren,
+}
+
+const AdminUserIdRouteWithChildren = AdminUserIdRoute._addFileChildren(
+  AdminUserIdRouteChildren,
+)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
-  '/stock-market/$userId': typeof StockMarketUserIdLayoutRouteWithChildren
-  '/stock-market/$userId/user': typeof StockMarketUserIdLayoutUserRoute
+  '/admin/$userId': typeof AdminUserIdLayoutRouteWithChildren
+  '/admin/$userId/user': typeof AdminUserIdLayoutUserRoute
 }
 
 export interface FileRoutesByTo {
@@ -165,8 +162,8 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
-  '/stock-market/$userId': typeof StockMarketUserIdLayoutRouteWithChildren
-  '/stock-market/$userId/user': typeof StockMarketUserIdLayoutUserRoute
+  '/admin/$userId': typeof AdminUserIdLayoutRouteWithChildren
+  '/admin/$userId/user': typeof AdminUserIdLayoutUserRoute
 }
 
 export interface FileRoutesById {
@@ -175,9 +172,9 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
-  '/stock-market/$userId': typeof StockMarketUserIdRouteWithChildren
-  '/stock-market/$userId/_layout': typeof StockMarketUserIdLayoutRouteWithChildren
-  '/stock-market/$userId/_layout/user': typeof StockMarketUserIdLayoutUserRoute
+  '/admin/$userId': typeof AdminUserIdRouteWithChildren
+  '/admin/$userId/_layout': typeof AdminUserIdLayoutRouteWithChildren
+  '/admin/$userId/_layout/user': typeof AdminUserIdLayoutUserRoute
 }
 
 export interface FileRouteTypes {
@@ -187,25 +184,25 @@ export interface FileRouteTypes {
     | '/about'
     | '/login'
     | '/register'
-    | '/stock-market/$userId'
-    | '/stock-market/$userId/user'
+    | '/admin/$userId'
+    | '/admin/$userId/user'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/login'
     | '/register'
-    | '/stock-market/$userId'
-    | '/stock-market/$userId/user'
+    | '/admin/$userId'
+    | '/admin/$userId/user'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/login'
     | '/register'
-    | '/stock-market/$userId'
-    | '/stock-market/$userId/_layout'
-    | '/stock-market/$userId/_layout/user'
+    | '/admin/$userId'
+    | '/admin/$userId/_layout'
+    | '/admin/$userId/_layout/user'
   fileRoutesById: FileRoutesById
 }
 
@@ -214,7 +211,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   LoginRoute: typeof LoginRoute
   RegisterRoute: typeof RegisterRoute
-  StockMarketUserIdRoute: typeof StockMarketUserIdRouteWithChildren
+  AdminUserIdRoute: typeof AdminUserIdRouteWithChildren
 }
 
 const rootRouteChildren: RootRouteChildren = {
@@ -222,7 +219,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   LoginRoute: LoginRoute,
   RegisterRoute: RegisterRoute,
-  StockMarketUserIdRoute: StockMarketUserIdRouteWithChildren,
+  AdminUserIdRoute: AdminUserIdRouteWithChildren,
 }
 
 export const routeTree = rootRoute
@@ -239,7 +236,7 @@ export const routeTree = rootRoute
         "/about",
         "/login",
         "/register",
-        "/stock-market/$userId"
+        "/admin/$userId"
       ]
     },
     "/": {
@@ -254,22 +251,22 @@ export const routeTree = rootRoute
     "/register": {
       "filePath": "register.tsx"
     },
-    "/stock-market/$userId": {
-      "filePath": "stock-market/$userId",
+    "/admin/$userId": {
+      "filePath": "admin/$userId",
       "children": [
-        "/stock-market/$userId/_layout"
+        "/admin/$userId/_layout"
       ]
     },
-    "/stock-market/$userId/_layout": {
-      "filePath": "stock-market/$userId/_layout.tsx",
-      "parent": "/stock-market/$userId",
+    "/admin/$userId/_layout": {
+      "filePath": "admin/$userId/_layout.tsx",
+      "parent": "/admin/$userId",
       "children": [
-        "/stock-market/$userId/_layout/user"
+        "/admin/$userId/_layout/user"
       ]
     },
-    "/stock-market/$userId/_layout/user": {
-      "filePath": "stock-market/$userId/_layout.user.tsx",
-      "parent": "/stock-market/$userId/_layout"
+    "/admin/$userId/_layout/user": {
+      "filePath": "admin/$userId/_layout.user.tsx",
+      "parent": "/admin/$userId/_layout"
     }
   }
 }

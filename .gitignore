@@ -2,3 +2,6 @@
 node_modules/
 .env.local
 client/dist
+.env
+.zenstack_repl_history
+/data/*

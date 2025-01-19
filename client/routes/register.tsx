@@ -1,21 +1,26 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { client } from '@/lib/api'
-import { createFileRoute } from '@tanstack/react-router'
+import { hclient } from '@/lib/api';
+import { createFileRoute, useNavigate } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/register')({
   component: RouteComponent,
 })
 
 function RouteComponent() {
+  const navigation = useNavigate();
   const register = async (e: React.FormEvent) => {
     e.preventDefault()
     console.log('login')
     const formData = new FormData(e.target as HTMLFormElement)
     const username = formData.get('username') as string
     const password = formData.get('password') as string
-    (await client.users.register.$post({ form: { username, password } })).json().then((data) => {
-      console.log(data)
+    (await hclient.users.register.$post({ 
+        form: { username, password } 
+      }, { init: { credentials: 'include' }})).json().then((data) => {
+      if (data.message === 'OK') {
+        navigation({ to: '/admin/$userId/user', params: { userId: username } });
+      }
     })
   }
   return (

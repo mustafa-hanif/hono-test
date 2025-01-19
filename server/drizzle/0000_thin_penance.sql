@@ -186,5 +186,9 @@ CREATE UNIQUE INDEX `idx_authOrigins_unique_pairs` ON `_authOrigins` (`collectio
 CREATE TABLE `sqlite_stat1` (
 
 );
+--> statement-breakpoint
+CREATE TABLE `__drizzle_migrations` (
+
+);
 
 */

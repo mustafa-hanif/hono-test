@@ -1,40 +1,32 @@
 import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import { createBunWebSocket } from 'hono/bun'
-import * as schema from './schema/schema'
+import { enhance } from '@zenstackhq/runtime';
 import type { ServerWebSocket } from 'bun'
 import { WSContext } from 'hono/ws'
-import { z } from 'zod';
-import { zValidator } from '@hono/zod-validator'
+import { createHonoHandler } from '@zenstackhq/server/hono';
+import { PrismaClient } from '@prisma/client'
+import { app as user} from './routes/user';
 
-import {
-  getCookie,
-  setCookie,
-} from 'hono/cookie'
-
-import { db } from './db'
-import { createSession, generateSessionToken, validateSessionToken } from './session'
-import type { CookieOptions } from 'hono/utils/cookie'
+const prisma = new PrismaClient();
 
 const { upgradeWebSocket, websocket } =
   createBunWebSocket<ServerWebSocket>();
 
-const clientDomain = process.env['NODE_ENV'] === 'production' ? 'https://client.hashmani.taskmate.ae' : 'http://localhost:3000';
-const cookieConfig: CookieOptions = process.env['NODE_ENV'] === 'production' ? {
-  sameSite: 'None',
-  secure: true,
-  domain: '.hashmani.taskmate.ae',
-  expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
-} : {
-  sameSite: 'Lax',
-  expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
-}
-
+const clientDomain = process.env['NODE_ENV'] === 'production' ? 'https://client.hashmani.taskmate.ae' : 'http://localhost:3001';
 let subscribers: { tableName: string, ws: WSContext<ServerWebSocket<undefined>> }[] = [];
 const app = new Hono().use('/*', cors({
   origin: clientDomain,
   credentials: true,
-})).get(
+})).use(
+  '/api/model/*',
+  createHonoHandler({
+    getPrisma: (ctx) => {
+      // return enhance(prisma, { user: getCurrentUser(ctx) });
+      return enhance(prisma);
+    },
+  })
+).get(
   '/ws',
   upgradeWebSocket((c) => {
     return {
@@ -54,85 +46,12 @@ const app = new Hono().use('/*', cors({
   return c.json({
     message: 'created!',
   })
-}).get('/users', async (c) => {
-  const users = db.select().from(schema.users).all();
-  return c.json(users)
-}).post('/users/login', zValidator('form', z.object({
-  username: z.string(),
-  password: z.string(),
-})), async (c) => {
-  const { username, password } = c.req.valid('form');
-  const user = await db.query.users.findFirst({
-    where: (users, { eq }) => eq(users.username, username),
-  });
-  if (!user) {
-    return c.json(
-      {
-        message: 'user not found',
-      },
-      400
-    )
-  }
-  const valid = await Bun.password.verify(password, user.password, "argon2d");
-  if (valid) {
-    let { user: sUser, session } = validateSessionToken(user.tokenKey);
-    console.log(user, sUser, session);
-    if (!session) {
-      session = createSession(user.tokenKey, Number(user.id));
-    }
-    setCookie(c, 'token', user.tokenKey, cookieConfig);
-    return c.json(
-      {
-        username, session
-      },
-      200
-    )
-  }
-  return c.json({ message: 'invalid password' }, 400);
-}).post('/users/register', zValidator('form', z.object({
-  username: z.string(),
-  password: z.string(),
-})), async (c) => {
-  const { username, password } = c.req.valid('form');
-  const user = await db.query.users.findFirst({
-    where: (users, { eq }) => eq(users.username, username),
-  });
-  if (user) {
-    return c.json(
-      {
-        message: 'user already exists',
-      },
-      400
-    )
-  }
-  const token = generateSessionToken();
-  const hash = await Bun.password.hash(password, "argon2d")
-  db.insert(schema.users).values({
-    password: hash,
-    tokenKey: token,
-    username: username
-  }).run();
-  setCookie(c, 'token', token, cookieConfig);
-  return c.json(
-    {
-      username, password,
-    },
-    200
-  )
-}).get('/users/checklogin', async (c) => {
-  const token = getCookie(c, 'token');
-  console.log({ token });
-  if (!token) {
-    return c.json({ session: null, user: null }, 401);
-  }
-  const { session, user } = validateSessionToken(token);
-  return c.json({ session, user }, 200);
-});
+}).route('/users', user);
 
 export default {
-  port: 3061,
+  port: 3000,
   fetch: app.fetch,
   websocket,
 }
 
-export type WebSocketApp = typeof app
+export type WebSocketApp = typeof app;

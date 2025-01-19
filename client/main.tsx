@@ -7,6 +7,13 @@ const router = createRouter({
   routeTree,
   defaultPreload: 'intent',
   defaultPendingMinMs: 0,
+  context: {
+    // This will be required to be passed now
+    user: {
+      name: 'Guest'
+    },
+    session: null
+  },
 })
 
 // Register things for typesafety

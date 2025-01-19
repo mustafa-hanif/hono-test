@@ -1,12 +1,14 @@
-import { Session, User } from "./types";
-import { eq } from "drizzle-orm";
 import { sha256 } from "@oslojs/crypto/sha2";
-import { db } from './db'
+
 import { encodeBase32LowerCaseNoPadding, encodeHexLowerCase } from "@oslojs/encoding";
-import { sessionTable, users } from "./schema/schema";
 import { invariant } from "@tanstack/react-router";
 import { Context } from "hono";
 import { setCookie } from "hono/cookie";
+import { PrismaClient, session, users } from "@prisma/client";
+import { enhance } from "@zenstackhq/runtime";
+
+const prisma = new PrismaClient();
+const db = enhance(prisma);
 
 export function generateSessionToken(): string {
 	const bytes = new Uint8Array(20);
@@ -15,51 +17,74 @@ export function generateSessionToken(): string {
 	return token;
 }
 
-export function createSession(token: string, userId: number): Session {
+export async function createSession(token: string, userId: string): Promise<session> {
 	const sessionId = encodeHexLowerCase(sha256(new TextEncoder().encode(token)));
-	const session: Session = {
+	console.log('createSession', { token, sessionId });
+	const session: session = {
 		id: sessionId,
 		userId,
-		expiresAt: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30)
+		expiresAt: (new Date(Date.now() + 1000 * 60 * 60 * 24 * 30)).toDateString()
 	};
-	db.insert(sessionTable).values(session).run();
+	// db.insert(sessionTable).values(session).run();
+	await db.session.create({
+		data: {
+			id: session.id,
+			userId: session.userId,
+			expiresAt: session.expiresAt
+		}
+	});
 	return session;
 }
 
-export function validateSessionToken(token: string): SessionValidationResult {
+export async function validateSessionToken(token: string): Promise<SessionValidationResult> {
 	const sessionId = encodeHexLowerCase(sha256(new TextEncoder().encode(token)));
-	const result = db
-		.select({ user: users, session: sessionTable })
-		.from(sessionTable)
-		.innerJoin(users, eq(sessionTable.userId, users.id))
-		.where(eq(sessionTable.id, sessionId)).all();
-	if (result.length < 1) {
+	console.log('validateSessionToken', { token, sessionId });
+	const session = await db.session.findFirst({
+		where: {
+			id: sessionId
+		},
+		include: {
+			user: true
+		}
+	});
+	if (!session) {
 		return { session: null, user: null };
 	}
-  invariant(result[0], 'we have a session');
-	const { user, session } = result[0];
-	if (Date.now() >= session.expiresAt.getTime()) {
-		db.delete(sessionTable).where(eq(sessionTable.id, session.id)).run();
+  invariant(session, 'we have a session');
+	const { user } = session;
+	const _time = new Date(session.expiresAt).getTime();
+	if (Date.now() >= _time) {
+		await db.session.delete({
+			where: {
+				id: session.id
+			}
+		});
 		return { session: null, user: null };
 	}
-	if (Date.now() >= session.expiresAt.getTime() - 1000 * 60 * 60 * 24 * 15) {
-		session.expiresAt = new Date(Date.now() + 1000 * 60 * 60 * 24 * 30);
-		db
-			.update(sessionTable)
-			.set({
+	if (Date.now() >= _time - 1000 * 60 * 60 * 24 * 15) {
+		session.expiresAt = (new Date(Date.now() + 1000 * 60 * 60 * 24 * 30)).toDateString();
+		await db.session.update({
+			where: {
+				id: session.id
+			},
+			data: {
 				expiresAt: session.expiresAt
-			})
-			.where(eq(sessionTable.id, session.id)).run();
+			}
+		});
 	}
 	return { session, user };
 }
 
-export function invalidateSession(sessionId: string): void {
-  db.delete(sessionTable).where(eq(sessionTable.id, sessionId)).run();
+export async function invalidateSession(sessionId: string): Promise<void> {
+  await db.session.delete({
+		where: {
+			id: sessionId
+		}
+	});
 }
 
 export type SessionValidationResult =
-	| { session: Session; user: User }
+	| { session: session; user: users }
 	| { session: null; user: null };
 
 
