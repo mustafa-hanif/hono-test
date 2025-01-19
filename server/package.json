@@ -3,8 +3,8 @@
   "type": "module",
   "scripts": {
     "server-dev": "bun run --bun --watch --inspect index.tsx",
-    "server-run": "apt update && apt install libssl3 && NODE_ENV=production bun run --bun index.tsx",
-    "server-build": "apt update && apt install libssl3 && cp binary/libquery_engine-linux-arm64-openssl-3.0.x.so.node node_modules/.prisma/client/ && bunx zenstack generate && bunx prisma db push"
+    "server-run": "NODE_ENV=production bun run --bun index.tsx",
+    "server-build": "cp binary/libquery_engine-linux-arm64-openssl-3.0.x.so.node node_modules/.prisma/client/ && bunx zenstack generate && bunx prisma db push"
   },
   "dependencies": {
     "@hono/swagger-ui": "^0.5.0",

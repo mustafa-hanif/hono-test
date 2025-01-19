@@ -1,9 +1,8 @@
 [phases.install]
-
 apt_packages = ["libssl3"]
 
 [phases.setup]
 apt_packages = ["libssl3"]
 
 [phases.preinstall]
-commands = ["cat /etc/os-release"]
+commands = ["apt update && apt install libssl3"]
