@@ -51,7 +51,7 @@ const app = new Hono().use('/*', cors({
   get('/doc', serveStatic({ path: '/openapi.json' }));
 
 export default {
-  port: 3000,
+  port: 3061,
   fetch: app.fetch,
   websocket,
 }
