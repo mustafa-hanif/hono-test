@@ -17,9 +17,7 @@
     "@zenstackhq/server": "^2.11.4",
     "class-variance-authority": "^0.7.1",
     "hono": "^4.6.16",
-    "openapi-fetch": "^0.13.4"
-  },
-  "devDependencies": {
+    "openapi-fetch": "^0.13.4",
     "prisma": "^6.2.1",
     "@types/bun": "latest",
     "@zenstackhq/openapi": "^2.11.4",
