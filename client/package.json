@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "client-dev": "VITE_CJS_TRACE=true vite --port=3001",
-    "build": "npx vite build  --config ../vite.config.ts",
+    "build": "npx vite build --config vite.config.ts",
     "preview": "npx vite preview --port=3001"
   },
   "dependencies": {
