@@ -37,7 +37,6 @@
     "hono": "^4.6.16",
     "lucide-react": "^0.471.1",
     "openapi-fetch": "^0.13.4",
-    "prisma": "^6.2.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tailwind-merge": "^2.6.0",
@@ -45,6 +44,7 @@
     "zustand": "^5.0.3"
   },
   "devDependencies": {
+    "prisma": "^6.2.1",
     "@tanstack/router-plugin": "^1.95.3",
     "@types/bun": "latest",
     "@types/react": "^18.3.18",
