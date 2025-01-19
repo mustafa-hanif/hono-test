@@ -18,9 +18,15 @@ COPY . .
 
 # [optional] tests & build
 ENV NODE_ENV=production
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+RUN chown -R nextjs:nodejs ./
+RUN chmod 777 ./
 RUN bun run server-build
 
 # run the app
-USER bun
+USER nextjs
 EXPOSE 3061/tcp
+ENV NODE_ENV production
 ENTRYPOINT [ "bun", "run", "server-run" ]
