@@ -3,7 +3,7 @@ import { sha256 } from "@oslojs/crypto/sha2";
 import { encodeBase32LowerCaseNoPadding, encodeHexLowerCase } from "@oslojs/encoding";
 import { Context } from "hono";
 import { setCookie } from "hono/cookie";
-import { PrismaClient, session, users } from "@prisma/client";
+import { PrismaClient, session, users } from './prisma/generated/client';
 import { enhance } from './zenstack/enhance';
 
 const prisma = new PrismaClient();
