@@ -5,3 +5,5 @@ client/dist/*
 .env
 .zenstack_repl_history
 /data/*
+server/prisma/generated/client/libquery_engine-darwin-arm64.dylib.node
+server/prisma/generated/client/libquery_engine-linux-arm64-openssl-3.0.x.so.node
