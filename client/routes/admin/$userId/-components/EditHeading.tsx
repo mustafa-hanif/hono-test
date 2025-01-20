@@ -11,7 +11,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { headings } from "@prisma/client";
+import { headings } from "@/prisma/client";
 import { Row } from "@tanstack/react-table";
 import { useState } from "react";
 

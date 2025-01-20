@@ -4,7 +4,7 @@
 //   updateShortsForAllUsers
 // } from "@/app/lib/pocket";
 import { Badge } from "@/components/ui/badge";
-import { headings } from "@prisma/client";
+import { headings } from "@/prisma/client";
 import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 

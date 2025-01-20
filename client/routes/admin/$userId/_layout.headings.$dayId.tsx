@@ -11,7 +11,7 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
 import { client } from '@/lib/api'
-import { headings, timer } from '@prisma/client'
+import { headings, timer } from '@/prisma/client'
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { columns } from './-components/columns'
 import { DataTable } from './-components/data-table'

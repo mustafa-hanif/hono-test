@@ -22,7 +22,7 @@ import {
 } from "@/components/ui/table";
 
 import { Input } from "@/components/ui/input";
-import { days } from "@prisma/client";
+import { days } from "@/prisma/client";
 import { Link, useParams } from "@tanstack/react-router";
 
 interface DataTableProps<TData, TValue> {

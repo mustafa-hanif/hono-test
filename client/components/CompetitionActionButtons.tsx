@@ -9,7 +9,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { timer } from "@prisma/client";
+import { timer } from "@/prisma/client";
 
 const CompetitionActionButtons = ({
   active,

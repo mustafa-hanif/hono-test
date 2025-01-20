@@ -8,7 +8,7 @@ import { ArrowUpDown } from "lucide-react";
 // import utc from 'dayjs/plugin/utc'
 import { MarkAsActiveButton } from "./MarkAsActiveButton";
 import { Badge } from "@/components/ui/badge";
-import { days } from "@prisma/client";
+import { days } from "@/prisma/client";
 
 export const columns: ColumnDef<days>[] = [
   {

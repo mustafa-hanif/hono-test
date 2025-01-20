@@ -21,7 +21,7 @@ import dayjs from "dayjs";
 import { Badge } from "@/components/ui/badge";
 import { MarkAsActiveButton } from "./MarkAsActiveButton";
 import EditHeading from "./EditHeading";
-import { headings } from "@prisma/client";
+import { headings } from "@/prisma/client";
 
 export const columns: ColumnDef<headings>[] = [
   {

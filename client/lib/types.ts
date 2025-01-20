@@ -1,4 +1,4 @@
-import type { users, session } from '@prisma/client';
+import type { users, session } from '@/prisma/client';
 export interface IDays {
   id: string;
   name: string;
@@ -105,6 +105,6 @@ export interface IStocksAndUsers {
 }
 
 export type ContextType = {
-  user: users | null;
+  user: Partial<users> | null;
   session: session | null;
 };

@@ -6,6 +6,7 @@ import { routeTree } from './routeTree.gen'
 const router = createRouter({
   routeTree,
   defaultPreload: 'intent',
+  defaultPreloadDelay: 100,
   defaultPendingMinMs: 0,
   context: {
     // This will be required to be passed now

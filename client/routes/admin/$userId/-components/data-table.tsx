@@ -24,7 +24,7 @@ import {
 } from "@/components/ui/table";
 
 import AdminPageSubscription from "./AdminPageSubscription";
-import { headings } from "@prisma/client";
+import { headings } from "@/prisma/client";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
