@@ -6,7 +6,7 @@ import { enhance } from './zenstack/enhance';
 import type { ServerWebSocket } from 'bun'
 import { WSContext } from 'hono/ws'
 import { createHonoHandler } from '@zenstackhq/server/hono';
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from './prisma/generated/client';
 import { app as user} from './routes/user';
 
 const prisma = new PrismaClient();
