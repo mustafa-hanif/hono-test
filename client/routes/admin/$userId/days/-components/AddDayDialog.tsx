@@ -11,25 +11,36 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { usePathname } from "next/navigation";
+import { client } from "@/lib/api";
+import { Form } from "@/lib/form";
+import { useRouter } from "@tanstack/react-router";
 import { useState } from "react";
 
 export function AddDayDialog() {
   const [dialog, setDialog] = useState(false);
-  const path = usePathname();
+  const router = useRouter();
   return (
     <Dialog open={dialog} onOpenChange={setDialog}>
       <DialogTrigger asChild>
         <Button type="button">Add Day</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
-        <form
+        <Form
           id="formattribute"
-          action={async (formdata) => {
-            // await handleAddDay(formdata, path);
+           handleSubmit={async (values) => {
+            await client.POST("/days/create", {
+              body: {
+                data: {
+                  name: values["name"]!,
+                  description: values["description"]!
+                }
+              }
+            });
+            router.invalidate()
             setDialog(false);
           }}
         >
+          <>
           <DialogHeader>
             <DialogTitle>Add Day</DialogTitle>
           </DialogHeader>
@@ -60,7 +71,8 @@ export function AddDayDialog() {
           <DialogFooter>
             <Button type="submit">Save changes</Button>
           </DialogFooter>
-        </form>
+          </>
+        </Form>
       </DialogContent>
     </Dialog>
   );

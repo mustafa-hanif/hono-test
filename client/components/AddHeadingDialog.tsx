@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { client } from "@/lib/api";
+import { Form } from "@/lib/form";
 import { useRouter } from "@tanstack/react-router";
 import { useState } from "react";
 
@@ -27,17 +28,14 @@ export function AddHeadingDialog() {
         <Button type="button">Add Heading</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
-        <form
+        <Form
           id="formattribute"
-          onSubmit={async (e) => {
-            e.preventDefault();
-            const form = e.currentTarget;
-            const formdata = new FormData(form);
+          handleSubmit={async (values) => {
             await client.POST("/headings/create", {
               body: {
                 data: {
-                  name: formdata.get("name") as string,
-                  heading_number: formdata.get("heading_number") as string,
+                  name: values["name"]!,
+                  heading_number: values["heading_number"]!
                 }
               }
             });
@@ -45,35 +43,37 @@ export function AddHeadingDialog() {
             setDialog(false);
           }}
         >
-          <DialogHeader>
-            <DialogTitle>Add Heading</DialogTitle>
-          </DialogHeader>
-          <div className="grid gap-4 py-4">
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="name" className="text-right">
-                Heading Name
-              </Label>
-              <Textarea
-                name="name"
-                id="name"
-                placeholder="Heading name"
-                className="col-span-3"
-              />
-              <Label htmlFor="heading_number" className="text-right">
-                Heading Number
-              </Label>
-              <Input
-                name="heading_number"
-                id="heading_number"
-                placeholder="Heading Number"
-                className="col-span-3"
-              />
+          <>
+            <DialogHeader>
+              <DialogTitle>Add Heading</DialogTitle>
+            </DialogHeader>
+            <div className="grid gap-4 py-4">
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="name" className="text-right">
+                  Heading Name
+                </Label>
+                <Textarea
+                  name="name"
+                  id="name"
+                  placeholder="Heading name"
+                  className="col-span-3"
+                />
+                <Label htmlFor="heading_number" className="text-right">
+                  Heading Number
+                </Label>
+                <Input
+                  name="heading_number"
+                  id="heading_number"
+                  placeholder="Heading Number"
+                  className="col-span-3"
+                />
+              </div>
             </div>
-          </div>
-          <DialogFooter>
-            <Button type="submit">Save changes</Button>
-          </DialogFooter>
-        </form>
+            <DialogFooter>
+              <Button type="submit">Save changes</Button>
+            </DialogFooter>
+          </>
+        </Form>
       </DialogContent>
     </Dialog>
   );
