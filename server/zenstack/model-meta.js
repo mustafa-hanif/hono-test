@@ -11,21 +11,21 @@ const metadata = {
                     attributes: [{ "name": "@default", "args": [{ "value": false }] }],
                 }, created: {
                     name: "created",
-                    type: "String",
-                    attributes: [{ "name": "@default", "args": [{ "value": "strftime('%Y-%m-%d %H:%M:%fZ')" }] }],
+                    type: "DateTime",
+                    attributes: [{ "name": "@default", "args": [] }],
                 }, id: {
                     name: "id",
                     type: "String",
                     isId: true,
-                    attributes: [{ "name": "@id", "args": [] }, { "name": "@default", "args": [{ "value": "'r'||lower(hex(randomblob(7)))" }] }],
+                    attributes: [{ "name": "@id", "args": [] }, { "name": "@default", "args": [] }],
                 }, pause: {
                     name: "pause",
                     type: "Boolean",
                     attributes: [{ "name": "@default", "args": [{ "value": false }] }],
                 }, updated: {
                     name: "updated",
-                    type: "String",
-                    attributes: [{ "name": "@default", "args": [{ "value": "strftime('%Y-%m-%d %H:%M:%fZ')" }] }],
+                    type: "DateTime",
+                    attributes: [{ "name": "@default", "args": [] }],
                 }, ended: {
                     name: "ended",
                     type: "Boolean",
@@ -44,8 +44,8 @@ const metadata = {
             name: 'days', fields: {
                 created: {
                     name: "created",
-                    type: "String",
-                    attributes: [{ "name": "@default", "args": [{ "value": "strftime('%Y-%m-%d %H:%M:%fZ')" }] }],
+                    type: "DateTime",
+                    attributes: [{ "name": "@default", "args": [] }],
                 }, description: {
                     name: "description",
                     type: "String",
@@ -54,15 +54,15 @@ const metadata = {
                     name: "id",
                     type: "String",
                     isId: true,
-                    attributes: [{ "name": "@id", "args": [] }, { "name": "@default", "args": [{ "value": "'r'||lower(hex(randomblob(7)))" }] }],
+                    attributes: [{ "name": "@id", "args": [] }, { "name": "@default", "args": [] }],
                 }, name: {
                     name: "name",
                     type: "String",
                     attributes: [{ "name": "@default", "args": [{ "value": "" }] }],
                 }, updated: {
                     name: "updated",
-                    type: "String",
-                    attributes: [{ "name": "@default", "args": [{ "value": "strftime('%Y-%m-%d %H:%M:%fZ')" }] }],
+                    type: "DateTime",
+                    attributes: [{ "name": "@default", "args": [] }],
                 }, active: {
                     name: "active",
                     type: "Boolean",
@@ -81,8 +81,8 @@ const metadata = {
             name: 'headings', fields: {
                 created: {
                     name: "created",
-                    type: "String",
-                    attributes: [{ "name": "@default", "args": [{ "value": "strftime('%Y-%m-%d %H:%M:%fZ')" }] }],
+                    type: "DateTime",
+                    attributes: [{ "name": "@default", "args": [] }],
                 }, id: {
                     name: "id",
                     type: "String",
@@ -94,8 +94,8 @@ const metadata = {
                     attributes: [{ "name": "@default", "args": [{ "value": "" }] }],
                 }, updated: {
                     name: "updated",
-                    type: "String",
-                    attributes: [{ "name": "@default", "args": [{ "value": "strftime('%Y-%m-%d %H:%M:%fZ')" }] }],
+                    type: "DateTime",
+                    attributes: [{ "name": "@default", "args": [] }],
                 }, day: {
                     name: "day",
                     type: "String",
@@ -126,17 +126,17 @@ const metadata = {
                     attributes: [{ "name": "@default", "args": [{ "value": "" }] }],
                 }, created: {
                     name: "created",
-                    type: "String",
-                    attributes: [{ "name": "@default", "args": [{ "value": "strftime('%Y-%m-%d %H:%M:%fZ')" }] }],
+                    type: "DateTime",
+                    attributes: [{ "name": "@default", "args": [] }],
                 }, id: {
                     name: "id",
                     type: "String",
                     isId: true,
-                    attributes: [{ "name": "@id", "args": [] }, { "name": "@default", "args": [{ "value": "'r'||lower(hex(randomblob(7)))" }] }],
+                    attributes: [{ "name": "@id", "args": [] }, { "name": "@default", "args": [] }],
                 }, updated: {
                     name: "updated",
-                    type: "String",
-                    attributes: [{ "name": "@default", "args": [{ "value": "strftime('%Y-%m-%d %H:%M:%fZ')" }] }],
+                    type: "DateTime",
+                    attributes: [{ "name": "@default", "args": [] }],
                 },
             },
             uniqueConstraints: {
@@ -151,8 +151,8 @@ const metadata = {
             name: 'stocks_headings', fields: {
                 created: {
                     name: "created",
-                    type: "String",
-                    attributes: [{ "name": "@default", "args": [{ "value": "strftime('%Y-%m-%d %H:%M:%fZ')" }] }],
+                    type: "DateTime",
+                    attributes: [{ "name": "@default", "args": [] }],
                 }, headings: {
                     name: "headings",
                     type: "String",
@@ -161,15 +161,15 @@ const metadata = {
                     name: "id",
                     type: "String",
                     isId: true,
-                    attributes: [{ "name": "@id", "args": [] }, { "name": "@default", "args": [{ "value": "'r'||lower(hex(randomblob(7)))" }] }],
+                    attributes: [{ "name": "@id", "args": [] }, { "name": "@default", "args": [] }],
                 }, stocks: {
                     name: "stocks",
                     type: "String",
                     attributes: [{ "name": "@default", "args": [{ "value": "" }] }],
                 }, updated: {
                     name: "updated",
-                    type: "String",
-                    attributes: [{ "name": "@default", "args": [{ "value": "strftime('%Y-%m-%d %H:%M:%fZ')" }] }],
+                    type: "DateTime",
+                    attributes: [{ "name": "@default", "args": [] }],
                 }, previous_price: {
                     name: "previous_price",
                     type: "Decimal",
@@ -200,21 +200,21 @@ const metadata = {
             name: 'stocks_users', fields: {
                 created: {
                     name: "created",
-                    type: "String",
-                    attributes: [{ "name": "@default", "args": [{ "value": "strftime('%Y-%m-%d %H:%M:%fZ')" }] }],
+                    type: "DateTime",
+                    attributes: [{ "name": "@default", "args": [] }],
                 }, id: {
                     name: "id",
                     type: "String",
                     isId: true,
-                    attributes: [{ "name": "@id", "args": [] }, { "name": "@default", "args": [{ "value": "'r'||lower(hex(randomblob(7)))" }] }],
+                    attributes: [{ "name": "@id", "args": [] }, { "name": "@default", "args": [] }],
                 }, stocks: {
                     name: "stocks",
                     type: "String",
                     attributes: [{ "name": "@default", "args": [{ "value": "" }] }],
                 }, updated: {
                     name: "updated",
-                    type: "String",
-                    attributes: [{ "name": "@default", "args": [{ "value": "strftime('%Y-%m-%d %H:%M:%fZ')" }] }],
+                    type: "DateTime",
+                    attributes: [{ "name": "@default", "args": [] }],
                 }, users: {
                     name: "users",
                     type: "String",
@@ -257,17 +257,17 @@ const metadata = {
                     attributes: [{ "name": "@default", "args": [{ "value": "" }] }],
                 }, created: {
                     name: "created",
-                    type: "String",
-                    attributes: [{ "name": "@default", "args": [{ "value": "strftime('%Y-%m-%d %H:%M:%fZ')" }] }],
+                    type: "DateTime",
+                    attributes: [{ "name": "@default", "args": [] }],
                 }, id: {
                     name: "id",
                     type: "String",
                     isId: true,
-                    attributes: [{ "name": "@id", "args": [] }, { "name": "@default", "args": [{ "value": "'r'||lower(hex(randomblob(7)))" }] }],
+                    attributes: [{ "name": "@id", "args": [] }, { "name": "@default", "args": [] }],
                 }, updated: {
                     name: "updated",
-                    type: "String",
-                    attributes: [{ "name": "@default", "args": [{ "value": "strftime('%Y-%m-%d %H:%M:%fZ')" }] }],
+                    type: "DateTime",
+                    attributes: [{ "name": "@default", "args": [] }],
                 }, round_time: {
                     name: "round_time",
                     type: "Decimal",
@@ -290,8 +290,8 @@ const metadata = {
                     attributes: [{ "name": "@default", "args": [{ "value": "" }] }],
                 }, created: {
                     name: "created",
-                    type: "String",
-                    attributes: [{ "name": "@default", "args": [{ "value": "strftime('%Y-%m-%d %H:%M:%fZ')" }] }],
+                    type: "DateTime",
+                    attributes: [{ "name": "@default", "args": [] }],
                 }, email: {
                     name: "email",
                     type: "String",
@@ -318,8 +318,8 @@ const metadata = {
                     attributes: [{ "name": "@unique", "args": [{ "name": "map", "value": "__pb_users_auth__tokenKey_idx" }] }],
                 }, updated: {
                     name: "updated",
-                    type: "String",
-                    attributes: [{ "name": "@default", "args": [{ "value": "strftime('%Y-%m-%d %H:%M:%fZ')" }] }],
+                    type: "DateTime",
+                    attributes: [{ "name": "@default", "args": [] }],
                 }, username: {
                     name: "username",
                     type: "String",

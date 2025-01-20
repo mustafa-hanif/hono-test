@@ -4,7 +4,7 @@
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -15,83 +15,83 @@ generator client {
 }
 
 model competition {
-  active  Boolean @default(false)
-  created String  @default("strftime('%Y-%m-%d %H:%M:%fZ')")
-  id      String  @id() @default("'r'||lower(hex(randomblob(7)))")
-  pause   Boolean @default(false)
-  updated String  @default("strftime('%Y-%m-%d %H:%M:%fZ')")
-  ended   Boolean @default(false)
+  active  Boolean  @default(false)
+  created DateTime @default(now())
+  id      String   @id() @default(cuid())
+  pause   Boolean  @default(false)
+  updated DateTime @default(now())
+  ended   Boolean  @default(false)
 }
 
 model days {
-  created     String  @default("strftime('%Y-%m-%d %H:%M:%fZ')")
-  description String  @default("")
-  id          String  @id() @default("'r'||lower(hex(randomblob(7)))")
-  name        String  @default("")
-  updated     String  @default("strftime('%Y-%m-%d %H:%M:%fZ')")
-  active      Boolean @default(false)
+  created     DateTime @default(now())
+  description String   @default("")
+  id          String   @id() @default(cuid())
+  name        String   @default("")
+  updated     DateTime @default(now())
+  active      Boolean  @default(false)
 }
 
 model headings {
-  created        String  @default("strftime('%Y-%m-%d %H:%M:%fZ')")
-  id             String  @id() @default(cuid())
-  name           String  @default("")
-  updated        String  @default("strftime('%Y-%m-%d %H:%M:%fZ')")
-  day            String  @default("")
-  active         Boolean @default(false)
-  heading_number Decimal @default(0)
+  created        DateTime @default(now())
+  id             String   @id() @default(cuid())
+  name           String   @default("")
+  updated        DateTime @default(now())
+  day            String   @default("")
+  active         Boolean  @default(false)
+  heading_number Decimal  @default(0)
 }
 
 model stocks {
-  bank_name String @default("")
-  created   String @default("strftime('%Y-%m-%d %H:%M:%fZ')")
-  id        String @id() @default("'r'||lower(hex(randomblob(7)))")
-  updated   String @default("strftime('%Y-%m-%d %H:%M:%fZ')")
+  bank_name String   @default("")
+  created   DateTime @default(now())
+  id        String   @id() @default(cuid())
+  updated   DateTime @default(now())
 }
 
 model stocks_headings {
-  created                    String  @default("strftime('%Y-%m-%d %H:%M:%fZ')")
-  headings                   String  @default("")
-  id                         String  @id() @default("'r'||lower(hex(randomblob(7)))")
-  stocks                     String  @default("")
-  updated                    String  @default("strftime('%Y-%m-%d %H:%M:%fZ')")
-  previous_price             Decimal @default(0)
-  current_price              Decimal @default(0)
-  change_in_price            Decimal @default(0)
-  percentage_change_in_price String  @default("")
+  created                    DateTime @default(now())
+  headings                   String   @default("")
+  id                         String   @id() @default(cuid())
+  stocks                     String   @default("")
+  updated                    DateTime @default(now())
+  previous_price             Decimal  @default(0)
+  current_price              Decimal  @default(0)
+  change_in_price            Decimal  @default(0)
+  percentage_change_in_price String   @default("")
 }
 
 model stocks_users {
-  created               String @default("strftime('%Y-%m-%d %H:%M:%fZ')")
-  id                    String @id() @default("'r'||lower(hex(randomblob(7)))")
-  stocks                String @default("")
-  updated               String @default("strftime('%Y-%m-%d %H:%M:%fZ')")
-  users                 String @default("")
-  share_count           String @default("")
-  balance_when_shorting String @default("")
-  short_share_count     String @default("")
+  created               DateTime @default(now())
+  id                    String   @id() @default(cuid())
+  stocks                String   @default("")
+  updated               DateTime @default(now())
+  users                 String   @default("")
+  share_count           String   @default("")
+  balance_when_shorting String   @default("")
+  short_share_count     String   @default("")
 }
 
 model timer {
-  active            Boolean @default(false)
-  competition_end   String  @default("")
-  competition_start String  @default("")
-  created           String  @default("strftime('%Y-%m-%d %H:%M:%fZ')")
-  id                String  @id() @default("'r'||lower(hex(randomblob(7)))")
-  updated           String  @default("strftime('%Y-%m-%d %H:%M:%fZ')")
-  round_time        Decimal @default(0)
+  active            Boolean  @default(false)
+  competition_end   String   @default("")
+  competition_start String   @default("")
+  created           DateTime @default(now())
+  id                String   @id() @default(cuid())
+  updated           DateTime @default(now())
+  round_time        Decimal  @default(0)
 }
 
 model users {
   avatar          String    @default("")
-  created         String    @default("strftime('%Y-%m-%d %H:%M:%fZ')")
+  created         DateTime  @default(now())
   email           String    @default("")
   emailVisibility Boolean   @default(false)
   id              String    @id() @default(cuid())
   name            String    @default("")
   password        String
   tokenKey        String    @unique(map: "__pb_users_auth__tokenKey_idx")
-  updated         String    @default("strftime('%Y-%m-%d %H:%M:%fZ')")
+  updated         DateTime  @default(now())
   username        String    @unique(map: "__pb_users_auth__username_idx")
   verified        Boolean   @default(false)
   type            String    @default("")

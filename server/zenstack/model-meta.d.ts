@@ -18,9 +18,7 @@ declare const metadata: {
                     type: string;
                     attributes: {
                         name: string;
-                        args: {
-                            value: string;
-                        }[];
+                        args: never[];
                     }[];
                 };
                 id: {
@@ -29,9 +27,7 @@ declare const metadata: {
                     isId: boolean;
                     attributes: {
                         name: string;
-                        args: {
-                            value: string;
-                        }[];
+                        args: never[];
                     }[];
                 };
                 pause: {
@@ -49,9 +45,7 @@ declare const metadata: {
                     type: string;
                     attributes: {
                         name: string;
-                        args: {
-                            value: string;
-                        }[];
+                        args: never[];
                     }[];
                 };
                 ended: {
@@ -88,9 +82,7 @@ declare const metadata: {
                     type: string;
                     attributes: {
                         name: string;
-                        args: {
-                            value: string;
-                        }[];
+                        args: never[];
                     }[];
                 };
                 description: {
@@ -109,9 +101,7 @@ declare const metadata: {
                     isId: boolean;
                     attributes: {
                         name: string;
-                        args: {
-                            value: string;
-                        }[];
+                        args: never[];
                     }[];
                 };
                 name: {
@@ -129,9 +119,7 @@ declare const metadata: {
                     type: string;
                     attributes: {
                         name: string;
-                        args: {
-                            value: string;
-                        }[];
+                        args: never[];
                     }[];
                 };
                 active: {
@@ -168,9 +156,7 @@ declare const metadata: {
                     type: string;
                     attributes: {
                         name: string;
-                        args: {
-                            value: string;
-                        }[];
+                        args: never[];
                     }[];
                 };
                 id: {
@@ -197,9 +183,7 @@ declare const metadata: {
                     type: string;
                     attributes: {
                         name: string;
-                        args: {
-                            value: string;
-                        }[];
+                        args: never[];
                     }[];
                 };
                 day: {
@@ -266,9 +250,7 @@ declare const metadata: {
                     type: string;
                     attributes: {
                         name: string;
-                        args: {
-                            value: string;
-                        }[];
+                        args: never[];
                     }[];
                 };
                 id: {
@@ -277,9 +259,7 @@ declare const metadata: {
                     isId: boolean;
                     attributes: {
                         name: string;
-                        args: {
-                            value: string;
-                        }[];
+                        args: never[];
                     }[];
                 };
                 updated: {
@@ -287,9 +267,7 @@ declare const metadata: {
                     type: string;
                     attributes: {
                         name: string;
-                        args: {
-                            value: string;
-                        }[];
+                        args: never[];
                     }[];
                 };
             };
@@ -316,9 +294,7 @@ declare const metadata: {
                     type: string;
                     attributes: {
                         name: string;
-                        args: {
-                            value: string;
-                        }[];
+                        args: never[];
                     }[];
                 };
                 headings: {
@@ -337,9 +313,7 @@ declare const metadata: {
                     isId: boolean;
                     attributes: {
                         name: string;
-                        args: {
-                            value: string;
-                        }[];
+                        args: never[];
                     }[];
                 };
                 stocks: {
@@ -357,9 +331,7 @@ declare const metadata: {
                     type: string;
                     attributes: {
                         name: string;
-                        args: {
-                            value: string;
-                        }[];
+                        args: never[];
                     }[];
                 };
                 previous_price: {
@@ -426,9 +398,7 @@ declare const metadata: {
                     type: string;
                     attributes: {
                         name: string;
-                        args: {
-                            value: string;
-                        }[];
+                        args: never[];
                     }[];
                 };
                 id: {
@@ -437,9 +407,7 @@ declare const metadata: {
                     isId: boolean;
                     attributes: {
                         name: string;
-                        args: {
-                            value: string;
-                        }[];
+                        args: never[];
                     }[];
                 };
                 stocks: {
@@ -457,9 +425,7 @@ declare const metadata: {
                     type: string;
                     attributes: {
                         name: string;
-                        args: {
-                            value: string;
-                        }[];
+                        args: never[];
                     }[];
                 };
                 users: {
@@ -556,9 +522,7 @@ declare const metadata: {
                     type: string;
                     attributes: {
                         name: string;
-                        args: {
-                            value: string;
-                        }[];
+                        args: never[];
                     }[];
                 };
                 id: {
@@ -567,9 +531,7 @@ declare const metadata: {
                     isId: boolean;
                     attributes: {
                         name: string;
-                        args: {
-                            value: string;
-                        }[];
+                        args: never[];
                     }[];
                 };
                 updated: {
@@ -577,9 +539,7 @@ declare const metadata: {
                     type: string;
                     attributes: {
                         name: string;
-                        args: {
-                            value: string;
-                        }[];
+                        args: never[];
                     }[];
                 };
                 round_time: {
@@ -626,9 +586,7 @@ declare const metadata: {
                     type: string;
                     attributes: {
                         name: string;
-                        args: {
-                            value: string;
-                        }[];
+                        args: never[];
                     }[];
                 };
                 email: {
@@ -690,9 +648,7 @@ declare const metadata: {
                     type: string;
                     attributes: {
                         name: string;
-                        args: {
-                            value: string;
-                        }[];
+                        args: never[];
                     }[];
                 };
                 username: {

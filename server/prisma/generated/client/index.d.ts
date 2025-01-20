@@ -1636,19 +1636,19 @@ export namespace Prisma {
 
   export type CompetitionMinAggregateOutputType = {
     active: boolean | null
-    created: string | null
+    created: Date | null
     id: string | null
     pause: boolean | null
-    updated: string | null
+    updated: Date | null
     ended: boolean | null
   }
 
   export type CompetitionMaxAggregateOutputType = {
     active: boolean | null
-    created: string | null
+    created: Date | null
     id: string | null
     pause: boolean | null
-    updated: string | null
+    updated: Date | null
     ended: boolean | null
   }
 
@@ -1765,10 +1765,10 @@ export namespace Prisma {
 
   export type CompetitionGroupByOutputType = {
     active: boolean
-    created: string
+    created: Date
     id: string
     pause: boolean
-    updated: string
+    updated: Date
     ended: boolean
     _count: CompetitionCountAggregateOutputType | null
     _min: CompetitionMinAggregateOutputType | null
@@ -1832,10 +1832,10 @@ export namespace Prisma {
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       active: boolean
-      created: string
+      created: Date
       id: string
       pause: boolean
-      updated: string
+      updated: Date
       ended: boolean
     }, ExtArgs["result"]["competition"]>
     composites: {}
@@ -2261,10 +2261,10 @@ export namespace Prisma {
    */ 
   interface competitionFieldRefs {
     readonly active: FieldRef<"competition", 'Boolean'>
-    readonly created: FieldRef<"competition", 'String'>
+    readonly created: FieldRef<"competition", 'DateTime'>
     readonly id: FieldRef<"competition", 'String'>
     readonly pause: FieldRef<"competition", 'Boolean'>
-    readonly updated: FieldRef<"competition", 'String'>
+    readonly updated: FieldRef<"competition", 'DateTime'>
     readonly ended: FieldRef<"competition", 'Boolean'>
   }
     
@@ -2471,6 +2471,7 @@ export namespace Prisma {
      * The data used to create many competitions.
      */
     data: competitionCreateManyInput | competitionCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -2489,6 +2490,7 @@ export namespace Prisma {
      * The data used to create many competitions.
      */
     data: competitionCreateManyInput | competitionCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -2629,20 +2631,20 @@ export namespace Prisma {
   }
 
   export type DaysMinAggregateOutputType = {
-    created: string | null
+    created: Date | null
     description: string | null
     id: string | null
     name: string | null
-    updated: string | null
+    updated: Date | null
     active: boolean | null
   }
 
   export type DaysMaxAggregateOutputType = {
-    created: string | null
+    created: Date | null
     description: string | null
     id: string | null
     name: string | null
-    updated: string | null
+    updated: Date | null
     active: boolean | null
   }
 
@@ -2758,11 +2760,11 @@ export namespace Prisma {
   }
 
   export type DaysGroupByOutputType = {
-    created: string
+    created: Date
     description: string
     id: string
     name: string
-    updated: string
+    updated: Date
     active: boolean
     _count: DaysCountAggregateOutputType | null
     _min: DaysMinAggregateOutputType | null
@@ -2825,11 +2827,11 @@ export namespace Prisma {
     name: "days"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
-      created: string
+      created: Date
       description: string
       id: string
       name: string
-      updated: string
+      updated: Date
       active: boolean
     }, ExtArgs["result"]["days"]>
     composites: {}
@@ -3254,11 +3256,11 @@ export namespace Prisma {
    * Fields of the days model
    */ 
   interface daysFieldRefs {
-    readonly created: FieldRef<"days", 'String'>
+    readonly created: FieldRef<"days", 'DateTime'>
     readonly description: FieldRef<"days", 'String'>
     readonly id: FieldRef<"days", 'String'>
     readonly name: FieldRef<"days", 'String'>
-    readonly updated: FieldRef<"days", 'String'>
+    readonly updated: FieldRef<"days", 'DateTime'>
     readonly active: FieldRef<"days", 'Boolean'>
   }
     
@@ -3465,6 +3467,7 @@ export namespace Prisma {
      * The data used to create many days.
      */
     data: daysCreateManyInput | daysCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -3483,6 +3486,7 @@ export namespace Prisma {
      * The data used to create many days.
      */
     data: daysCreateManyInput | daysCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -3633,20 +3637,20 @@ export namespace Prisma {
   }
 
   export type HeadingsMinAggregateOutputType = {
-    created: string | null
+    created: Date | null
     id: string | null
     name: string | null
-    updated: string | null
+    updated: Date | null
     day: string | null
     active: boolean | null
     heading_number: Decimal | null
   }
 
   export type HeadingsMaxAggregateOutputType = {
-    created: string | null
+    created: Date | null
     id: string | null
     name: string | null
-    updated: string | null
+    updated: Date | null
     day: string | null
     active: boolean | null
     heading_number: Decimal | null
@@ -3790,10 +3794,10 @@ export namespace Prisma {
   }
 
   export type HeadingsGroupByOutputType = {
-    created: string
+    created: Date
     id: string
     name: string
-    updated: string
+    updated: Date
     day: string
     active: boolean
     heading_number: Decimal
@@ -3864,10 +3868,10 @@ export namespace Prisma {
     name: "headings"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
-      created: string
+      created: Date
       id: string
       name: string
-      updated: string
+      updated: Date
       day: string
       active: boolean
       heading_number: Prisma.Decimal
@@ -4294,10 +4298,10 @@ export namespace Prisma {
    * Fields of the headings model
    */ 
   interface headingsFieldRefs {
-    readonly created: FieldRef<"headings", 'String'>
+    readonly created: FieldRef<"headings", 'DateTime'>
     readonly id: FieldRef<"headings", 'String'>
     readonly name: FieldRef<"headings", 'String'>
-    readonly updated: FieldRef<"headings", 'String'>
+    readonly updated: FieldRef<"headings", 'DateTime'>
     readonly day: FieldRef<"headings", 'String'>
     readonly active: FieldRef<"headings", 'Boolean'>
     readonly heading_number: FieldRef<"headings", 'Decimal'>
@@ -4506,6 +4510,7 @@ export namespace Prisma {
      * The data used to create many headings.
      */
     data: headingsCreateManyInput | headingsCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -4524,6 +4529,7 @@ export namespace Prisma {
      * The data used to create many headings.
      */
     data: headingsCreateManyInput | headingsCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -4665,16 +4671,16 @@ export namespace Prisma {
 
   export type StocksMinAggregateOutputType = {
     bank_name: string | null
-    created: string | null
+    created: Date | null
     id: string | null
-    updated: string | null
+    updated: Date | null
   }
 
   export type StocksMaxAggregateOutputType = {
     bank_name: string | null
-    created: string | null
+    created: Date | null
     id: string | null
-    updated: string | null
+    updated: Date | null
   }
 
   export type StocksCountAggregateOutputType = {
@@ -4782,9 +4788,9 @@ export namespace Prisma {
 
   export type StocksGroupByOutputType = {
     bank_name: string
-    created: string
+    created: Date
     id: string
-    updated: string
+    updated: Date
     _count: StocksCountAggregateOutputType | null
     _min: StocksMinAggregateOutputType | null
     _max: StocksMaxAggregateOutputType | null
@@ -4839,9 +4845,9 @@ export namespace Prisma {
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       bank_name: string
-      created: string
+      created: Date
       id: string
-      updated: string
+      updated: Date
     }, ExtArgs["result"]["stocks"]>
     composites: {}
   }
@@ -5266,9 +5272,9 @@ export namespace Prisma {
    */ 
   interface stocksFieldRefs {
     readonly bank_name: FieldRef<"stocks", 'String'>
-    readonly created: FieldRef<"stocks", 'String'>
+    readonly created: FieldRef<"stocks", 'DateTime'>
     readonly id: FieldRef<"stocks", 'String'>
-    readonly updated: FieldRef<"stocks", 'String'>
+    readonly updated: FieldRef<"stocks", 'DateTime'>
   }
     
 
@@ -5474,6 +5480,7 @@ export namespace Prisma {
      * The data used to create many stocks.
      */
     data: stocksCreateManyInput | stocksCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -5492,6 +5499,7 @@ export namespace Prisma {
      * The data used to create many stocks.
      */
     data: stocksCreateManyInput | stocksCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -5646,11 +5654,11 @@ export namespace Prisma {
   }
 
   export type Stocks_headingsMinAggregateOutputType = {
-    created: string | null
+    created: Date | null
     headings: string | null
     id: string | null
     stocks: string | null
-    updated: string | null
+    updated: Date | null
     previous_price: Decimal | null
     current_price: Decimal | null
     change_in_price: Decimal | null
@@ -5658,11 +5666,11 @@ export namespace Prisma {
   }
 
   export type Stocks_headingsMaxAggregateOutputType = {
-    created: string | null
+    created: Date | null
     headings: string | null
     id: string | null
     stocks: string | null
-    updated: string | null
+    updated: Date | null
     previous_price: Decimal | null
     current_price: Decimal | null
     change_in_price: Decimal | null
@@ -5819,11 +5827,11 @@ export namespace Prisma {
   }
 
   export type Stocks_headingsGroupByOutputType = {
-    created: string
+    created: Date
     headings: string
     id: string
     stocks: string
-    updated: string
+    updated: Date
     previous_price: Decimal
     current_price: Decimal
     change_in_price: Decimal
@@ -5903,11 +5911,11 @@ export namespace Prisma {
     name: "stocks_headings"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
-      created: string
+      created: Date
       headings: string
       id: string
       stocks: string
-      updated: string
+      updated: Date
       previous_price: Prisma.Decimal
       current_price: Prisma.Decimal
       change_in_price: Prisma.Decimal
@@ -6335,11 +6343,11 @@ export namespace Prisma {
    * Fields of the stocks_headings model
    */ 
   interface stocks_headingsFieldRefs {
-    readonly created: FieldRef<"stocks_headings", 'String'>
+    readonly created: FieldRef<"stocks_headings", 'DateTime'>
     readonly headings: FieldRef<"stocks_headings", 'String'>
     readonly id: FieldRef<"stocks_headings", 'String'>
     readonly stocks: FieldRef<"stocks_headings", 'String'>
-    readonly updated: FieldRef<"stocks_headings", 'String'>
+    readonly updated: FieldRef<"stocks_headings", 'DateTime'>
     readonly previous_price: FieldRef<"stocks_headings", 'Decimal'>
     readonly current_price: FieldRef<"stocks_headings", 'Decimal'>
     readonly change_in_price: FieldRef<"stocks_headings", 'Decimal'>
@@ -6549,6 +6557,7 @@ export namespace Prisma {
      * The data used to create many stocks_headings.
      */
     data: stocks_headingsCreateManyInput | stocks_headingsCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -6567,6 +6576,7 @@ export namespace Prisma {
      * The data used to create many stocks_headings.
      */
     data: stocks_headingsCreateManyInput | stocks_headingsCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -6707,10 +6717,10 @@ export namespace Prisma {
   }
 
   export type Stocks_usersMinAggregateOutputType = {
-    created: string | null
+    created: Date | null
     id: string | null
     stocks: string | null
-    updated: string | null
+    updated: Date | null
     users: string | null
     share_count: string | null
     balance_when_shorting: string | null
@@ -6718,10 +6728,10 @@ export namespace Prisma {
   }
 
   export type Stocks_usersMaxAggregateOutputType = {
-    created: string | null
+    created: Date | null
     id: string | null
     stocks: string | null
-    updated: string | null
+    updated: Date | null
     users: string | null
     share_count: string | null
     balance_when_shorting: string | null
@@ -6848,10 +6858,10 @@ export namespace Prisma {
   }
 
   export type Stocks_usersGroupByOutputType = {
-    created: string
+    created: Date
     id: string
     stocks: string
-    updated: string
+    updated: Date
     users: string
     share_count: string
     balance_when_shorting: string
@@ -6925,10 +6935,10 @@ export namespace Prisma {
     name: "stocks_users"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
-      created: string
+      created: Date
       id: string
       stocks: string
-      updated: string
+      updated: Date
       users: string
       share_count: string
       balance_when_shorting: string
@@ -7356,10 +7366,10 @@ export namespace Prisma {
    * Fields of the stocks_users model
    */ 
   interface stocks_usersFieldRefs {
-    readonly created: FieldRef<"stocks_users", 'String'>
+    readonly created: FieldRef<"stocks_users", 'DateTime'>
     readonly id: FieldRef<"stocks_users", 'String'>
     readonly stocks: FieldRef<"stocks_users", 'String'>
-    readonly updated: FieldRef<"stocks_users", 'String'>
+    readonly updated: FieldRef<"stocks_users", 'DateTime'>
     readonly users: FieldRef<"stocks_users", 'String'>
     readonly share_count: FieldRef<"stocks_users", 'String'>
     readonly balance_when_shorting: FieldRef<"stocks_users", 'String'>
@@ -7569,6 +7579,7 @@ export namespace Prisma {
      * The data used to create many stocks_users.
      */
     data: stocks_usersCreateManyInput | stocks_usersCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -7587,6 +7598,7 @@ export namespace Prisma {
      * The data used to create many stocks_users.
      */
     data: stocks_usersCreateManyInput | stocks_usersCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -7740,9 +7752,9 @@ export namespace Prisma {
     active: boolean | null
     competition_end: string | null
     competition_start: string | null
-    created: string | null
+    created: Date | null
     id: string | null
-    updated: string | null
+    updated: Date | null
     round_time: Decimal | null
   }
 
@@ -7750,9 +7762,9 @@ export namespace Prisma {
     active: boolean | null
     competition_end: string | null
     competition_start: string | null
-    created: string | null
+    created: Date | null
     id: string | null
-    updated: string | null
+    updated: Date | null
     round_time: Decimal | null
   }
 
@@ -7897,9 +7909,9 @@ export namespace Prisma {
     active: boolean
     competition_end: string
     competition_start: string
-    created: string
+    created: Date
     id: string
-    updated: string
+    updated: Date
     round_time: Decimal
     _count: TimerCountAggregateOutputType | null
     _avg: TimerAvgAggregateOutputType | null
@@ -7971,9 +7983,9 @@ export namespace Prisma {
       active: boolean
       competition_end: string
       competition_start: string
-      created: string
+      created: Date
       id: string
-      updated: string
+      updated: Date
       round_time: Prisma.Decimal
     }, ExtArgs["result"]["timer"]>
     composites: {}
@@ -8401,9 +8413,9 @@ export namespace Prisma {
     readonly active: FieldRef<"timer", 'Boolean'>
     readonly competition_end: FieldRef<"timer", 'String'>
     readonly competition_start: FieldRef<"timer", 'String'>
-    readonly created: FieldRef<"timer", 'String'>
+    readonly created: FieldRef<"timer", 'DateTime'>
     readonly id: FieldRef<"timer", 'String'>
-    readonly updated: FieldRef<"timer", 'String'>
+    readonly updated: FieldRef<"timer", 'DateTime'>
     readonly round_time: FieldRef<"timer", 'Decimal'>
   }
     
@@ -8610,6 +8622,7 @@ export namespace Prisma {
      * The data used to create many timers.
      */
     data: timerCreateManyInput | timerCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -8628,6 +8641,7 @@ export namespace Prisma {
      * The data used to create many timers.
      */
     data: timerCreateManyInput | timerCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -8769,14 +8783,14 @@ export namespace Prisma {
 
   export type UsersMinAggregateOutputType = {
     avatar: string | null
-    created: string | null
+    created: Date | null
     email: string | null
     emailVisibility: boolean | null
     id: string | null
     name: string | null
     password: string | null
     tokenKey: string | null
-    updated: string | null
+    updated: Date | null
     username: string | null
     verified: boolean | null
     type: string | null
@@ -8785,14 +8799,14 @@ export namespace Prisma {
 
   export type UsersMaxAggregateOutputType = {
     avatar: string | null
-    created: string | null
+    created: Date | null
     email: string | null
     emailVisibility: boolean | null
     id: string | null
     name: string | null
     password: string | null
     tokenKey: string | null
-    updated: string | null
+    updated: Date | null
     username: string | null
     verified: boolean | null
     type: string | null
@@ -8940,14 +8954,14 @@ export namespace Prisma {
 
   export type UsersGroupByOutputType = {
     avatar: string
-    created: string
+    created: Date
     email: string
     emailVisibility: boolean
     id: string
     name: string
     password: string
     tokenKey: string
-    updated: string
+    updated: Date
     username: string
     verified: boolean
     type: string
@@ -9052,14 +9066,14 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       avatar: string
-      created: string
+      created: Date
       email: string
       emailVisibility: boolean
       id: string
       name: string
       password: string
       tokenKey: string
-      updated: string
+      updated: Date
       username: string
       verified: boolean
       type: string
@@ -9489,14 +9503,14 @@ export namespace Prisma {
    */ 
   interface usersFieldRefs {
     readonly avatar: FieldRef<"users", 'String'>
-    readonly created: FieldRef<"users", 'String'>
+    readonly created: FieldRef<"users", 'DateTime'>
     readonly email: FieldRef<"users", 'String'>
     readonly emailVisibility: FieldRef<"users", 'Boolean'>
     readonly id: FieldRef<"users", 'String'>
     readonly name: FieldRef<"users", 'String'>
     readonly password: FieldRef<"users", 'String'>
     readonly tokenKey: FieldRef<"users", 'String'>
-    readonly updated: FieldRef<"users", 'String'>
+    readonly updated: FieldRef<"users", 'DateTime'>
     readonly username: FieldRef<"users", 'String'>
     readonly verified: FieldRef<"users", 'Boolean'>
     readonly type: FieldRef<"users", 'String'>
@@ -9730,6 +9744,7 @@ export namespace Prisma {
      * The data used to create many users.
      */
     data: usersCreateManyInput | usersCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -9748,6 +9763,7 @@ export namespace Prisma {
      * The data used to create many users.
      */
     data: usersCreateManyInput | usersCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -10764,6 +10780,7 @@ export namespace Prisma {
      * The data used to create many sessions.
      */
     data: sessionCreateManyInput | sessionCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -10782,6 +10799,7 @@ export namespace Prisma {
      * The data used to create many sessions.
      */
     data: sessionCreateManyInput | sessionCreateManyInput[]
+    skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
@@ -10940,6 +10958,9 @@ export namespace Prisma {
    */
 
   export const TransactionIsolationLevel: {
+    ReadUncommitted: 'ReadUncommitted',
+    ReadCommitted: 'ReadCommitted',
+    RepeatableRead: 'RepeatableRead',
     Serializable: 'Serializable'
   };
 
@@ -11071,6 +11092,14 @@ export namespace Prisma {
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
+  export const QueryMode: {
+    default: 'default',
+    insensitive: 'insensitive'
+  };
+
+  export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
   /**
    * Field references 
    */
@@ -11084,9 +11113,30 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime[]'
+   */
+  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
    * Reference to a field of type 'String'
    */
   export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
+    
+
+
+  /**
+   * Reference to a field of type 'String[]'
+   */
+  export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
     
 
 
@@ -11098,9 +11148,23 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Decimal[]'
+   */
+  export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Int'
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+    
+
+
+  /**
+   * Reference to a field of type 'Int[]'
+   */
+  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
     
   /**
    * Deep Input Types
@@ -11112,10 +11176,10 @@ export namespace Prisma {
     OR?: competitionWhereInput[]
     NOT?: competitionWhereInput | competitionWhereInput[]
     active?: BoolFilter<"competition"> | boolean
-    created?: StringFilter<"competition"> | string
+    created?: DateTimeFilter<"competition"> | Date | string
     id?: StringFilter<"competition"> | string
     pause?: BoolFilter<"competition"> | boolean
-    updated?: StringFilter<"competition"> | string
+    updated?: DateTimeFilter<"competition"> | Date | string
     ended?: BoolFilter<"competition"> | boolean
   }
 
@@ -11134,9 +11198,9 @@ export namespace Prisma {
     OR?: competitionWhereInput[]
     NOT?: competitionWhereInput | competitionWhereInput[]
     active?: BoolFilter<"competition"> | boolean
-    created?: StringFilter<"competition"> | string
+    created?: DateTimeFilter<"competition"> | Date | string
     pause?: BoolFilter<"competition"> | boolean
-    updated?: StringFilter<"competition"> | string
+    updated?: DateTimeFilter<"competition"> | Date | string
     ended?: BoolFilter<"competition"> | boolean
   }, "id">
 
@@ -11157,10 +11221,10 @@ export namespace Prisma {
     OR?: competitionScalarWhereWithAggregatesInput[]
     NOT?: competitionScalarWhereWithAggregatesInput | competitionScalarWhereWithAggregatesInput[]
     active?: BoolWithAggregatesFilter<"competition"> | boolean
-    created?: StringWithAggregatesFilter<"competition"> | string
+    created?: DateTimeWithAggregatesFilter<"competition"> | Date | string
     id?: StringWithAggregatesFilter<"competition"> | string
     pause?: BoolWithAggregatesFilter<"competition"> | boolean
-    updated?: StringWithAggregatesFilter<"competition"> | string
+    updated?: DateTimeWithAggregatesFilter<"competition"> | Date | string
     ended?: BoolWithAggregatesFilter<"competition"> | boolean
   }
 
@@ -11168,11 +11232,11 @@ export namespace Prisma {
     AND?: daysWhereInput | daysWhereInput[]
     OR?: daysWhereInput[]
     NOT?: daysWhereInput | daysWhereInput[]
-    created?: StringFilter<"days"> | string
+    created?: DateTimeFilter<"days"> | Date | string
     description?: StringFilter<"days"> | string
     id?: StringFilter<"days"> | string
     name?: StringFilter<"days"> | string
-    updated?: StringFilter<"days"> | string
+    updated?: DateTimeFilter<"days"> | Date | string
     active?: BoolFilter<"days"> | boolean
   }
 
@@ -11190,10 +11254,10 @@ export namespace Prisma {
     AND?: daysWhereInput | daysWhereInput[]
     OR?: daysWhereInput[]
     NOT?: daysWhereInput | daysWhereInput[]
-    created?: StringFilter<"days"> | string
+    created?: DateTimeFilter<"days"> | Date | string
     description?: StringFilter<"days"> | string
     name?: StringFilter<"days"> | string
-    updated?: StringFilter<"days"> | string
+    updated?: DateTimeFilter<"days"> | Date | string
     active?: BoolFilter<"days"> | boolean
   }, "id">
 
@@ -11213,11 +11277,11 @@ export namespace Prisma {
     AND?: daysScalarWhereWithAggregatesInput | daysScalarWhereWithAggregatesInput[]
     OR?: daysScalarWhereWithAggregatesInput[]
     NOT?: daysScalarWhereWithAggregatesInput | daysScalarWhereWithAggregatesInput[]
-    created?: StringWithAggregatesFilter<"days"> | string
+    created?: DateTimeWithAggregatesFilter<"days"> | Date | string
     description?: StringWithAggregatesFilter<"days"> | string
     id?: StringWithAggregatesFilter<"days"> | string
     name?: StringWithAggregatesFilter<"days"> | string
-    updated?: StringWithAggregatesFilter<"days"> | string
+    updated?: DateTimeWithAggregatesFilter<"days"> | Date | string
     active?: BoolWithAggregatesFilter<"days"> | boolean
   }
 
@@ -11225,10 +11289,10 @@ export namespace Prisma {
     AND?: headingsWhereInput | headingsWhereInput[]
     OR?: headingsWhereInput[]
     NOT?: headingsWhereInput | headingsWhereInput[]
-    created?: StringFilter<"headings"> | string
+    created?: DateTimeFilter<"headings"> | Date | string
     id?: StringFilter<"headings"> | string
     name?: StringFilter<"headings"> | string
-    updated?: StringFilter<"headings"> | string
+    updated?: DateTimeFilter<"headings"> | Date | string
     day?: StringFilter<"headings"> | string
     active?: BoolFilter<"headings"> | boolean
     heading_number?: DecimalFilter<"headings"> | Decimal | DecimalJsLike | number | string
@@ -11249,9 +11313,9 @@ export namespace Prisma {
     AND?: headingsWhereInput | headingsWhereInput[]
     OR?: headingsWhereInput[]
     NOT?: headingsWhereInput | headingsWhereInput[]
-    created?: StringFilter<"headings"> | string
+    created?: DateTimeFilter<"headings"> | Date | string
     name?: StringFilter<"headings"> | string
-    updated?: StringFilter<"headings"> | string
+    updated?: DateTimeFilter<"headings"> | Date | string
     day?: StringFilter<"headings"> | string
     active?: BoolFilter<"headings"> | boolean
     heading_number?: DecimalFilter<"headings"> | Decimal | DecimalJsLike | number | string
@@ -11276,10 +11340,10 @@ export namespace Prisma {
     AND?: headingsScalarWhereWithAggregatesInput | headingsScalarWhereWithAggregatesInput[]
     OR?: headingsScalarWhereWithAggregatesInput[]
     NOT?: headingsScalarWhereWithAggregatesInput | headingsScalarWhereWithAggregatesInput[]
-    created?: StringWithAggregatesFilter<"headings"> | string
+    created?: DateTimeWithAggregatesFilter<"headings"> | Date | string
     id?: StringWithAggregatesFilter<"headings"> | string
     name?: StringWithAggregatesFilter<"headings"> | string
-    updated?: StringWithAggregatesFilter<"headings"> | string
+    updated?: DateTimeWithAggregatesFilter<"headings"> | Date | string
     day?: StringWithAggregatesFilter<"headings"> | string
     active?: BoolWithAggregatesFilter<"headings"> | boolean
     heading_number?: DecimalWithAggregatesFilter<"headings"> | Decimal | DecimalJsLike | number | string
@@ -11290,9 +11354,9 @@ export namespace Prisma {
     OR?: stocksWhereInput[]
     NOT?: stocksWhereInput | stocksWhereInput[]
     bank_name?: StringFilter<"stocks"> | string
-    created?: StringFilter<"stocks"> | string
+    created?: DateTimeFilter<"stocks"> | Date | string
     id?: StringFilter<"stocks"> | string
-    updated?: StringFilter<"stocks"> | string
+    updated?: DateTimeFilter<"stocks"> | Date | string
   }
 
   export type stocksOrderByWithRelationInput = {
@@ -11308,8 +11372,8 @@ export namespace Prisma {
     OR?: stocksWhereInput[]
     NOT?: stocksWhereInput | stocksWhereInput[]
     bank_name?: StringFilter<"stocks"> | string
-    created?: StringFilter<"stocks"> | string
-    updated?: StringFilter<"stocks"> | string
+    created?: DateTimeFilter<"stocks"> | Date | string
+    updated?: DateTimeFilter<"stocks"> | Date | string
   }, "id">
 
   export type stocksOrderByWithAggregationInput = {
@@ -11327,20 +11391,20 @@ export namespace Prisma {
     OR?: stocksScalarWhereWithAggregatesInput[]
     NOT?: stocksScalarWhereWithAggregatesInput | stocksScalarWhereWithAggregatesInput[]
     bank_name?: StringWithAggregatesFilter<"stocks"> | string
-    created?: StringWithAggregatesFilter<"stocks"> | string
+    created?: DateTimeWithAggregatesFilter<"stocks"> | Date | string
     id?: StringWithAggregatesFilter<"stocks"> | string
-    updated?: StringWithAggregatesFilter<"stocks"> | string
+    updated?: DateTimeWithAggregatesFilter<"stocks"> | Date | string
   }
 
   export type stocks_headingsWhereInput = {
     AND?: stocks_headingsWhereInput | stocks_headingsWhereInput[]
     OR?: stocks_headingsWhereInput[]
     NOT?: stocks_headingsWhereInput | stocks_headingsWhereInput[]
-    created?: StringFilter<"stocks_headings"> | string
+    created?: DateTimeFilter<"stocks_headings"> | Date | string
     headings?: StringFilter<"stocks_headings"> | string
     id?: StringFilter<"stocks_headings"> | string
     stocks?: StringFilter<"stocks_headings"> | string
-    updated?: StringFilter<"stocks_headings"> | string
+    updated?: DateTimeFilter<"stocks_headings"> | Date | string
     previous_price?: DecimalFilter<"stocks_headings"> | Decimal | DecimalJsLike | number | string
     current_price?: DecimalFilter<"stocks_headings"> | Decimal | DecimalJsLike | number | string
     change_in_price?: DecimalFilter<"stocks_headings"> | Decimal | DecimalJsLike | number | string
@@ -11364,10 +11428,10 @@ export namespace Prisma {
     AND?: stocks_headingsWhereInput | stocks_headingsWhereInput[]
     OR?: stocks_headingsWhereInput[]
     NOT?: stocks_headingsWhereInput | stocks_headingsWhereInput[]
-    created?: StringFilter<"stocks_headings"> | string
+    created?: DateTimeFilter<"stocks_headings"> | Date | string
     headings?: StringFilter<"stocks_headings"> | string
     stocks?: StringFilter<"stocks_headings"> | string
-    updated?: StringFilter<"stocks_headings"> | string
+    updated?: DateTimeFilter<"stocks_headings"> | Date | string
     previous_price?: DecimalFilter<"stocks_headings"> | Decimal | DecimalJsLike | number | string
     current_price?: DecimalFilter<"stocks_headings"> | Decimal | DecimalJsLike | number | string
     change_in_price?: DecimalFilter<"stocks_headings"> | Decimal | DecimalJsLike | number | string
@@ -11395,11 +11459,11 @@ export namespace Prisma {
     AND?: stocks_headingsScalarWhereWithAggregatesInput | stocks_headingsScalarWhereWithAggregatesInput[]
     OR?: stocks_headingsScalarWhereWithAggregatesInput[]
     NOT?: stocks_headingsScalarWhereWithAggregatesInput | stocks_headingsScalarWhereWithAggregatesInput[]
-    created?: StringWithAggregatesFilter<"stocks_headings"> | string
+    created?: DateTimeWithAggregatesFilter<"stocks_headings"> | Date | string
     headings?: StringWithAggregatesFilter<"stocks_headings"> | string
     id?: StringWithAggregatesFilter<"stocks_headings"> | string
     stocks?: StringWithAggregatesFilter<"stocks_headings"> | string
-    updated?: StringWithAggregatesFilter<"stocks_headings"> | string
+    updated?: DateTimeWithAggregatesFilter<"stocks_headings"> | Date | string
     previous_price?: DecimalWithAggregatesFilter<"stocks_headings"> | Decimal | DecimalJsLike | number | string
     current_price?: DecimalWithAggregatesFilter<"stocks_headings"> | Decimal | DecimalJsLike | number | string
     change_in_price?: DecimalWithAggregatesFilter<"stocks_headings"> | Decimal | DecimalJsLike | number | string
@@ -11410,10 +11474,10 @@ export namespace Prisma {
     AND?: stocks_usersWhereInput | stocks_usersWhereInput[]
     OR?: stocks_usersWhereInput[]
     NOT?: stocks_usersWhereInput | stocks_usersWhereInput[]
-    created?: StringFilter<"stocks_users"> | string
+    created?: DateTimeFilter<"stocks_users"> | Date | string
     id?: StringFilter<"stocks_users"> | string
     stocks?: StringFilter<"stocks_users"> | string
-    updated?: StringFilter<"stocks_users"> | string
+    updated?: DateTimeFilter<"stocks_users"> | Date | string
     users?: StringFilter<"stocks_users"> | string
     share_count?: StringFilter<"stocks_users"> | string
     balance_when_shorting?: StringFilter<"stocks_users"> | string
@@ -11436,9 +11500,9 @@ export namespace Prisma {
     AND?: stocks_usersWhereInput | stocks_usersWhereInput[]
     OR?: stocks_usersWhereInput[]
     NOT?: stocks_usersWhereInput | stocks_usersWhereInput[]
-    created?: StringFilter<"stocks_users"> | string
+    created?: DateTimeFilter<"stocks_users"> | Date | string
     stocks?: StringFilter<"stocks_users"> | string
-    updated?: StringFilter<"stocks_users"> | string
+    updated?: DateTimeFilter<"stocks_users"> | Date | string
     users?: StringFilter<"stocks_users"> | string
     share_count?: StringFilter<"stocks_users"> | string
     balance_when_shorting?: StringFilter<"stocks_users"> | string
@@ -11463,10 +11527,10 @@ export namespace Prisma {
     AND?: stocks_usersScalarWhereWithAggregatesInput | stocks_usersScalarWhereWithAggregatesInput[]
     OR?: stocks_usersScalarWhereWithAggregatesInput[]
     NOT?: stocks_usersScalarWhereWithAggregatesInput | stocks_usersScalarWhereWithAggregatesInput[]
-    created?: StringWithAggregatesFilter<"stocks_users"> | string
+    created?: DateTimeWithAggregatesFilter<"stocks_users"> | Date | string
     id?: StringWithAggregatesFilter<"stocks_users"> | string
     stocks?: StringWithAggregatesFilter<"stocks_users"> | string
-    updated?: StringWithAggregatesFilter<"stocks_users"> | string
+    updated?: DateTimeWithAggregatesFilter<"stocks_users"> | Date | string
     users?: StringWithAggregatesFilter<"stocks_users"> | string
     share_count?: StringWithAggregatesFilter<"stocks_users"> | string
     balance_when_shorting?: StringWithAggregatesFilter<"stocks_users"> | string
@@ -11480,9 +11544,9 @@ export namespace Prisma {
     active?: BoolFilter<"timer"> | boolean
     competition_end?: StringFilter<"timer"> | string
     competition_start?: StringFilter<"timer"> | string
-    created?: StringFilter<"timer"> | string
+    created?: DateTimeFilter<"timer"> | Date | string
     id?: StringFilter<"timer"> | string
-    updated?: StringFilter<"timer"> | string
+    updated?: DateTimeFilter<"timer"> | Date | string
     round_time?: DecimalFilter<"timer"> | Decimal | DecimalJsLike | number | string
   }
 
@@ -11504,8 +11568,8 @@ export namespace Prisma {
     active?: BoolFilter<"timer"> | boolean
     competition_end?: StringFilter<"timer"> | string
     competition_start?: StringFilter<"timer"> | string
-    created?: StringFilter<"timer"> | string
-    updated?: StringFilter<"timer"> | string
+    created?: DateTimeFilter<"timer"> | Date | string
+    updated?: DateTimeFilter<"timer"> | Date | string
     round_time?: DecimalFilter<"timer"> | Decimal | DecimalJsLike | number | string
   }, "id">
 
@@ -11531,9 +11595,9 @@ export namespace Prisma {
     active?: BoolWithAggregatesFilter<"timer"> | boolean
     competition_end?: StringWithAggregatesFilter<"timer"> | string
     competition_start?: StringWithAggregatesFilter<"timer"> | string
-    created?: StringWithAggregatesFilter<"timer"> | string
+    created?: DateTimeWithAggregatesFilter<"timer"> | Date | string
     id?: StringWithAggregatesFilter<"timer"> | string
-    updated?: StringWithAggregatesFilter<"timer"> | string
+    updated?: DateTimeWithAggregatesFilter<"timer"> | Date | string
     round_time?: DecimalWithAggregatesFilter<"timer"> | Decimal | DecimalJsLike | number | string
   }
 
@@ -11542,14 +11606,14 @@ export namespace Prisma {
     OR?: usersWhereInput[]
     NOT?: usersWhereInput | usersWhereInput[]
     avatar?: StringFilter<"users"> | string
-    created?: StringFilter<"users"> | string
+    created?: DateTimeFilter<"users"> | Date | string
     email?: StringFilter<"users"> | string
     emailVisibility?: BoolFilter<"users"> | boolean
     id?: StringFilter<"users"> | string
     name?: StringFilter<"users"> | string
     password?: StringFilter<"users"> | string
     tokenKey?: StringFilter<"users"> | string
-    updated?: StringFilter<"users"> | string
+    updated?: DateTimeFilter<"users"> | Date | string
     username?: StringFilter<"users"> | string
     verified?: BoolFilter<"users"> | boolean
     type?: StringFilter<"users"> | string
@@ -11582,12 +11646,12 @@ export namespace Prisma {
     OR?: usersWhereInput[]
     NOT?: usersWhereInput | usersWhereInput[]
     avatar?: StringFilter<"users"> | string
-    created?: StringFilter<"users"> | string
+    created?: DateTimeFilter<"users"> | Date | string
     email?: StringFilter<"users"> | string
     emailVisibility?: BoolFilter<"users"> | boolean
     name?: StringFilter<"users"> | string
     password?: StringFilter<"users"> | string
-    updated?: StringFilter<"users"> | string
+    updated?: DateTimeFilter<"users"> | Date | string
     verified?: BoolFilter<"users"> | boolean
     type?: StringFilter<"users"> | string
     wallet?: StringFilter<"users"> | string
@@ -11618,14 +11682,14 @@ export namespace Prisma {
     OR?: usersScalarWhereWithAggregatesInput[]
     NOT?: usersScalarWhereWithAggregatesInput | usersScalarWhereWithAggregatesInput[]
     avatar?: StringWithAggregatesFilter<"users"> | string
-    created?: StringWithAggregatesFilter<"users"> | string
+    created?: DateTimeWithAggregatesFilter<"users"> | Date | string
     email?: StringWithAggregatesFilter<"users"> | string
     emailVisibility?: BoolWithAggregatesFilter<"users"> | boolean
     id?: StringWithAggregatesFilter<"users"> | string
     name?: StringWithAggregatesFilter<"users"> | string
     password?: StringWithAggregatesFilter<"users"> | string
     tokenKey?: StringWithAggregatesFilter<"users"> | string
-    updated?: StringWithAggregatesFilter<"users"> | string
+    updated?: DateTimeWithAggregatesFilter<"users"> | Date | string
     username?: StringWithAggregatesFilter<"users"> | string
     verified?: BoolWithAggregatesFilter<"users"> | boolean
     type?: StringWithAggregatesFilter<"users"> | string
@@ -11679,195 +11743,195 @@ export namespace Prisma {
 
   export type competitionCreateInput = {
     active?: boolean
-    created?: string
+    created?: Date | string
     id?: string
     pause?: boolean
-    updated?: string
+    updated?: Date | string
     ended?: boolean
   }
 
   export type competitionUncheckedCreateInput = {
     active?: boolean
-    created?: string
+    created?: Date | string
     id?: string
     pause?: boolean
-    updated?: string
+    updated?: Date | string
     ended?: boolean
   }
 
   export type competitionUpdateInput = {
     active?: BoolFieldUpdateOperationsInput | boolean
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     id?: StringFieldUpdateOperationsInput | string
     pause?: BoolFieldUpdateOperationsInput | boolean
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
     ended?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type competitionUncheckedUpdateInput = {
     active?: BoolFieldUpdateOperationsInput | boolean
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     id?: StringFieldUpdateOperationsInput | string
     pause?: BoolFieldUpdateOperationsInput | boolean
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
     ended?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type competitionCreateManyInput = {
     active?: boolean
-    created?: string
+    created?: Date | string
     id?: string
     pause?: boolean
-    updated?: string
+    updated?: Date | string
     ended?: boolean
   }
 
   export type competitionUpdateManyMutationInput = {
     active?: BoolFieldUpdateOperationsInput | boolean
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     id?: StringFieldUpdateOperationsInput | string
     pause?: BoolFieldUpdateOperationsInput | boolean
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
     ended?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type competitionUncheckedUpdateManyInput = {
     active?: BoolFieldUpdateOperationsInput | boolean
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     id?: StringFieldUpdateOperationsInput | string
     pause?: BoolFieldUpdateOperationsInput | boolean
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
     ended?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type daysCreateInput = {
-    created?: string
+    created?: Date | string
     description?: string
     id?: string
     name?: string
-    updated?: string
+    updated?: Date | string
     active?: boolean
   }
 
   export type daysUncheckedCreateInput = {
-    created?: string
+    created?: Date | string
     description?: string
     id?: string
     name?: string
-    updated?: string
+    updated?: Date | string
     active?: boolean
   }
 
   export type daysUpdateInput = {
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     description?: StringFieldUpdateOperationsInput | string
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
     active?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type daysUncheckedUpdateInput = {
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     description?: StringFieldUpdateOperationsInput | string
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
     active?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type daysCreateManyInput = {
-    created?: string
+    created?: Date | string
     description?: string
     id?: string
     name?: string
-    updated?: string
+    updated?: Date | string
     active?: boolean
   }
 
   export type daysUpdateManyMutationInput = {
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     description?: StringFieldUpdateOperationsInput | string
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
     active?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type daysUncheckedUpdateManyInput = {
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     description?: StringFieldUpdateOperationsInput | string
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
     active?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type headingsCreateInput = {
-    created?: string
+    created?: Date | string
     id?: string
     name?: string
-    updated?: string
+    updated?: Date | string
     day?: string
     active?: boolean
     heading_number?: Decimal | DecimalJsLike | number | string
   }
 
   export type headingsUncheckedCreateInput = {
-    created?: string
+    created?: Date | string
     id?: string
     name?: string
-    updated?: string
+    updated?: Date | string
     day?: string
     active?: boolean
     heading_number?: Decimal | DecimalJsLike | number | string
   }
 
   export type headingsUpdateInput = {
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
     day?: StringFieldUpdateOperationsInput | string
     active?: BoolFieldUpdateOperationsInput | boolean
     heading_number?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
 
   export type headingsUncheckedUpdateInput = {
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
     day?: StringFieldUpdateOperationsInput | string
     active?: BoolFieldUpdateOperationsInput | boolean
     heading_number?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
 
   export type headingsCreateManyInput = {
-    created?: string
+    created?: Date | string
     id?: string
     name?: string
-    updated?: string
+    updated?: Date | string
     day?: string
     active?: boolean
     heading_number?: Decimal | DecimalJsLike | number | string
   }
 
   export type headingsUpdateManyMutationInput = {
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
     day?: StringFieldUpdateOperationsInput | string
     active?: BoolFieldUpdateOperationsInput | boolean
     heading_number?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
 
   export type headingsUncheckedUpdateManyInput = {
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
     day?: StringFieldUpdateOperationsInput | string
     active?: BoolFieldUpdateOperationsInput | boolean
     heading_number?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
@@ -11875,59 +11939,59 @@ export namespace Prisma {
 
   export type stocksCreateInput = {
     bank_name?: string
-    created?: string
+    created?: Date | string
     id?: string
-    updated?: string
+    updated?: Date | string
   }
 
   export type stocksUncheckedCreateInput = {
     bank_name?: string
-    created?: string
+    created?: Date | string
     id?: string
-    updated?: string
+    updated?: Date | string
   }
 
   export type stocksUpdateInput = {
     bank_name?: StringFieldUpdateOperationsInput | string
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     id?: StringFieldUpdateOperationsInput | string
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type stocksUncheckedUpdateInput = {
     bank_name?: StringFieldUpdateOperationsInput | string
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     id?: StringFieldUpdateOperationsInput | string
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type stocksCreateManyInput = {
     bank_name?: string
-    created?: string
+    created?: Date | string
     id?: string
-    updated?: string
+    updated?: Date | string
   }
 
   export type stocksUpdateManyMutationInput = {
     bank_name?: StringFieldUpdateOperationsInput | string
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     id?: StringFieldUpdateOperationsInput | string
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type stocksUncheckedUpdateManyInput = {
     bank_name?: StringFieldUpdateOperationsInput | string
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     id?: StringFieldUpdateOperationsInput | string
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type stocks_headingsCreateInput = {
-    created?: string
+    created?: Date | string
     headings?: string
     id?: string
     stocks?: string
-    updated?: string
+    updated?: Date | string
     previous_price?: Decimal | DecimalJsLike | number | string
     current_price?: Decimal | DecimalJsLike | number | string
     change_in_price?: Decimal | DecimalJsLike | number | string
@@ -11935,11 +11999,11 @@ export namespace Prisma {
   }
 
   export type stocks_headingsUncheckedCreateInput = {
-    created?: string
+    created?: Date | string
     headings?: string
     id?: string
     stocks?: string
-    updated?: string
+    updated?: Date | string
     previous_price?: Decimal | DecimalJsLike | number | string
     current_price?: Decimal | DecimalJsLike | number | string
     change_in_price?: Decimal | DecimalJsLike | number | string
@@ -11947,11 +12011,11 @@ export namespace Prisma {
   }
 
   export type stocks_headingsUpdateInput = {
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     headings?: StringFieldUpdateOperationsInput | string
     id?: StringFieldUpdateOperationsInput | string
     stocks?: StringFieldUpdateOperationsInput | string
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
     previous_price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     current_price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     change_in_price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
@@ -11959,11 +12023,11 @@ export namespace Prisma {
   }
 
   export type stocks_headingsUncheckedUpdateInput = {
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     headings?: StringFieldUpdateOperationsInput | string
     id?: StringFieldUpdateOperationsInput | string
     stocks?: StringFieldUpdateOperationsInput | string
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
     previous_price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     current_price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     change_in_price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
@@ -11971,11 +12035,11 @@ export namespace Prisma {
   }
 
   export type stocks_headingsCreateManyInput = {
-    created?: string
+    created?: Date | string
     headings?: string
     id?: string
     stocks?: string
-    updated?: string
+    updated?: Date | string
     previous_price?: Decimal | DecimalJsLike | number | string
     current_price?: Decimal | DecimalJsLike | number | string
     change_in_price?: Decimal | DecimalJsLike | number | string
@@ -11983,11 +12047,11 @@ export namespace Prisma {
   }
 
   export type stocks_headingsUpdateManyMutationInput = {
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     headings?: StringFieldUpdateOperationsInput | string
     id?: StringFieldUpdateOperationsInput | string
     stocks?: StringFieldUpdateOperationsInput | string
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
     previous_price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     current_price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     change_in_price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
@@ -11995,11 +12059,11 @@ export namespace Prisma {
   }
 
   export type stocks_headingsUncheckedUpdateManyInput = {
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     headings?: StringFieldUpdateOperationsInput | string
     id?: StringFieldUpdateOperationsInput | string
     stocks?: StringFieldUpdateOperationsInput | string
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
     previous_price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     current_price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     change_in_price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
@@ -12007,10 +12071,10 @@ export namespace Prisma {
   }
 
   export type stocks_usersCreateInput = {
-    created?: string
+    created?: Date | string
     id?: string
     stocks?: string
-    updated?: string
+    updated?: Date | string
     users?: string
     share_count?: string
     balance_when_shorting?: string
@@ -12018,10 +12082,10 @@ export namespace Prisma {
   }
 
   export type stocks_usersUncheckedCreateInput = {
-    created?: string
+    created?: Date | string
     id?: string
     stocks?: string
-    updated?: string
+    updated?: Date | string
     users?: string
     share_count?: string
     balance_when_shorting?: string
@@ -12029,10 +12093,10 @@ export namespace Prisma {
   }
 
   export type stocks_usersUpdateInput = {
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     id?: StringFieldUpdateOperationsInput | string
     stocks?: StringFieldUpdateOperationsInput | string
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
     users?: StringFieldUpdateOperationsInput | string
     share_count?: StringFieldUpdateOperationsInput | string
     balance_when_shorting?: StringFieldUpdateOperationsInput | string
@@ -12040,10 +12104,10 @@ export namespace Prisma {
   }
 
   export type stocks_usersUncheckedUpdateInput = {
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     id?: StringFieldUpdateOperationsInput | string
     stocks?: StringFieldUpdateOperationsInput | string
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
     users?: StringFieldUpdateOperationsInput | string
     share_count?: StringFieldUpdateOperationsInput | string
     balance_when_shorting?: StringFieldUpdateOperationsInput | string
@@ -12051,10 +12115,10 @@ export namespace Prisma {
   }
 
   export type stocks_usersCreateManyInput = {
-    created?: string
+    created?: Date | string
     id?: string
     stocks?: string
-    updated?: string
+    updated?: Date | string
     users?: string
     share_count?: string
     balance_when_shorting?: string
@@ -12062,10 +12126,10 @@ export namespace Prisma {
   }
 
   export type stocks_usersUpdateManyMutationInput = {
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     id?: StringFieldUpdateOperationsInput | string
     stocks?: StringFieldUpdateOperationsInput | string
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
     users?: StringFieldUpdateOperationsInput | string
     share_count?: StringFieldUpdateOperationsInput | string
     balance_when_shorting?: StringFieldUpdateOperationsInput | string
@@ -12073,10 +12137,10 @@ export namespace Prisma {
   }
 
   export type stocks_usersUncheckedUpdateManyInput = {
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     id?: StringFieldUpdateOperationsInput | string
     stocks?: StringFieldUpdateOperationsInput | string
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
     users?: StringFieldUpdateOperationsInput | string
     share_count?: StringFieldUpdateOperationsInput | string
     balance_when_shorting?: StringFieldUpdateOperationsInput | string
@@ -12087,9 +12151,9 @@ export namespace Prisma {
     active?: boolean
     competition_end?: string
     competition_start?: string
-    created?: string
+    created?: Date | string
     id?: string
-    updated?: string
+    updated?: Date | string
     round_time?: Decimal | DecimalJsLike | number | string
   }
 
@@ -12097,9 +12161,9 @@ export namespace Prisma {
     active?: boolean
     competition_end?: string
     competition_start?: string
-    created?: string
+    created?: Date | string
     id?: string
-    updated?: string
+    updated?: Date | string
     round_time?: Decimal | DecimalJsLike | number | string
   }
 
@@ -12107,9 +12171,9 @@ export namespace Prisma {
     active?: BoolFieldUpdateOperationsInput | boolean
     competition_end?: StringFieldUpdateOperationsInput | string
     competition_start?: StringFieldUpdateOperationsInput | string
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     id?: StringFieldUpdateOperationsInput | string
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
     round_time?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
 
@@ -12117,9 +12181,9 @@ export namespace Prisma {
     active?: BoolFieldUpdateOperationsInput | boolean
     competition_end?: StringFieldUpdateOperationsInput | string
     competition_start?: StringFieldUpdateOperationsInput | string
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     id?: StringFieldUpdateOperationsInput | string
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
     round_time?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
 
@@ -12127,9 +12191,9 @@ export namespace Prisma {
     active?: boolean
     competition_end?: string
     competition_start?: string
-    created?: string
+    created?: Date | string
     id?: string
-    updated?: string
+    updated?: Date | string
     round_time?: Decimal | DecimalJsLike | number | string
   }
 
@@ -12137,9 +12201,9 @@ export namespace Prisma {
     active?: BoolFieldUpdateOperationsInput | boolean
     competition_end?: StringFieldUpdateOperationsInput | string
     competition_start?: StringFieldUpdateOperationsInput | string
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     id?: StringFieldUpdateOperationsInput | string
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
     round_time?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
 
@@ -12147,22 +12211,22 @@ export namespace Prisma {
     active?: BoolFieldUpdateOperationsInput | boolean
     competition_end?: StringFieldUpdateOperationsInput | string
     competition_start?: StringFieldUpdateOperationsInput | string
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     id?: StringFieldUpdateOperationsInput | string
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
     round_time?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
 
   export type usersCreateInput = {
     avatar?: string
-    created?: string
+    created?: Date | string
     email?: string
     emailVisibility?: boolean
     id?: string
     name?: string
     password: string
     tokenKey: string
-    updated?: string
+    updated?: Date | string
     username: string
     verified?: boolean
     type?: string
@@ -12172,14 +12236,14 @@ export namespace Prisma {
 
   export type usersUncheckedCreateInput = {
     avatar?: string
-    created?: string
+    created?: Date | string
     email?: string
     emailVisibility?: boolean
     id?: string
     name?: string
     password: string
     tokenKey: string
-    updated?: string
+    updated?: Date | string
     username: string
     verified?: boolean
     type?: string
@@ -12189,14 +12253,14 @@ export namespace Prisma {
 
   export type usersUpdateInput = {
     avatar?: StringFieldUpdateOperationsInput | string
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     email?: StringFieldUpdateOperationsInput | string
     emailVisibility?: BoolFieldUpdateOperationsInput | boolean
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     tokenKey?: StringFieldUpdateOperationsInput | string
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
     username?: StringFieldUpdateOperationsInput | string
     verified?: BoolFieldUpdateOperationsInput | boolean
     type?: StringFieldUpdateOperationsInput | string
@@ -12206,14 +12270,14 @@ export namespace Prisma {
 
   export type usersUncheckedUpdateInput = {
     avatar?: StringFieldUpdateOperationsInput | string
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     email?: StringFieldUpdateOperationsInput | string
     emailVisibility?: BoolFieldUpdateOperationsInput | boolean
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     tokenKey?: StringFieldUpdateOperationsInput | string
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
     username?: StringFieldUpdateOperationsInput | string
     verified?: BoolFieldUpdateOperationsInput | boolean
     type?: StringFieldUpdateOperationsInput | string
@@ -12223,14 +12287,14 @@ export namespace Prisma {
 
   export type usersCreateManyInput = {
     avatar?: string
-    created?: string
+    created?: Date | string
     email?: string
     emailVisibility?: boolean
     id?: string
     name?: string
     password: string
     tokenKey: string
-    updated?: string
+    updated?: Date | string
     username: string
     verified?: boolean
     type?: string
@@ -12239,14 +12303,14 @@ export namespace Prisma {
 
   export type usersUpdateManyMutationInput = {
     avatar?: StringFieldUpdateOperationsInput | string
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     email?: StringFieldUpdateOperationsInput | string
     emailVisibility?: BoolFieldUpdateOperationsInput | boolean
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     tokenKey?: StringFieldUpdateOperationsInput | string
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
     username?: StringFieldUpdateOperationsInput | string
     verified?: BoolFieldUpdateOperationsInput | boolean
     type?: StringFieldUpdateOperationsInput | string
@@ -12255,14 +12319,14 @@ export namespace Prisma {
 
   export type usersUncheckedUpdateManyInput = {
     avatar?: StringFieldUpdateOperationsInput | string
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     email?: StringFieldUpdateOperationsInput | string
     emailVisibility?: BoolFieldUpdateOperationsInput | boolean
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     tokenKey?: StringFieldUpdateOperationsInput | string
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
     username?: StringFieldUpdateOperationsInput | string
     verified?: BoolFieldUpdateOperationsInput | boolean
     type?: StringFieldUpdateOperationsInput | string
@@ -12315,10 +12379,21 @@ export namespace Prisma {
     not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[]
-    notIn?: string[]
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -12326,6 +12401,7 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
@@ -12364,10 +12440,24 @@ export namespace Prisma {
     _max?: NestedBoolFilter<$PrismaModel>
   }
 
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[]
-    notIn?: string[]
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -12375,6 +12465,7 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
     not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
@@ -12410,8 +12501,8 @@ export namespace Prisma {
 
   export type DecimalFilter<$PrismaModel = never> = {
     equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    in?: Decimal[] | DecimalJsLike[] | number[] | string[]
-    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[]
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
     lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
@@ -12459,8 +12550,8 @@ export namespace Prisma {
 
   export type DecimalWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    in?: Decimal[] | DecimalJsLike[] | number[] | string[]
-    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[]
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
     lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
@@ -12698,6 +12789,10 @@ export namespace Prisma {
     set?: boolean
   }
 
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -12771,10 +12866,21 @@ export namespace Prisma {
     not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[]
-    notIn?: string[]
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -12795,8 +12901,8 @@ export namespace Prisma {
 
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -12804,10 +12910,24 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[]
-    notIn?: string[]
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -12823,8 +12943,8 @@ export namespace Prisma {
 
   export type NestedDecimalFilter<$PrismaModel = never> = {
     equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    in?: Decimal[] | DecimalJsLike[] | number[] | string[]
-    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[]
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
     lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
@@ -12834,8 +12954,8 @@ export namespace Prisma {
 
   export type NestedDecimalWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    in?: Decimal[] | DecimalJsLike[] | number[] | string[]
-    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[]
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
     lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
@@ -12865,6 +12985,7 @@ export namespace Prisma {
 
   export type sessionCreateManyUserInputEnvelope = {
     data: sessionCreateManyUserInput | sessionCreateManyUserInput[]
+    skipDuplicates?: boolean
   }
 
   export type sessionUpsertWithWhereUniqueWithoutUserInput = {
@@ -12894,14 +13015,14 @@ export namespace Prisma {
 
   export type usersCreateWithoutSessionInput = {
     avatar?: string
-    created?: string
+    created?: Date | string
     email?: string
     emailVisibility?: boolean
     id?: string
     name?: string
     password: string
     tokenKey: string
-    updated?: string
+    updated?: Date | string
     username: string
     verified?: boolean
     type?: string
@@ -12910,14 +13031,14 @@ export namespace Prisma {
 
   export type usersUncheckedCreateWithoutSessionInput = {
     avatar?: string
-    created?: string
+    created?: Date | string
     email?: string
     emailVisibility?: boolean
     id?: string
     name?: string
     password: string
     tokenKey: string
-    updated?: string
+    updated?: Date | string
     username: string
     verified?: boolean
     type?: string
@@ -12942,14 +13063,14 @@ export namespace Prisma {
 
   export type usersUpdateWithoutSessionInput = {
     avatar?: StringFieldUpdateOperationsInput | string
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     email?: StringFieldUpdateOperationsInput | string
     emailVisibility?: BoolFieldUpdateOperationsInput | boolean
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     tokenKey?: StringFieldUpdateOperationsInput | string
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
     username?: StringFieldUpdateOperationsInput | string
     verified?: BoolFieldUpdateOperationsInput | boolean
     type?: StringFieldUpdateOperationsInput | string
@@ -12958,14 +13079,14 @@ export namespace Prisma {
 
   export type usersUncheckedUpdateWithoutSessionInput = {
     avatar?: StringFieldUpdateOperationsInput | string
-    created?: StringFieldUpdateOperationsInput | string
+    created?: DateTimeFieldUpdateOperationsInput | Date | string
     email?: StringFieldUpdateOperationsInput | string
     emailVisibility?: BoolFieldUpdateOperationsInput | boolean
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     tokenKey?: StringFieldUpdateOperationsInput | string
-    updated?: StringFieldUpdateOperationsInput | string
+    updated?: DateTimeFieldUpdateOperationsInput | Date | string
     username?: StringFieldUpdateOperationsInput | string
     verified?: BoolFieldUpdateOperationsInput | boolean
     type?: StringFieldUpdateOperationsInput | string

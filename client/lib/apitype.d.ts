@@ -2017,26 +2017,34 @@ export interface components {
         SessionScalarFieldEnum: "id" | "userId" | "expiresAt";
         /** @enum {string} */
         SortOrder: "asc" | "desc";
+        /** @enum {string} */
+        QueryMode: "default" | "insensitive";
         Competition: {
             active: boolean;
+            /** Format: date-time */
             created: string;
             id: string;
             pause: boolean;
+            /** Format: date-time */
             updated: string;
             ended: boolean;
         };
         Days: {
+            /** Format: date-time */
             created: string;
             description: string;
             id: string;
             name: string;
+            /** Format: date-time */
             updated: string;
             active: boolean;
         };
         Headings: {
+            /** Format: date-time */
             created: string;
             id: string;
             name: string;
+            /** Format: date-time */
             updated: string;
             day: string;
             active: boolean;
@@ -2044,15 +2052,19 @@ export interface components {
         };
         Stocks: {
             bank_name: string;
+            /** Format: date-time */
             created: string;
             id: string;
+            /** Format: date-time */
             updated: string;
         };
         Stocks_headings: {
+            /** Format: date-time */
             created: string;
             headings: string;
             id: string;
             stocks: string;
+            /** Format: date-time */
             updated: string;
             previous_price: string | number;
             current_price: string | number;
@@ -2060,9 +2072,11 @@ export interface components {
             percentage_change_in_price: string;
         };
         Stocks_users: {
+            /** Format: date-time */
             created: string;
             id: string;
             stocks: string;
+            /** Format: date-time */
             updated: string;
             users: string;
             share_count: string;
@@ -2073,13 +2087,16 @@ export interface components {
             active: boolean;
             competition_end: string;
             competition_start: string;
+            /** Format: date-time */
             created: string;
             id: string;
+            /** Format: date-time */
             updated: string;
             round_time: string | number;
         };
         Users: {
             avatar: string;
+            /** Format: date-time */
             created: string;
             email: string;
             emailVisibility: boolean;
@@ -2087,6 +2104,7 @@ export interface components {
             name: string;
             password: string;
             tokenKey: string;
+            /** Format: date-time */
             updated: string;
             username: string;
             verified: boolean;
@@ -2105,10 +2123,10 @@ export interface components {
             OR?: components["schemas"]["CompetitionWhereInput"][];
             NOT?: components["schemas"]["CompetitionWhereInput"] | components["schemas"]["CompetitionWhereInput"][];
             active?: components["schemas"]["BoolFilter"] | boolean;
-            created?: components["schemas"]["StringFilter"] | string;
+            created?: components["schemas"]["DateTimeFilter"] | string;
             id?: components["schemas"]["StringFilter"] | string;
             pause?: components["schemas"]["BoolFilter"] | boolean;
-            updated?: components["schemas"]["StringFilter"] | string;
+            updated?: components["schemas"]["DateTimeFilter"] | string;
             ended?: components["schemas"]["BoolFilter"] | boolean;
         };
         CompetitionOrderByWithRelationInput: {
@@ -2125,9 +2143,9 @@ export interface components {
             OR?: components["schemas"]["CompetitionWhereInput"][];
             NOT?: components["schemas"]["CompetitionWhereInput"] | components["schemas"]["CompetitionWhereInput"][];
             active?: components["schemas"]["BoolFilter"] | boolean;
-            created?: components["schemas"]["StringFilter"] | string;
+            created?: components["schemas"]["DateTimeFilter"] | string;
             pause?: components["schemas"]["BoolFilter"] | boolean;
-            updated?: components["schemas"]["StringFilter"] | string;
+            updated?: components["schemas"]["DateTimeFilter"] | string;
             ended?: components["schemas"]["BoolFilter"] | boolean;
         };
         CompetitionScalarWhereWithAggregatesInput: {
@@ -2135,21 +2153,21 @@ export interface components {
             OR?: components["schemas"]["CompetitionScalarWhereWithAggregatesInput"][];
             NOT?: components["schemas"]["CompetitionScalarWhereWithAggregatesInput"] | components["schemas"]["CompetitionScalarWhereWithAggregatesInput"][];
             active?: components["schemas"]["BoolWithAggregatesFilter"] | boolean;
-            created?: components["schemas"]["StringWithAggregatesFilter"] | string;
+            created?: components["schemas"]["DateTimeWithAggregatesFilter"] | string;
             id?: components["schemas"]["StringWithAggregatesFilter"] | string;
             pause?: components["schemas"]["BoolWithAggregatesFilter"] | boolean;
-            updated?: components["schemas"]["StringWithAggregatesFilter"] | string;
+            updated?: components["schemas"]["DateTimeWithAggregatesFilter"] | string;
             ended?: components["schemas"]["BoolWithAggregatesFilter"] | boolean;
         };
         DaysWhereInput: {
             AND?: components["schemas"]["DaysWhereInput"] | components["schemas"]["DaysWhereInput"][];
             OR?: components["schemas"]["DaysWhereInput"][];
             NOT?: components["schemas"]["DaysWhereInput"] | components["schemas"]["DaysWhereInput"][];
-            created?: components["schemas"]["StringFilter"] | string;
+            created?: components["schemas"]["DateTimeFilter"] | string;
             description?: components["schemas"]["StringFilter"] | string;
             id?: components["schemas"]["StringFilter"] | string;
             name?: components["schemas"]["StringFilter"] | string;
-            updated?: components["schemas"]["StringFilter"] | string;
+            updated?: components["schemas"]["DateTimeFilter"] | string;
             active?: components["schemas"]["BoolFilter"] | boolean;
         };
         DaysOrderByWithRelationInput: {
@@ -2165,31 +2183,31 @@ export interface components {
             AND?: components["schemas"]["DaysWhereInput"] | components["schemas"]["DaysWhereInput"][];
             OR?: components["schemas"]["DaysWhereInput"][];
             NOT?: components["schemas"]["DaysWhereInput"] | components["schemas"]["DaysWhereInput"][];
-            created?: components["schemas"]["StringFilter"] | string;
+            created?: components["schemas"]["DateTimeFilter"] | string;
             description?: components["schemas"]["StringFilter"] | string;
             name?: components["schemas"]["StringFilter"] | string;
-            updated?: components["schemas"]["StringFilter"] | string;
+            updated?: components["schemas"]["DateTimeFilter"] | string;
             active?: components["schemas"]["BoolFilter"] | boolean;
         };
         DaysScalarWhereWithAggregatesInput: {
             AND?: components["schemas"]["DaysScalarWhereWithAggregatesInput"] | components["schemas"]["DaysScalarWhereWithAggregatesInput"][];
             OR?: components["schemas"]["DaysScalarWhereWithAggregatesInput"][];
             NOT?: components["schemas"]["DaysScalarWhereWithAggregatesInput"] | components["schemas"]["DaysScalarWhereWithAggregatesInput"][];
-            created?: components["schemas"]["StringWithAggregatesFilter"] | string;
+            created?: components["schemas"]["DateTimeWithAggregatesFilter"] | string;
             description?: components["schemas"]["StringWithAggregatesFilter"] | string;
             id?: components["schemas"]["StringWithAggregatesFilter"] | string;
             name?: components["schemas"]["StringWithAggregatesFilter"] | string;
-            updated?: components["schemas"]["StringWithAggregatesFilter"] | string;
+            updated?: components["schemas"]["DateTimeWithAggregatesFilter"] | string;
             active?: components["schemas"]["BoolWithAggregatesFilter"] | boolean;
         };
         HeadingsWhereInput: {
             AND?: components["schemas"]["HeadingsWhereInput"] | components["schemas"]["HeadingsWhereInput"][];
             OR?: components["schemas"]["HeadingsWhereInput"][];
             NOT?: components["schemas"]["HeadingsWhereInput"] | components["schemas"]["HeadingsWhereInput"][];
-            created?: components["schemas"]["StringFilter"] | string;
+            created?: components["schemas"]["DateTimeFilter"] | string;
             id?: components["schemas"]["StringFilter"] | string;
             name?: components["schemas"]["StringFilter"] | string;
-            updated?: components["schemas"]["StringFilter"] | string;
+            updated?: components["schemas"]["DateTimeFilter"] | string;
             day?: components["schemas"]["StringFilter"] | string;
             active?: components["schemas"]["BoolFilter"] | boolean;
             heading_number?: components["schemas"]["DecimalFilter"] | (string | number);
@@ -2208,9 +2226,9 @@ export interface components {
             AND?: components["schemas"]["HeadingsWhereInput"] | components["schemas"]["HeadingsWhereInput"][];
             OR?: components["schemas"]["HeadingsWhereInput"][];
             NOT?: components["schemas"]["HeadingsWhereInput"] | components["schemas"]["HeadingsWhereInput"][];
-            created?: components["schemas"]["StringFilter"] | string;
+            created?: components["schemas"]["DateTimeFilter"] | string;
             name?: components["schemas"]["StringFilter"] | string;
-            updated?: components["schemas"]["StringFilter"] | string;
+            updated?: components["schemas"]["DateTimeFilter"] | string;
             day?: components["schemas"]["StringFilter"] | string;
             active?: components["schemas"]["BoolFilter"] | boolean;
             heading_number?: components["schemas"]["DecimalFilter"] | (string | number);
@@ -2219,10 +2237,10 @@ export interface components {
             AND?: components["schemas"]["HeadingsScalarWhereWithAggregatesInput"] | components["schemas"]["HeadingsScalarWhereWithAggregatesInput"][];
             OR?: components["schemas"]["HeadingsScalarWhereWithAggregatesInput"][];
             NOT?: components["schemas"]["HeadingsScalarWhereWithAggregatesInput"] | components["schemas"]["HeadingsScalarWhereWithAggregatesInput"][];
-            created?: components["schemas"]["StringWithAggregatesFilter"] | string;
+            created?: components["schemas"]["DateTimeWithAggregatesFilter"] | string;
             id?: components["schemas"]["StringWithAggregatesFilter"] | string;
             name?: components["schemas"]["StringWithAggregatesFilter"] | string;
-            updated?: components["schemas"]["StringWithAggregatesFilter"] | string;
+            updated?: components["schemas"]["DateTimeWithAggregatesFilter"] | string;
             day?: components["schemas"]["StringWithAggregatesFilter"] | string;
             active?: components["schemas"]["BoolWithAggregatesFilter"] | boolean;
             heading_number?: components["schemas"]["DecimalWithAggregatesFilter"] | (string | number);
@@ -2232,9 +2250,9 @@ export interface components {
             OR?: components["schemas"]["StocksWhereInput"][];
             NOT?: components["schemas"]["StocksWhereInput"] | components["schemas"]["StocksWhereInput"][];
             bank_name?: components["schemas"]["StringFilter"] | string;
-            created?: components["schemas"]["StringFilter"] | string;
+            created?: components["schemas"]["DateTimeFilter"] | string;
             id?: components["schemas"]["StringFilter"] | string;
-            updated?: components["schemas"]["StringFilter"] | string;
+            updated?: components["schemas"]["DateTimeFilter"] | string;
         };
         StocksOrderByWithRelationInput: {
             bank_name?: components["schemas"]["SortOrder"];
@@ -2248,27 +2266,27 @@ export interface components {
             OR?: components["schemas"]["StocksWhereInput"][];
             NOT?: components["schemas"]["StocksWhereInput"] | components["schemas"]["StocksWhereInput"][];
             bank_name?: components["schemas"]["StringFilter"] | string;
-            created?: components["schemas"]["StringFilter"] | string;
-            updated?: components["schemas"]["StringFilter"] | string;
+            created?: components["schemas"]["DateTimeFilter"] | string;
+            updated?: components["schemas"]["DateTimeFilter"] | string;
         };
         StocksScalarWhereWithAggregatesInput: {
             AND?: components["schemas"]["StocksScalarWhereWithAggregatesInput"] | components["schemas"]["StocksScalarWhereWithAggregatesInput"][];
             OR?: components["schemas"]["StocksScalarWhereWithAggregatesInput"][];
             NOT?: components["schemas"]["StocksScalarWhereWithAggregatesInput"] | components["schemas"]["StocksScalarWhereWithAggregatesInput"][];
             bank_name?: components["schemas"]["StringWithAggregatesFilter"] | string;
-            created?: components["schemas"]["StringWithAggregatesFilter"] | string;
+            created?: components["schemas"]["DateTimeWithAggregatesFilter"] | string;
             id?: components["schemas"]["StringWithAggregatesFilter"] | string;
-            updated?: components["schemas"]["StringWithAggregatesFilter"] | string;
+            updated?: components["schemas"]["DateTimeWithAggregatesFilter"] | string;
         };
         Stocks_headingsWhereInput: {
             AND?: components["schemas"]["Stocks_headingsWhereInput"] | components["schemas"]["Stocks_headingsWhereInput"][];
             OR?: components["schemas"]["Stocks_headingsWhereInput"][];
             NOT?: components["schemas"]["Stocks_headingsWhereInput"] | components["schemas"]["Stocks_headingsWhereInput"][];
-            created?: components["schemas"]["StringFilter"] | string;
+            created?: components["schemas"]["DateTimeFilter"] | string;
             headings?: components["schemas"]["StringFilter"] | string;
             id?: components["schemas"]["StringFilter"] | string;
             stocks?: components["schemas"]["StringFilter"] | string;
-            updated?: components["schemas"]["StringFilter"] | string;
+            updated?: components["schemas"]["DateTimeFilter"] | string;
             previous_price?: components["schemas"]["DecimalFilter"] | (string | number);
             current_price?: components["schemas"]["DecimalFilter"] | (string | number);
             change_in_price?: components["schemas"]["DecimalFilter"] | (string | number);
@@ -2290,10 +2308,10 @@ export interface components {
             AND?: components["schemas"]["Stocks_headingsWhereInput"] | components["schemas"]["Stocks_headingsWhereInput"][];
             OR?: components["schemas"]["Stocks_headingsWhereInput"][];
             NOT?: components["schemas"]["Stocks_headingsWhereInput"] | components["schemas"]["Stocks_headingsWhereInput"][];
-            created?: components["schemas"]["StringFilter"] | string;
+            created?: components["schemas"]["DateTimeFilter"] | string;
             headings?: components["schemas"]["StringFilter"] | string;
             stocks?: components["schemas"]["StringFilter"] | string;
-            updated?: components["schemas"]["StringFilter"] | string;
+            updated?: components["schemas"]["DateTimeFilter"] | string;
             previous_price?: components["schemas"]["DecimalFilter"] | (string | number);
             current_price?: components["schemas"]["DecimalFilter"] | (string | number);
             change_in_price?: components["schemas"]["DecimalFilter"] | (string | number);
@@ -2303,11 +2321,11 @@ export interface components {
             AND?: components["schemas"]["Stocks_headingsScalarWhereWithAggregatesInput"] | components["schemas"]["Stocks_headingsScalarWhereWithAggregatesInput"][];
             OR?: components["schemas"]["Stocks_headingsScalarWhereWithAggregatesInput"][];
             NOT?: components["schemas"]["Stocks_headingsScalarWhereWithAggregatesInput"] | components["schemas"]["Stocks_headingsScalarWhereWithAggregatesInput"][];
-            created?: components["schemas"]["StringWithAggregatesFilter"] | string;
+            created?: components["schemas"]["DateTimeWithAggregatesFilter"] | string;
             headings?: components["schemas"]["StringWithAggregatesFilter"] | string;
             id?: components["schemas"]["StringWithAggregatesFilter"] | string;
             stocks?: components["schemas"]["StringWithAggregatesFilter"] | string;
-            updated?: components["schemas"]["StringWithAggregatesFilter"] | string;
+            updated?: components["schemas"]["DateTimeWithAggregatesFilter"] | string;
             previous_price?: components["schemas"]["DecimalWithAggregatesFilter"] | (string | number);
             current_price?: components["schemas"]["DecimalWithAggregatesFilter"] | (string | number);
             change_in_price?: components["schemas"]["DecimalWithAggregatesFilter"] | (string | number);
@@ -2317,10 +2335,10 @@ export interface components {
             AND?: components["schemas"]["Stocks_usersWhereInput"] | components["schemas"]["Stocks_usersWhereInput"][];
             OR?: components["schemas"]["Stocks_usersWhereInput"][];
             NOT?: components["schemas"]["Stocks_usersWhereInput"] | components["schemas"]["Stocks_usersWhereInput"][];
-            created?: components["schemas"]["StringFilter"] | string;
+            created?: components["schemas"]["DateTimeFilter"] | string;
             id?: components["schemas"]["StringFilter"] | string;
             stocks?: components["schemas"]["StringFilter"] | string;
-            updated?: components["schemas"]["StringFilter"] | string;
+            updated?: components["schemas"]["DateTimeFilter"] | string;
             users?: components["schemas"]["StringFilter"] | string;
             share_count?: components["schemas"]["StringFilter"] | string;
             balance_when_shorting?: components["schemas"]["StringFilter"] | string;
@@ -2341,9 +2359,9 @@ export interface components {
             AND?: components["schemas"]["Stocks_usersWhereInput"] | components["schemas"]["Stocks_usersWhereInput"][];
             OR?: components["schemas"]["Stocks_usersWhereInput"][];
             NOT?: components["schemas"]["Stocks_usersWhereInput"] | components["schemas"]["Stocks_usersWhereInput"][];
-            created?: components["schemas"]["StringFilter"] | string;
+            created?: components["schemas"]["DateTimeFilter"] | string;
             stocks?: components["schemas"]["StringFilter"] | string;
-            updated?: components["schemas"]["StringFilter"] | string;
+            updated?: components["schemas"]["DateTimeFilter"] | string;
             users?: components["schemas"]["StringFilter"] | string;
             share_count?: components["schemas"]["StringFilter"] | string;
             balance_when_shorting?: components["schemas"]["StringFilter"] | string;
@@ -2353,10 +2371,10 @@ export interface components {
             AND?: components["schemas"]["Stocks_usersScalarWhereWithAggregatesInput"] | components["schemas"]["Stocks_usersScalarWhereWithAggregatesInput"][];
             OR?: components["schemas"]["Stocks_usersScalarWhereWithAggregatesInput"][];
             NOT?: components["schemas"]["Stocks_usersScalarWhereWithAggregatesInput"] | components["schemas"]["Stocks_usersScalarWhereWithAggregatesInput"][];
-            created?: components["schemas"]["StringWithAggregatesFilter"] | string;
+            created?: components["schemas"]["DateTimeWithAggregatesFilter"] | string;
             id?: components["schemas"]["StringWithAggregatesFilter"] | string;
             stocks?: components["schemas"]["StringWithAggregatesFilter"] | string;
-            updated?: components["schemas"]["StringWithAggregatesFilter"] | string;
+            updated?: components["schemas"]["DateTimeWithAggregatesFilter"] | string;
             users?: components["schemas"]["StringWithAggregatesFilter"] | string;
             share_count?: components["schemas"]["StringWithAggregatesFilter"] | string;
             balance_when_shorting?: components["schemas"]["StringWithAggregatesFilter"] | string;
@@ -2369,9 +2387,9 @@ export interface components {
             active?: components["schemas"]["BoolFilter"] | boolean;
             competition_end?: components["schemas"]["StringFilter"] | string;
             competition_start?: components["schemas"]["StringFilter"] | string;
-            created?: components["schemas"]["StringFilter"] | string;
+            created?: components["schemas"]["DateTimeFilter"] | string;
             id?: components["schemas"]["StringFilter"] | string;
-            updated?: components["schemas"]["StringFilter"] | string;
+            updated?: components["schemas"]["DateTimeFilter"] | string;
             round_time?: components["schemas"]["DecimalFilter"] | (string | number);
         };
         TimerOrderByWithRelationInput: {
@@ -2391,8 +2409,8 @@ export interface components {
             active?: components["schemas"]["BoolFilter"] | boolean;
             competition_end?: components["schemas"]["StringFilter"] | string;
             competition_start?: components["schemas"]["StringFilter"] | string;
-            created?: components["schemas"]["StringFilter"] | string;
-            updated?: components["schemas"]["StringFilter"] | string;
+            created?: components["schemas"]["DateTimeFilter"] | string;
+            updated?: components["schemas"]["DateTimeFilter"] | string;
             round_time?: components["schemas"]["DecimalFilter"] | (string | number);
         };
         TimerScalarWhereWithAggregatesInput: {
@@ -2402,9 +2420,9 @@ export interface components {
             active?: components["schemas"]["BoolWithAggregatesFilter"] | boolean;
             competition_end?: components["schemas"]["StringWithAggregatesFilter"] | string;
             competition_start?: components["schemas"]["StringWithAggregatesFilter"] | string;
-            created?: components["schemas"]["StringWithAggregatesFilter"] | string;
+            created?: components["schemas"]["DateTimeWithAggregatesFilter"] | string;
             id?: components["schemas"]["StringWithAggregatesFilter"] | string;
-            updated?: components["schemas"]["StringWithAggregatesFilter"] | string;
+            updated?: components["schemas"]["DateTimeWithAggregatesFilter"] | string;
             round_time?: components["schemas"]["DecimalWithAggregatesFilter"] | (string | number);
         };
         UsersWhereInput: {
@@ -2412,14 +2430,14 @@ export interface components {
             OR?: components["schemas"]["UsersWhereInput"][];
             NOT?: components["schemas"]["UsersWhereInput"] | components["schemas"]["UsersWhereInput"][];
             avatar?: components["schemas"]["StringFilter"] | string;
-            created?: components["schemas"]["StringFilter"] | string;
+            created?: components["schemas"]["DateTimeFilter"] | string;
             email?: components["schemas"]["StringFilter"] | string;
             emailVisibility?: components["schemas"]["BoolFilter"] | boolean;
             id?: components["schemas"]["StringFilter"] | string;
             name?: components["schemas"]["StringFilter"] | string;
             password?: components["schemas"]["StringFilter"] | string;
             tokenKey?: components["schemas"]["StringFilter"] | string;
-            updated?: components["schemas"]["StringFilter"] | string;
+            updated?: components["schemas"]["DateTimeFilter"] | string;
             username?: components["schemas"]["StringFilter"] | string;
             verified?: components["schemas"]["BoolFilter"] | boolean;
             type?: components["schemas"]["StringFilter"] | string;
@@ -2450,12 +2468,12 @@ export interface components {
             OR?: components["schemas"]["UsersWhereInput"][];
             NOT?: components["schemas"]["UsersWhereInput"] | components["schemas"]["UsersWhereInput"][];
             avatar?: components["schemas"]["StringFilter"] | string;
-            created?: components["schemas"]["StringFilter"] | string;
+            created?: components["schemas"]["DateTimeFilter"] | string;
             email?: components["schemas"]["StringFilter"] | string;
             emailVisibility?: components["schemas"]["BoolFilter"] | boolean;
             name?: components["schemas"]["StringFilter"] | string;
             password?: components["schemas"]["StringFilter"] | string;
-            updated?: components["schemas"]["StringFilter"] | string;
+            updated?: components["schemas"]["DateTimeFilter"] | string;
             verified?: components["schemas"]["BoolFilter"] | boolean;
             type?: components["schemas"]["StringFilter"] | string;
             wallet?: components["schemas"]["StringFilter"] | string;
@@ -2466,14 +2484,14 @@ export interface components {
             OR?: components["schemas"]["UsersScalarWhereWithAggregatesInput"][];
             NOT?: components["schemas"]["UsersScalarWhereWithAggregatesInput"] | components["schemas"]["UsersScalarWhereWithAggregatesInput"][];
             avatar?: components["schemas"]["StringWithAggregatesFilter"] | string;
-            created?: components["schemas"]["StringWithAggregatesFilter"] | string;
+            created?: components["schemas"]["DateTimeWithAggregatesFilter"] | string;
             email?: components["schemas"]["StringWithAggregatesFilter"] | string;
             emailVisibility?: components["schemas"]["BoolWithAggregatesFilter"] | boolean;
             id?: components["schemas"]["StringWithAggregatesFilter"] | string;
             name?: components["schemas"]["StringWithAggregatesFilter"] | string;
             password?: components["schemas"]["StringWithAggregatesFilter"] | string;
             tokenKey?: components["schemas"]["StringWithAggregatesFilter"] | string;
-            updated?: components["schemas"]["StringWithAggregatesFilter"] | string;
+            updated?: components["schemas"]["DateTimeWithAggregatesFilter"] | string;
             username?: components["schemas"]["StringWithAggregatesFilter"] | string;
             verified?: components["schemas"]["BoolWithAggregatesFilter"] | boolean;
             type?: components["schemas"]["StringWithAggregatesFilter"] | string;
@@ -2513,133 +2531,151 @@ export interface components {
         };
         CompetitionCreateInput: {
             active?: boolean;
+            /** Format: date-time */
             created?: string;
             id?: string;
             pause?: boolean;
+            /** Format: date-time */
             updated?: string;
             ended?: boolean;
         };
         CompetitionUpdateInput: {
             active?: boolean | components["schemas"]["BoolFieldUpdateOperationsInput"];
-            created?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            created?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             id?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             pause?: boolean | components["schemas"]["BoolFieldUpdateOperationsInput"];
-            updated?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            updated?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             ended?: boolean | components["schemas"]["BoolFieldUpdateOperationsInput"];
         };
         CompetitionCreateManyInput: {
             active?: boolean;
+            /** Format: date-time */
             created?: string;
             id?: string;
             pause?: boolean;
+            /** Format: date-time */
             updated?: string;
             ended?: boolean;
         };
         CompetitionUpdateManyMutationInput: {
             active?: boolean | components["schemas"]["BoolFieldUpdateOperationsInput"];
-            created?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            created?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             id?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             pause?: boolean | components["schemas"]["BoolFieldUpdateOperationsInput"];
-            updated?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            updated?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             ended?: boolean | components["schemas"]["BoolFieldUpdateOperationsInput"];
         };
         DaysCreateInput: {
+            /** Format: date-time */
             created?: string;
             description?: string;
             id?: string;
             name?: string;
+            /** Format: date-time */
             updated?: string;
             active?: boolean;
         };
         DaysUpdateInput: {
-            created?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            created?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             description?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             id?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             name?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
-            updated?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            updated?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             active?: boolean | components["schemas"]["BoolFieldUpdateOperationsInput"];
         };
         DaysCreateManyInput: {
+            /** Format: date-time */
             created?: string;
             description?: string;
             id?: string;
             name?: string;
+            /** Format: date-time */
             updated?: string;
             active?: boolean;
         };
         DaysUpdateManyMutationInput: {
-            created?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            created?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             description?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             id?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             name?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
-            updated?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            updated?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             active?: boolean | components["schemas"]["BoolFieldUpdateOperationsInput"];
         };
         HeadingsCreateInput: {
+            /** Format: date-time */
             created?: string;
             id?: string;
             name?: string;
+            /** Format: date-time */
             updated?: string;
             day?: string;
             active?: boolean;
             heading_number?: string | number;
         };
         HeadingsUpdateInput: {
-            created?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            created?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             id?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             name?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
-            updated?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            updated?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             day?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             active?: boolean | components["schemas"]["BoolFieldUpdateOperationsInput"];
             heading_number?: (string | number) | components["schemas"]["DecimalFieldUpdateOperationsInput"];
         };
         HeadingsCreateManyInput: {
+            /** Format: date-time */
             created?: string;
             id?: string;
             name?: string;
+            /** Format: date-time */
             updated?: string;
             day?: string;
             active?: boolean;
             heading_number?: string | number;
         };
         HeadingsUpdateManyMutationInput: {
-            created?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            created?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             id?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             name?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
-            updated?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            updated?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             day?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             active?: boolean | components["schemas"]["BoolFieldUpdateOperationsInput"];
             heading_number?: (string | number) | components["schemas"]["DecimalFieldUpdateOperationsInput"];
         };
         StocksCreateInput: {
             bank_name?: string;
+            /** Format: date-time */
             created?: string;
             id?: string;
+            /** Format: date-time */
             updated?: string;
         };
         StocksUpdateInput: {
             bank_name?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
-            created?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            created?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             id?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
-            updated?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            updated?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
         };
         StocksCreateManyInput: {
             bank_name?: string;
+            /** Format: date-time */
             created?: string;
             id?: string;
+            /** Format: date-time */
             updated?: string;
         };
         StocksUpdateManyMutationInput: {
             bank_name?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
-            created?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            created?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             id?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
-            updated?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            updated?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
         };
         Stocks_headingsCreateInput: {
+            /** Format: date-time */
             created?: string;
             headings?: string;
             id?: string;
             stocks?: string;
+            /** Format: date-time */
             updated?: string;
             previous_price?: string | number;
             current_price?: string | number;
@@ -2647,21 +2683,23 @@ export interface components {
             percentage_change_in_price?: string;
         };
         Stocks_headingsUpdateInput: {
-            created?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            created?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             headings?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             id?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             stocks?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
-            updated?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            updated?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             previous_price?: (string | number) | components["schemas"]["DecimalFieldUpdateOperationsInput"];
             current_price?: (string | number) | components["schemas"]["DecimalFieldUpdateOperationsInput"];
             change_in_price?: (string | number) | components["schemas"]["DecimalFieldUpdateOperationsInput"];
             percentage_change_in_price?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
         };
         Stocks_headingsCreateManyInput: {
+            /** Format: date-time */
             created?: string;
             headings?: string;
             id?: string;
             stocks?: string;
+            /** Format: date-time */
             updated?: string;
             previous_price?: string | number;
             current_price?: string | number;
@@ -2669,20 +2707,22 @@ export interface components {
             percentage_change_in_price?: string;
         };
         Stocks_headingsUpdateManyMutationInput: {
-            created?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            created?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             headings?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             id?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             stocks?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
-            updated?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            updated?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             previous_price?: (string | number) | components["schemas"]["DecimalFieldUpdateOperationsInput"];
             current_price?: (string | number) | components["schemas"]["DecimalFieldUpdateOperationsInput"];
             change_in_price?: (string | number) | components["schemas"]["DecimalFieldUpdateOperationsInput"];
             percentage_change_in_price?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
         };
         Stocks_usersCreateInput: {
+            /** Format: date-time */
             created?: string;
             id?: string;
             stocks?: string;
+            /** Format: date-time */
             updated?: string;
             users?: string;
             share_count?: string;
@@ -2690,19 +2730,21 @@ export interface components {
             short_share_count?: string;
         };
         Stocks_usersUpdateInput: {
-            created?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            created?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             id?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             stocks?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
-            updated?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            updated?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             users?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             share_count?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             balance_when_shorting?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             short_share_count?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
         };
         Stocks_usersCreateManyInput: {
+            /** Format: date-time */
             created?: string;
             id?: string;
             stocks?: string;
+            /** Format: date-time */
             updated?: string;
             users?: string;
             share_count?: string;
@@ -2710,10 +2752,10 @@ export interface components {
             short_share_count?: string;
         };
         Stocks_usersUpdateManyMutationInput: {
-            created?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            created?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             id?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             stocks?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
-            updated?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            updated?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             users?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             share_count?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             balance_when_shorting?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
@@ -2723,8 +2765,10 @@ export interface components {
             active?: boolean;
             competition_end?: string;
             competition_start?: string;
+            /** Format: date-time */
             created?: string;
             id?: string;
+            /** Format: date-time */
             updated?: string;
             round_time?: string | number;
         };
@@ -2732,17 +2776,19 @@ export interface components {
             active?: boolean | components["schemas"]["BoolFieldUpdateOperationsInput"];
             competition_end?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             competition_start?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
-            created?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            created?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             id?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
-            updated?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            updated?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             round_time?: (string | number) | components["schemas"]["DecimalFieldUpdateOperationsInput"];
         };
         TimerCreateManyInput: {
             active?: boolean;
             competition_end?: string;
             competition_start?: string;
+            /** Format: date-time */
             created?: string;
             id?: string;
+            /** Format: date-time */
             updated?: string;
             round_time?: string | number;
         };
@@ -2750,13 +2796,14 @@ export interface components {
             active?: boolean | components["schemas"]["BoolFieldUpdateOperationsInput"];
             competition_end?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             competition_start?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
-            created?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            created?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             id?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
-            updated?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            updated?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             round_time?: (string | number) | components["schemas"]["DecimalFieldUpdateOperationsInput"];
         };
         UsersCreateInput: {
             avatar?: string;
+            /** Format: date-time */
             created?: string;
             email?: string;
             emailVisibility?: boolean;
@@ -2764,6 +2811,7 @@ export interface components {
             name?: string;
             password: string;
             tokenKey: string;
+            /** Format: date-time */
             updated?: string;
             username: string;
             verified?: boolean;
@@ -2773,14 +2821,14 @@ export interface components {
         };
         UsersUpdateInput: {
             avatar?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
-            created?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            created?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             email?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             emailVisibility?: boolean | components["schemas"]["BoolFieldUpdateOperationsInput"];
             id?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             name?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             password?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             tokenKey?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
-            updated?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            updated?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             username?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             verified?: boolean | components["schemas"]["BoolFieldUpdateOperationsInput"];
             type?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
@@ -2789,6 +2837,7 @@ export interface components {
         };
         UsersCreateManyInput: {
             avatar?: string;
+            /** Format: date-time */
             created?: string;
             email?: string;
             emailVisibility?: boolean;
@@ -2796,6 +2845,7 @@ export interface components {
             name?: string;
             password: string;
             tokenKey: string;
+            /** Format: date-time */
             updated?: string;
             username: string;
             verified?: boolean;
@@ -2804,14 +2854,14 @@ export interface components {
         };
         UsersUpdateManyMutationInput: {
             avatar?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
-            created?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            created?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             email?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             emailVisibility?: boolean | components["schemas"]["BoolFieldUpdateOperationsInput"];
             id?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             name?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             password?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             tokenKey?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
-            updated?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            updated?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             username?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             verified?: boolean | components["schemas"]["BoolFieldUpdateOperationsInput"];
             type?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
@@ -2840,6 +2890,21 @@ export interface components {
             equals?: boolean;
             not?: boolean | components["schemas"]["NestedBoolFilter"];
         };
+        DateTimeFilter: {
+            /** Format: date-time */
+            equals?: string;
+            in?: string[];
+            notIn?: string[];
+            /** Format: date-time */
+            lt?: string;
+            /** Format: date-time */
+            lte?: string;
+            /** Format: date-time */
+            gt?: string;
+            /** Format: date-time */
+            gte?: string;
+            not?: string | components["schemas"]["NestedDateTimeFilter"];
+        };
         StringFilter: {
             equals?: string;
             in?: string[];
@@ -2851,6 +2916,7 @@ export interface components {
             contains?: string;
             startsWith?: string;
             endsWith?: string;
+            mode?: components["schemas"]["QueryMode"];
             not?: string | components["schemas"]["NestedStringFilter"];
         };
         BoolWithAggregatesFilter: {
@@ -2859,6 +2925,24 @@ export interface components {
             _count?: components["schemas"]["NestedIntFilter"];
             _min?: components["schemas"]["NestedBoolFilter"];
             _max?: components["schemas"]["NestedBoolFilter"];
+        };
+        DateTimeWithAggregatesFilter: {
+            /** Format: date-time */
+            equals?: string;
+            in?: string[];
+            notIn?: string[];
+            /** Format: date-time */
+            lt?: string;
+            /** Format: date-time */
+            lte?: string;
+            /** Format: date-time */
+            gt?: string;
+            /** Format: date-time */
+            gte?: string;
+            not?: string | components["schemas"]["NestedDateTimeWithAggregatesFilter"];
+            _count?: components["schemas"]["NestedIntFilter"];
+            _min?: components["schemas"]["NestedDateTimeFilter"];
+            _max?: components["schemas"]["NestedDateTimeFilter"];
         };
         StringWithAggregatesFilter: {
             equals?: string;
@@ -2871,6 +2955,7 @@ export interface components {
             contains?: string;
             startsWith?: string;
             endsWith?: string;
+            mode?: components["schemas"]["QueryMode"];
             not?: string | components["schemas"]["NestedStringWithAggregatesFilter"];
             _count?: components["schemas"]["NestedIntFilter"];
             _min?: components["schemas"]["NestedStringFilter"];
@@ -2915,6 +3000,10 @@ export interface components {
         };
         BoolFieldUpdateOperationsInput: {
             set?: boolean;
+        };
+        DateTimeFieldUpdateOperationsInput: {
+            /** Format: date-time */
+            set?: string;
         };
         StringFieldUpdateOperationsInput: {
             set?: string;
@@ -2961,6 +3050,21 @@ export interface components {
             equals?: boolean;
             not?: boolean | components["schemas"]["NestedBoolFilter"];
         };
+        NestedDateTimeFilter: {
+            /** Format: date-time */
+            equals?: string;
+            in?: string[];
+            notIn?: string[];
+            /** Format: date-time */
+            lt?: string;
+            /** Format: date-time */
+            lte?: string;
+            /** Format: date-time */
+            gt?: string;
+            /** Format: date-time */
+            gte?: string;
+            not?: string | components["schemas"]["NestedDateTimeFilter"];
+        };
         NestedStringFilter: {
             equals?: string;
             in?: string[];
@@ -2990,6 +3094,24 @@ export interface components {
             gt?: number;
             gte?: number;
             not?: number | components["schemas"]["NestedIntFilter"];
+        };
+        NestedDateTimeWithAggregatesFilter: {
+            /** Format: date-time */
+            equals?: string;
+            in?: string[];
+            notIn?: string[];
+            /** Format: date-time */
+            lt?: string;
+            /** Format: date-time */
+            lte?: string;
+            /** Format: date-time */
+            gt?: string;
+            /** Format: date-time */
+            gte?: string;
+            not?: string | components["schemas"]["NestedDateTimeWithAggregatesFilter"];
+            _count?: components["schemas"]["NestedIntFilter"];
+            _min?: components["schemas"]["NestedDateTimeFilter"];
+            _max?: components["schemas"]["NestedDateTimeFilter"];
         };
         NestedStringWithAggregatesFilter: {
             equals?: string;
@@ -3046,6 +3168,7 @@ export interface components {
         };
         SessionCreateManyUserInputEnvelope: {
             data: components["schemas"]["SessionCreateManyUserInput"] | components["schemas"]["SessionCreateManyUserInput"][];
+            skipDuplicates?: boolean;
         };
         SessionUpsertWithWhereUniqueWithoutUserInput: {
             where: components["schemas"]["SessionWhereUniqueInput"];
@@ -3070,6 +3193,7 @@ export interface components {
         };
         UsersCreateWithoutSessionInput: {
             avatar?: string;
+            /** Format: date-time */
             created?: string;
             email?: string;
             emailVisibility?: boolean;
@@ -3077,6 +3201,7 @@ export interface components {
             name?: string;
             password: string;
             tokenKey: string;
+            /** Format: date-time */
             updated?: string;
             username: string;
             verified?: boolean;
@@ -3085,6 +3210,7 @@ export interface components {
         };
         UsersUncheckedCreateWithoutSessionInput: {
             avatar?: string;
+            /** Format: date-time */
             created?: string;
             email?: string;
             emailVisibility?: boolean;
@@ -3092,6 +3218,7 @@ export interface components {
             name?: string;
             password: string;
             tokenKey: string;
+            /** Format: date-time */
             updated?: string;
             username: string;
             verified?: boolean;
@@ -3113,14 +3240,14 @@ export interface components {
         };
         UsersUpdateWithoutSessionInput: {
             avatar?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
-            created?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            created?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             email?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             emailVisibility?: boolean | components["schemas"]["BoolFieldUpdateOperationsInput"];
             id?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             name?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             password?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             tokenKey?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
-            updated?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            updated?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             username?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             verified?: boolean | components["schemas"]["BoolFieldUpdateOperationsInput"];
             type?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
@@ -3128,14 +3255,14 @@ export interface components {
         };
         UsersUncheckedUpdateWithoutSessionInput: {
             avatar?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
-            created?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            created?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             email?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             emailVisibility?: boolean | components["schemas"]["BoolFieldUpdateOperationsInput"];
             id?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             name?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             password?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             tokenKey?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
-            updated?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
+            updated?: string | components["schemas"]["DateTimeFieldUpdateOperationsInput"];
             username?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
             verified?: boolean | components["schemas"]["BoolFieldUpdateOperationsInput"];
             type?: string | components["schemas"]["StringFieldUpdateOperationsInput"];
@@ -3265,9 +3392,11 @@ export interface components {
         };
         CompetitionGroupByOutputType: {
             active: boolean;
+            /** Format: date-time */
             created: string;
             id: string;
             pause: boolean;
+            /** Format: date-time */
             updated: string;
             ended: boolean;
             _count?: null | components["schemas"]["CompetitionCountAggregateOutputType"];
@@ -3280,10 +3409,12 @@ export interface components {
             _max?: null | components["schemas"]["DaysMaxAggregateOutputType"];
         };
         DaysGroupByOutputType: {
+            /** Format: date-time */
             created: string;
             description: string;
             id: string;
             name: string;
+            /** Format: date-time */
             updated: string;
             active: boolean;
             _count?: null | components["schemas"]["DaysCountAggregateOutputType"];
@@ -3298,9 +3429,11 @@ export interface components {
             _max?: null | components["schemas"]["HeadingsMaxAggregateOutputType"];
         };
         HeadingsGroupByOutputType: {
+            /** Format: date-time */
             created: string;
             id: string;
             name: string;
+            /** Format: date-time */
             updated: string;
             day: string;
             active: boolean;
@@ -3318,8 +3451,10 @@ export interface components {
         };
         StocksGroupByOutputType: {
             bank_name: string;
+            /** Format: date-time */
             created: string;
             id: string;
+            /** Format: date-time */
             updated: string;
             _count?: null | components["schemas"]["StocksCountAggregateOutputType"];
             _min?: null | components["schemas"]["StocksMinAggregateOutputType"];
@@ -3333,10 +3468,12 @@ export interface components {
             _max?: null | components["schemas"]["Stocks_headingsMaxAggregateOutputType"];
         };
         Stocks_headingsGroupByOutputType: {
+            /** Format: date-time */
             created: string;
             headings: string;
             id: string;
             stocks: string;
+            /** Format: date-time */
             updated: string;
             previous_price: string | number;
             current_price: string | number;
@@ -3354,9 +3491,11 @@ export interface components {
             _max?: null | components["schemas"]["Stocks_usersMaxAggregateOutputType"];
         };
         Stocks_usersGroupByOutputType: {
+            /** Format: date-time */
             created: string;
             id: string;
             stocks: string;
+            /** Format: date-time */
             updated: string;
             users: string;
             share_count: string;
@@ -3377,8 +3516,10 @@ export interface components {
             active: boolean;
             competition_end: string;
             competition_start: string;
+            /** Format: date-time */
             created: string;
             id: string;
+            /** Format: date-time */
             updated: string;
             round_time: string | number;
             _count?: null | components["schemas"]["TimerCountAggregateOutputType"];
@@ -3394,6 +3535,7 @@ export interface components {
         };
         UsersGroupByOutputType: {
             avatar: string;
+            /** Format: date-time */
             created: string;
             email: string;
             emailVisibility: boolean;
@@ -3401,6 +3543,7 @@ export interface components {
             name: string;
             password: string;
             tokenKey: string;
+            /** Format: date-time */
             updated: string;
             username: string;
             verified: boolean;

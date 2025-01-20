@@ -118,6 +118,11 @@ components:
       enum:
         - asc
         - desc
+    QueryMode:
+      type: string
+      enum:
+        - default
+        - insensitive
     Competition:
       type: object
       properties:
@@ -125,12 +130,14 @@ components:
           type: boolean
         created:
           type: string
+          format: date-time
         id:
           type: string
         pause:
           type: boolean
         updated:
           type: string
+          format: date-time
         ended:
           type: boolean
       required:
@@ -145,6 +152,7 @@ components:
       properties:
         created:
           type: string
+          format: date-time
         description:
           type: string
         id:
@@ -153,6 +161,7 @@ components:
           type: string
         updated:
           type: string
+          format: date-time
         active:
           type: boolean
       required:
@@ -167,12 +176,14 @@ components:
       properties:
         created:
           type: string
+          format: date-time
         id:
           type: string
         name:
           type: string
         updated:
           type: string
+          format: date-time
         day:
           type: string
         active:
@@ -196,10 +207,12 @@ components:
           type: string
         created:
           type: string
+          format: date-time
         id:
           type: string
         updated:
           type: string
+          format: date-time
       required:
         - bank_name
         - created
@@ -210,6 +223,7 @@ components:
       properties:
         created:
           type: string
+          format: date-time
         headings:
           type: string
         id:
@@ -218,6 +232,7 @@ components:
           type: string
         updated:
           type: string
+          format: date-time
         previous_price:
           oneOf:
             - type: string
@@ -247,12 +262,14 @@ components:
       properties:
         created:
           type: string
+          format: date-time
         id:
           type: string
         stocks:
           type: string
         updated:
           type: string
+          format: date-time
         users:
           type: string
         share_count:
@@ -281,10 +298,12 @@ components:
           type: string
         created:
           type: string
+          format: date-time
         id:
           type: string
         updated:
           type: string
+          format: date-time
         round_time:
           oneOf:
             - type: string
@@ -304,6 +323,7 @@ components:
           type: string
         created:
           type: string
+          format: date-time
         email:
           type: string
         emailVisibility:
@@ -318,6 +338,7 @@ components:
           type: string
         updated:
           type: string
+          format: date-time
         username:
           type: string
         verified:
@@ -385,8 +406,9 @@ components:
             - type: boolean
         created:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
         id:
           oneOf:
             - $ref: "#/components/schemas/StringFilter"
@@ -397,8 +419,9 @@ components:
             - type: boolean
         updated:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
         ended:
           oneOf:
             - $ref: "#/components/schemas/BoolFilter"
@@ -445,16 +468,18 @@ components:
             - type: boolean
         created:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
         pause:
           oneOf:
             - $ref: "#/components/schemas/BoolFilter"
             - type: boolean
         updated:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
         ended:
           oneOf:
             - $ref: "#/components/schemas/BoolFilter"
@@ -484,8 +509,9 @@ components:
             - type: boolean
         created:
           oneOf:
-            - $ref: "#/components/schemas/StringWithAggregatesFilter"
+            - $ref: "#/components/schemas/DateTimeWithAggregatesFilter"
             - type: string
+              format: date-time
         id:
           oneOf:
             - $ref: "#/components/schemas/StringWithAggregatesFilter"
@@ -496,8 +522,9 @@ components:
             - type: boolean
         updated:
           oneOf:
-            - $ref: "#/components/schemas/StringWithAggregatesFilter"
+            - $ref: "#/components/schemas/DateTimeWithAggregatesFilter"
             - type: string
+              format: date-time
         ended:
           oneOf:
             - $ref: "#/components/schemas/BoolWithAggregatesFilter"
@@ -523,8 +550,9 @@ components:
                 $ref: "#/components/schemas/DaysWhereInput"
         created:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
         description:
           oneOf:
             - $ref: "#/components/schemas/StringFilter"
@@ -539,8 +567,9 @@ components:
             - type: string
         updated:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
         active:
           oneOf:
             - $ref: "#/components/schemas/BoolFilter"
@@ -583,8 +612,9 @@ components:
                 $ref: "#/components/schemas/DaysWhereInput"
         created:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
         description:
           oneOf:
             - $ref: "#/components/schemas/StringFilter"
@@ -595,8 +625,9 @@ components:
             - type: string
         updated:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
         active:
           oneOf:
             - $ref: "#/components/schemas/BoolFilter"
@@ -622,8 +653,9 @@ components:
                 $ref: "#/components/schemas/DaysScalarWhereWithAggregatesInput"
         created:
           oneOf:
-            - $ref: "#/components/schemas/StringWithAggregatesFilter"
+            - $ref: "#/components/schemas/DateTimeWithAggregatesFilter"
             - type: string
+              format: date-time
         description:
           oneOf:
             - $ref: "#/components/schemas/StringWithAggregatesFilter"
@@ -638,8 +670,9 @@ components:
             - type: string
         updated:
           oneOf:
-            - $ref: "#/components/schemas/StringWithAggregatesFilter"
+            - $ref: "#/components/schemas/DateTimeWithAggregatesFilter"
             - type: string
+              format: date-time
         active:
           oneOf:
             - $ref: "#/components/schemas/BoolWithAggregatesFilter"
@@ -665,8 +698,9 @@ components:
                 $ref: "#/components/schemas/HeadingsWhereInput"
         created:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
         id:
           oneOf:
             - $ref: "#/components/schemas/StringFilter"
@@ -677,8 +711,9 @@ components:
             - type: string
         updated:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
         day:
           oneOf:
             - $ref: "#/components/schemas/StringFilter"
@@ -733,16 +768,18 @@ components:
                 $ref: "#/components/schemas/HeadingsWhereInput"
         created:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
         name:
           oneOf:
             - $ref: "#/components/schemas/StringFilter"
             - type: string
         updated:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
         day:
           oneOf:
             - $ref: "#/components/schemas/StringFilter"
@@ -778,8 +815,9 @@ components:
                 $ref: "#/components/schemas/HeadingsScalarWhereWithAggregatesInput"
         created:
           oneOf:
-            - $ref: "#/components/schemas/StringWithAggregatesFilter"
+            - $ref: "#/components/schemas/DateTimeWithAggregatesFilter"
             - type: string
+              format: date-time
         id:
           oneOf:
             - $ref: "#/components/schemas/StringWithAggregatesFilter"
@@ -790,8 +828,9 @@ components:
             - type: string
         updated:
           oneOf:
-            - $ref: "#/components/schemas/StringWithAggregatesFilter"
+            - $ref: "#/components/schemas/DateTimeWithAggregatesFilter"
             - type: string
+              format: date-time
         day:
           oneOf:
             - $ref: "#/components/schemas/StringWithAggregatesFilter"
@@ -831,16 +870,18 @@ components:
             - type: string
         created:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
         id:
           oneOf:
             - $ref: "#/components/schemas/StringFilter"
             - type: string
         updated:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
     StocksOrderByWithRelationInput:
       type: object
       properties:
@@ -879,12 +920,14 @@ components:
             - type: string
         created:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
         updated:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
     StocksScalarWhereWithAggregatesInput:
       type: object
       properties:
@@ -910,16 +953,18 @@ components:
             - type: string
         created:
           oneOf:
-            - $ref: "#/components/schemas/StringWithAggregatesFilter"
+            - $ref: "#/components/schemas/DateTimeWithAggregatesFilter"
             - type: string
+              format: date-time
         id:
           oneOf:
             - $ref: "#/components/schemas/StringWithAggregatesFilter"
             - type: string
         updated:
           oneOf:
-            - $ref: "#/components/schemas/StringWithAggregatesFilter"
+            - $ref: "#/components/schemas/DateTimeWithAggregatesFilter"
             - type: string
+              format: date-time
     Stocks_headingsWhereInput:
       type: object
       properties:
@@ -941,8 +986,9 @@ components:
                 $ref: "#/components/schemas/Stocks_headingsWhereInput"
         created:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
         headings:
           oneOf:
             - $ref: "#/components/schemas/StringFilter"
@@ -957,8 +1003,9 @@ components:
             - type: string
         updated:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
         previous_price:
           oneOf:
             - $ref: "#/components/schemas/DecimalFilter"
@@ -1025,8 +1072,9 @@ components:
                 $ref: "#/components/schemas/Stocks_headingsWhereInput"
         created:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
         headings:
           oneOf:
             - $ref: "#/components/schemas/StringFilter"
@@ -1037,8 +1085,9 @@ components:
             - type: string
         updated:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
         previous_price:
           oneOf:
             - $ref: "#/components/schemas/DecimalFilter"
@@ -1082,8 +1131,9 @@ components:
                 $ref: "#/components/schemas/Stocks_headingsScalarWhereWithAggregatesInput"
         created:
           oneOf:
-            - $ref: "#/components/schemas/StringWithAggregatesFilter"
+            - $ref: "#/components/schemas/DateTimeWithAggregatesFilter"
             - type: string
+              format: date-time
         headings:
           oneOf:
             - $ref: "#/components/schemas/StringWithAggregatesFilter"
@@ -1098,8 +1148,9 @@ components:
             - type: string
         updated:
           oneOf:
-            - $ref: "#/components/schemas/StringWithAggregatesFilter"
+            - $ref: "#/components/schemas/DateTimeWithAggregatesFilter"
             - type: string
+              format: date-time
         previous_price:
           oneOf:
             - $ref: "#/components/schemas/DecimalWithAggregatesFilter"
@@ -1143,8 +1194,9 @@ components:
                 $ref: "#/components/schemas/Stocks_usersWhereInput"
         created:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
         id:
           oneOf:
             - $ref: "#/components/schemas/StringFilter"
@@ -1155,8 +1207,9 @@ components:
             - type: string
         updated:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
         users:
           oneOf:
             - $ref: "#/components/schemas/StringFilter"
@@ -1215,16 +1268,18 @@ components:
                 $ref: "#/components/schemas/Stocks_usersWhereInput"
         created:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
         stocks:
           oneOf:
             - $ref: "#/components/schemas/StringFilter"
             - type: string
         updated:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
         users:
           oneOf:
             - $ref: "#/components/schemas/StringFilter"
@@ -1262,8 +1317,9 @@ components:
                 $ref: "#/components/schemas/Stocks_usersScalarWhereWithAggregatesInput"
         created:
           oneOf:
-            - $ref: "#/components/schemas/StringWithAggregatesFilter"
+            - $ref: "#/components/schemas/DateTimeWithAggregatesFilter"
             - type: string
+              format: date-time
         id:
           oneOf:
             - $ref: "#/components/schemas/StringWithAggregatesFilter"
@@ -1274,8 +1330,9 @@ components:
             - type: string
         updated:
           oneOf:
-            - $ref: "#/components/schemas/StringWithAggregatesFilter"
+            - $ref: "#/components/schemas/DateTimeWithAggregatesFilter"
             - type: string
+              format: date-time
         users:
           oneOf:
             - $ref: "#/components/schemas/StringWithAggregatesFilter"
@@ -1325,16 +1382,18 @@ components:
             - type: string
         created:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
         id:
           oneOf:
             - $ref: "#/components/schemas/StringFilter"
             - type: string
         updated:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
         round_time:
           oneOf:
             - $ref: "#/components/schemas/DecimalFilter"
@@ -1393,12 +1452,14 @@ components:
             - type: string
         created:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
         updated:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
         round_time:
           oneOf:
             - $ref: "#/components/schemas/DecimalFilter"
@@ -1438,16 +1499,18 @@ components:
             - type: string
         created:
           oneOf:
-            - $ref: "#/components/schemas/StringWithAggregatesFilter"
+            - $ref: "#/components/schemas/DateTimeWithAggregatesFilter"
             - type: string
+              format: date-time
         id:
           oneOf:
             - $ref: "#/components/schemas/StringWithAggregatesFilter"
             - type: string
         updated:
           oneOf:
-            - $ref: "#/components/schemas/StringWithAggregatesFilter"
+            - $ref: "#/components/schemas/DateTimeWithAggregatesFilter"
             - type: string
+              format: date-time
         round_time:
           oneOf:
             - $ref: "#/components/schemas/DecimalWithAggregatesFilter"
@@ -1479,8 +1542,9 @@ components:
             - type: string
         created:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
         email:
           oneOf:
             - $ref: "#/components/schemas/StringFilter"
@@ -1507,8 +1571,9 @@ components:
             - type: string
         updated:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
         username:
           oneOf:
             - $ref: "#/components/schemas/StringFilter"
@@ -1589,8 +1654,9 @@ components:
             - type: string
         created:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
         email:
           oneOf:
             - $ref: "#/components/schemas/StringFilter"
@@ -1609,8 +1675,9 @@ components:
             - type: string
         updated:
           oneOf:
-            - $ref: "#/components/schemas/StringFilter"
+            - $ref: "#/components/schemas/DateTimeFilter"
             - type: string
+              format: date-time
         verified:
           oneOf:
             - $ref: "#/components/schemas/BoolFilter"
@@ -1650,8 +1717,9 @@ components:
             - type: string
         created:
           oneOf:
-            - $ref: "#/components/schemas/StringWithAggregatesFilter"
+            - $ref: "#/components/schemas/DateTimeWithAggregatesFilter"
             - type: string
+              format: date-time
         email:
           oneOf:
             - $ref: "#/components/schemas/StringWithAggregatesFilter"
@@ -1678,8 +1746,9 @@ components:
             - type: string
         updated:
           oneOf:
-            - $ref: "#/components/schemas/StringWithAggregatesFilter"
+            - $ref: "#/components/schemas/DateTimeWithAggregatesFilter"
             - type: string
+              format: date-time
         username:
           oneOf:
             - $ref: "#/components/schemas/StringWithAggregatesFilter"
@@ -1813,12 +1882,14 @@ components:
           type: boolean
         created:
           type: string
+          format: date-time
         id:
           type: string
         pause:
           type: boolean
         updated:
           type: string
+          format: date-time
         ended:
           type: boolean
     CompetitionUpdateInput:
@@ -1831,7 +1902,8 @@ components:
         created:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         id:
           oneOf:
             - type: string
@@ -1843,7 +1915,8 @@ components:
         updated:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         ended:
           oneOf:
             - type: boolean
@@ -1855,12 +1928,14 @@ components:
           type: boolean
         created:
           type: string
+          format: date-time
         id:
           type: string
         pause:
           type: boolean
         updated:
           type: string
+          format: date-time
         ended:
           type: boolean
     CompetitionUpdateManyMutationInput:
@@ -1873,7 +1948,8 @@ components:
         created:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         id:
           oneOf:
             - type: string
@@ -1885,7 +1961,8 @@ components:
         updated:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         ended:
           oneOf:
             - type: boolean
@@ -1895,6 +1972,7 @@ components:
       properties:
         created:
           type: string
+          format: date-time
         description:
           type: string
         id:
@@ -1903,6 +1981,7 @@ components:
           type: string
         updated:
           type: string
+          format: date-time
         active:
           type: boolean
     DaysUpdateInput:
@@ -1911,7 +1990,8 @@ components:
         created:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         description:
           oneOf:
             - type: string
@@ -1927,7 +2007,8 @@ components:
         updated:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         active:
           oneOf:
             - type: boolean
@@ -1937,6 +2018,7 @@ components:
       properties:
         created:
           type: string
+          format: date-time
         description:
           type: string
         id:
@@ -1945,6 +2027,7 @@ components:
           type: string
         updated:
           type: string
+          format: date-time
         active:
           type: boolean
     DaysUpdateManyMutationInput:
@@ -1953,7 +2036,8 @@ components:
         created:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         description:
           oneOf:
             - type: string
@@ -1969,7 +2053,8 @@ components:
         updated:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         active:
           oneOf:
             - type: boolean
@@ -1979,12 +2064,14 @@ components:
       properties:
         created:
           type: string
+          format: date-time
         id:
           type: string
         name:
           type: string
         updated:
           type: string
+          format: date-time
         day:
           type: string
         active:
@@ -1999,7 +2086,8 @@ components:
         created:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         id:
           oneOf:
             - type: string
@@ -2011,7 +2099,8 @@ components:
         updated:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         day:
           oneOf:
             - type: string
@@ -2031,12 +2120,14 @@ components:
       properties:
         created:
           type: string
+          format: date-time
         id:
           type: string
         name:
           type: string
         updated:
           type: string
+          format: date-time
         day:
           type: string
         active:
@@ -2051,7 +2142,8 @@ components:
         created:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         id:
           oneOf:
             - type: string
@@ -2063,7 +2155,8 @@ components:
         updated:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         day:
           oneOf:
             - type: string
@@ -2085,10 +2178,12 @@ components:
           type: string
         created:
           type: string
+          format: date-time
         id:
           type: string
         updated:
           type: string
+          format: date-time
     StocksUpdateInput:
       type: object
       properties:
@@ -2099,7 +2194,8 @@ components:
         created:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         id:
           oneOf:
             - type: string
@@ -2107,7 +2203,8 @@ components:
         updated:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
     StocksCreateManyInput:
       type: object
       properties:
@@ -2115,10 +2212,12 @@ components:
           type: string
         created:
           type: string
+          format: date-time
         id:
           type: string
         updated:
           type: string
+          format: date-time
     StocksUpdateManyMutationInput:
       type: object
       properties:
@@ -2129,7 +2228,8 @@ components:
         created:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         id:
           oneOf:
             - type: string
@@ -2137,12 +2237,14 @@ components:
         updated:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
     Stocks_headingsCreateInput:
       type: object
       properties:
         created:
           type: string
+          format: date-time
         headings:
           type: string
         id:
@@ -2151,6 +2253,7 @@ components:
           type: string
         updated:
           type: string
+          format: date-time
         previous_price:
           oneOf:
             - type: string
@@ -2171,7 +2274,8 @@ components:
         created:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         headings:
           oneOf:
             - type: string
@@ -2187,7 +2291,8 @@ components:
         updated:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         previous_price:
           oneOf:
             - oneOf:
@@ -2215,6 +2320,7 @@ components:
       properties:
         created:
           type: string
+          format: date-time
         headings:
           type: string
         id:
@@ -2223,6 +2329,7 @@ components:
           type: string
         updated:
           type: string
+          format: date-time
         previous_price:
           oneOf:
             - type: string
@@ -2243,7 +2350,8 @@ components:
         created:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         headings:
           oneOf:
             - type: string
@@ -2259,7 +2367,8 @@ components:
         updated:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         previous_price:
           oneOf:
             - oneOf:
@@ -2287,12 +2396,14 @@ components:
       properties:
         created:
           type: string
+          format: date-time
         id:
           type: string
         stocks:
           type: string
         updated:
           type: string
+          format: date-time
         users:
           type: string
         share_count:
@@ -2307,7 +2418,8 @@ components:
         created:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         id:
           oneOf:
             - type: string
@@ -2319,7 +2431,8 @@ components:
         updated:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         users:
           oneOf:
             - type: string
@@ -2341,12 +2454,14 @@ components:
       properties:
         created:
           type: string
+          format: date-time
         id:
           type: string
         stocks:
           type: string
         updated:
           type: string
+          format: date-time
         users:
           type: string
         share_count:
@@ -2361,7 +2476,8 @@ components:
         created:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         id:
           oneOf:
             - type: string
@@ -2373,7 +2489,8 @@ components:
         updated:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         users:
           oneOf:
             - type: string
@@ -2401,10 +2518,12 @@ components:
           type: string
         created:
           type: string
+          format: date-time
         id:
           type: string
         updated:
           type: string
+          format: date-time
         round_time:
           oneOf:
             - type: string
@@ -2427,7 +2546,8 @@ components:
         created:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         id:
           oneOf:
             - type: string
@@ -2435,7 +2555,8 @@ components:
         updated:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         round_time:
           oneOf:
             - oneOf:
@@ -2453,10 +2574,12 @@ components:
           type: string
         created:
           type: string
+          format: date-time
         id:
           type: string
         updated:
           type: string
+          format: date-time
         round_time:
           oneOf:
             - type: string
@@ -2479,7 +2602,8 @@ components:
         created:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         id:
           oneOf:
             - type: string
@@ -2487,7 +2611,8 @@ components:
         updated:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         round_time:
           oneOf:
             - oneOf:
@@ -2501,6 +2626,7 @@ components:
           type: string
         created:
           type: string
+          format: date-time
         email:
           type: string
         emailVisibility:
@@ -2515,6 +2641,7 @@ components:
           type: string
         updated:
           type: string
+          format: date-time
         username:
           type: string
         verified:
@@ -2539,7 +2666,8 @@ components:
         created:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         email:
           oneOf:
             - type: string
@@ -2567,7 +2695,8 @@ components:
         updated:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         username:
           oneOf:
             - type: string
@@ -2593,6 +2722,7 @@ components:
           type: string
         created:
           type: string
+          format: date-time
         email:
           type: string
         emailVisibility:
@@ -2607,6 +2737,7 @@ components:
           type: string
         updated:
           type: string
+          format: date-time
         username:
           type: string
         verified:
@@ -2629,7 +2760,8 @@ components:
         created:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         email:
           oneOf:
             - type: string
@@ -2657,7 +2789,8 @@ components:
         updated:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         username:
           oneOf:
             - type: string
@@ -2731,6 +2864,39 @@ components:
           oneOf:
             - type: boolean
             - $ref: "#/components/schemas/NestedBoolFilter"
+    DateTimeFilter:
+      type: object
+      properties:
+        equals:
+          type: string
+          format: date-time
+        in:
+          type: array
+          items:
+            type: string
+            format: date-time
+        notIn:
+          type: array
+          items:
+            type: string
+            format: date-time
+        lt:
+          type: string
+          format: date-time
+        lte:
+          type: string
+          format: date-time
+        gt:
+          type: string
+          format: date-time
+        gte:
+          type: string
+          format: date-time
+        not:
+          oneOf:
+            - type: string
+              format: date-time
+            - $ref: "#/components/schemas/NestedDateTimeFilter"
     StringFilter:
       type: object
       properties:
@@ -2758,6 +2924,8 @@ components:
           type: string
         endsWith:
           type: string
+        mode:
+          $ref: "#/components/schemas/QueryMode"
         not:
           oneOf:
             - type: string
@@ -2777,6 +2945,45 @@ components:
           $ref: "#/components/schemas/NestedBoolFilter"
         _max:
           $ref: "#/components/schemas/NestedBoolFilter"
+    DateTimeWithAggregatesFilter:
+      type: object
+      properties:
+        equals:
+          type: string
+          format: date-time
+        in:
+          type: array
+          items:
+            type: string
+            format: date-time
+        notIn:
+          type: array
+          items:
+            type: string
+            format: date-time
+        lt:
+          type: string
+          format: date-time
+        lte:
+          type: string
+          format: date-time
+        gt:
+          type: string
+          format: date-time
+        gte:
+          type: string
+          format: date-time
+        not:
+          oneOf:
+            - type: string
+              format: date-time
+            - $ref: "#/components/schemas/NestedDateTimeWithAggregatesFilter"
+        _count:
+          $ref: "#/components/schemas/NestedIntFilter"
+        _min:
+          $ref: "#/components/schemas/NestedDateTimeFilter"
+        _max:
+          $ref: "#/components/schemas/NestedDateTimeFilter"
     StringWithAggregatesFilter:
       type: object
       properties:
@@ -2804,6 +3011,8 @@ components:
           type: string
         endsWith:
           type: string
+        mode:
+          $ref: "#/components/schemas/QueryMode"
         not:
           oneOf:
             - type: string
@@ -2932,6 +3141,12 @@ components:
       properties:
         set:
           type: boolean
+    DateTimeFieldUpdateOperationsInput:
+      type: object
+      properties:
+        set:
+          type: string
+          format: date-time
     StringFieldUpdateOperationsInput:
       type: object
       properties:
@@ -3094,6 +3309,39 @@ components:
           oneOf:
             - type: boolean
             - $ref: "#/components/schemas/NestedBoolFilter"
+    NestedDateTimeFilter:
+      type: object
+      properties:
+        equals:
+          type: string
+          format: date-time
+        in:
+          type: array
+          items:
+            type: string
+            format: date-time
+        notIn:
+          type: array
+          items:
+            type: string
+            format: date-time
+        lt:
+          type: string
+          format: date-time
+        lte:
+          type: string
+          format: date-time
+        gt:
+          type: string
+          format: date-time
+        gte:
+          type: string
+          format: date-time
+        not:
+          oneOf:
+            - type: string
+              format: date-time
+            - $ref: "#/components/schemas/NestedDateTimeFilter"
     NestedStringFilter:
       type: object
       properties:
@@ -3165,6 +3413,45 @@ components:
           oneOf:
             - type: integer
             - $ref: "#/components/schemas/NestedIntFilter"
+    NestedDateTimeWithAggregatesFilter:
+      type: object
+      properties:
+        equals:
+          type: string
+          format: date-time
+        in:
+          type: array
+          items:
+            type: string
+            format: date-time
+        notIn:
+          type: array
+          items:
+            type: string
+            format: date-time
+        lt:
+          type: string
+          format: date-time
+        lte:
+          type: string
+          format: date-time
+        gt:
+          type: string
+          format: date-time
+        gte:
+          type: string
+          format: date-time
+        not:
+          oneOf:
+            - type: string
+              format: date-time
+            - $ref: "#/components/schemas/NestedDateTimeWithAggregatesFilter"
+        _count:
+          $ref: "#/components/schemas/NestedIntFilter"
+        _min:
+          $ref: "#/components/schemas/NestedDateTimeFilter"
+        _max:
+          $ref: "#/components/schemas/NestedDateTimeFilter"
     NestedStringWithAggregatesFilter:
       type: object
       properties:
@@ -3333,6 +3620,8 @@ components:
             - type: array
               items:
                 $ref: "#/components/schemas/SessionCreateManyUserInput"
+        skipDuplicates:
+          type: boolean
       required:
         - data
     SessionUpsertWithWhereUniqueWithoutUserInput:
@@ -3414,6 +3703,7 @@ components:
           type: string
         created:
           type: string
+          format: date-time
         email:
           type: string
         emailVisibility:
@@ -3428,6 +3718,7 @@ components:
           type: string
         updated:
           type: string
+          format: date-time
         username:
           type: string
         verified:
@@ -3447,6 +3738,7 @@ components:
           type: string
         created:
           type: string
+          format: date-time
         email:
           type: string
         emailVisibility:
@@ -3461,6 +3753,7 @@ components:
           type: string
         updated:
           type: string
+          format: date-time
         username:
           type: string
         verified:
@@ -3522,7 +3815,8 @@ components:
         created:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         email:
           oneOf:
             - type: string
@@ -3550,7 +3844,8 @@ components:
         updated:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         username:
           oneOf:
             - type: string
@@ -3577,7 +3872,8 @@ components:
         created:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         email:
           oneOf:
             - type: string
@@ -3605,7 +3901,8 @@ components:
         updated:
           oneOf:
             - type: string
-            - $ref: "#/components/schemas/StringFieldUpdateOperationsInput"
+              format: date-time
+            - $ref: "#/components/schemas/DateTimeFieldUpdateOperationsInput"
         username:
           oneOf:
             - type: string
@@ -3886,12 +4183,14 @@ components:
           type: boolean
         created:
           type: string
+          format: date-time
         id:
           type: string
         pause:
           type: boolean
         updated:
           type: string
+          format: date-time
         ended:
           type: boolean
         _count:
@@ -3933,6 +4232,7 @@ components:
       properties:
         created:
           type: string
+          format: date-time
         description:
           type: string
         id:
@@ -3941,6 +4241,7 @@ components:
           type: string
         updated:
           type: string
+          format: date-time
         active:
           type: boolean
         _count:
@@ -3990,12 +4291,14 @@ components:
       properties:
         created:
           type: string
+          format: date-time
         id:
           type: string
         name:
           type: string
         updated:
           type: string
+          format: date-time
         day:
           type: string
         active:
@@ -4054,10 +4357,12 @@ components:
           type: string
         created:
           type: string
+          format: date-time
         id:
           type: string
         updated:
           type: string
+          format: date-time
         _count:
           oneOf:
             - type: "null"
@@ -4103,6 +4408,7 @@ components:
       properties:
         created:
           type: string
+          format: date-time
         headings:
           type: string
         id:
@@ -4111,6 +4417,7 @@ components:
           type: string
         updated:
           type: string
+          format: date-time
         previous_price:
           oneOf:
             - type: string
@@ -4175,12 +4482,14 @@ components:
       properties:
         created:
           type: string
+          format: date-time
         id:
           type: string
         stocks:
           type: string
         updated:
           type: string
+          format: date-time
         users:
           type: string
         share_count:
@@ -4244,10 +4553,12 @@ components:
           type: string
         created:
           type: string
+          format: date-time
         id:
           type: string
         updated:
           type: string
+          format: date-time
         round_time:
           oneOf:
             - type: string
@@ -4302,6 +4613,7 @@ components:
           type: string
         created:
           type: string
+          format: date-time
         email:
           type: string
         emailVisibility:
@@ -4316,6 +4628,7 @@ components:
           type: string
         updated:
           type: string
+          format: date-time
         username:
           type: string
         verified:
@@ -4426,6 +4739,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
         id:
           oneOf:
             - type: "null"
@@ -4438,6 +4752,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
         ended:
           oneOf:
             - type: "null"
@@ -4453,6 +4768,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
         id:
           oneOf:
             - type: "null"
@@ -4465,6 +4781,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
         ended:
           oneOf:
             - type: "null"
@@ -4501,6 +4818,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
         description:
           oneOf:
             - type: "null"
@@ -4517,6 +4835,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
         active:
           oneOf:
             - type: "null"
@@ -4528,6 +4847,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
         description:
           oneOf:
             - type: "null"
@@ -4544,6 +4864,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
         active:
           oneOf:
             - type: "null"
@@ -4599,6 +4920,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
         id:
           oneOf:
             - type: "null"
@@ -4611,6 +4933,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
         day:
           oneOf:
             - type: "null"
@@ -4631,6 +4954,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
         id:
           oneOf:
             - type: "null"
@@ -4643,6 +4967,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
         day:
           oneOf:
             - type: "null"
@@ -4686,6 +5011,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
         id:
           oneOf:
             - type: "null"
@@ -4694,6 +5020,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
     StocksMaxAggregateOutputType:
       type: object
       properties:
@@ -4705,6 +5032,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
         id:
           oneOf:
             - type: "null"
@@ -4713,6 +5041,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
     Stocks_headingsCountAggregateOutputType:
       type: object
       properties:
@@ -4790,6 +5119,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
         headings:
           oneOf:
             - type: "null"
@@ -4806,6 +5136,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
         previous_price:
           oneOf:
             - type: string
@@ -4832,6 +5163,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
         headings:
           oneOf:
             - type: "null"
@@ -4848,6 +5180,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
         previous_price:
           oneOf:
             - type: string
@@ -4905,6 +5238,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
         id:
           oneOf:
             - type: "null"
@@ -4917,6 +5251,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
         users:
           oneOf:
             - type: "null"
@@ -4940,6 +5275,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
         id:
           oneOf:
             - type: "null"
@@ -4952,6 +5288,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
         users:
           oneOf:
             - type: "null"
@@ -5031,6 +5368,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
         id:
           oneOf:
             - type: "null"
@@ -5039,6 +5377,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
         round_time:
           oneOf:
             - type: string
@@ -5063,6 +5402,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
         id:
           oneOf:
             - type: "null"
@@ -5071,6 +5411,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
         round_time:
           oneOf:
             - type: string
@@ -5133,6 +5474,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
         email:
           oneOf:
             - type: "null"
@@ -5161,6 +5503,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
         username:
           oneOf:
             - type: "null"
@@ -5188,6 +5531,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
         email:
           oneOf:
             - type: "null"
@@ -5216,6 +5560,7 @@ components:
           oneOf:
             - type: "null"
             - type: string
+              format: date-time
         username:
           oneOf:
             - type: "null"
