@@ -3,8 +3,9 @@
   "type": "module",
   "scripts": {
     "server-dev": "bun run --bun --watch --inspect index.tsx",
-    "server-run": "bunx zenstack generate && NODE_ENV=production bun run --bun index.tsx",
-    "server-build": "bunx zenstack generate -o .zenstack && cp -r .zenstack node_modules/ && bunx prisma db push"
+    "server-run": "NODE_ENV=production bun run --bun index.tsx",
+    "local-build": "bunx zenstack generate -o ./zenstack && bunx prisma db push && bunx openapi-typescript ./openapi.yaml -o ../client/lib/apitype.d.ts",
+    "server-build": "echo 1"
   },
   "zenstack": {
     "schema": "./schema.zmodel"
@@ -16,7 +17,6 @@
     "@oslojs/crypto": "^1.0.1",
     "@oslojs/encoding": "^1.1.0",
     "@prisma/client": "^6.2.1",
-    "@zenstackhq/runtime": "^2.11.4",
     "@zenstackhq/server": "^2.11.4",
     "class-variance-authority": "^0.7.1",
     "hono": "^4.6.16",
@@ -27,5 +27,8 @@
     "openapi-typescript": "^7.5.2",
     "typescript": "^5.7.3",
     "zenstack": "^2.11.4"
+  },
+  "devDependencies": {
+    "@zenstackhq/runtime": "^2.11.4"
   }
 }

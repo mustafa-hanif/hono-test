@@ -1,6 +1,6 @@
 import { Hono } from 'hono'
 import { PrismaClient } from '@prisma/client'
-import { enhance } from '@zenstackhq/runtime';
+import { enhance } from '../zenstack/enhance';
 import { zValidator } from '@hono/zod-validator'
 import { z } from 'zod';
 import {

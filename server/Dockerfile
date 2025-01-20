@@ -1,6 +1,6 @@
 # use the official Bun image
 # see all versions at https://hub.docker.com/r/oven/bun/tags
-FROM oven/bun:canary-debian AS base
+FROM oven/bun:canary-alpine AS base
 WORKDIR /usr/src/bun-app
 # RUN apt-get update && apt-get install -y python3 python3-pip
 # install dependencies into temp directory
@@ -18,12 +18,6 @@ COPY . .
 
 # [optional] tests & build
 ENV NODE_ENV=production
-
-# Adjust permissions
-RUN chmod -R 777 node_modules
-
-# Or change ownership
-RUN bun run server-build
 
 # run the app
 EXPOSE 3061/tcp

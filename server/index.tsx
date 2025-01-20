@@ -2,7 +2,7 @@ import { Hono } from 'hono'
 import { swaggerUI } from '@hono/swagger-ui'
 import { cors } from 'hono/cors'
 import { createBunWebSocket, serveStatic } from 'hono/bun'
-import { enhance } from '@zenstackhq/runtime';
+import { enhance } from './zenstack/enhance';
 import type { ServerWebSocket } from 'bun'
 import { WSContext } from 'hono/ws'
 import { createHonoHandler } from '@zenstackhq/server/hono';

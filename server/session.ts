@@ -4,7 +4,7 @@ import { encodeBase32LowerCaseNoPadding, encodeHexLowerCase } from "@oslojs/enco
 import { Context } from "hono";
 import { setCookie } from "hono/cookie";
 import { PrismaClient, session, users } from "@prisma/client";
-import { enhance } from "@zenstackhq/runtime";
+import { enhance } from './zenstack/enhance';
 
 const prisma = new PrismaClient();
 const db = enhance(prisma);
