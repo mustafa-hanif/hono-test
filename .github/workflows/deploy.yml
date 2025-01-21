@@ -1,5 +1,6 @@
 name: Deploy to S3 and CloudFront
-
+permissions:
+  secrets: read
 on:
   push:
     branches:
@@ -11,6 +12,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Verify AWS Secrets
+        run: |
+          echo "AWS_REGION=${{ secrets.AWS_REGION }}"
+          echo "S3_BUCKET_NAME=${{ secrets.S3_BUCKET_NAME }}"
+
       - name: Checkout Code
         uses: actions/checkout@v3
 
