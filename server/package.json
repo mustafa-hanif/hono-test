@@ -22,6 +22,7 @@
     "class-variance-authority": "^0.7.1",
     "hono": "^4.6.16",
     "node-fetch": "2",
+    "openai": "^4.80.0",
     "openapi-fetch": "^0.13.4",
     "openapi-typescript": "^7.5.2",
     "prisma": "^6.2.1",
