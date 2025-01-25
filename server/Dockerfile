@@ -4,7 +4,7 @@ FROM oven/bun:canary-alpine AS base
 WORKDIR /usr/src/bun-app
 # Install Python, build tools, and dependencies
 RUN apk add --no-cache python3 py3-pip build-base \
-    cairo-dev pixman-dev pkgconf
+    cairo-dev pixman-dev pangocairo pkgconf
 
 # Verify installation
 RUN python3 --version && pip3 --version
