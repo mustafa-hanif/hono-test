@@ -2,11 +2,14 @@
 # see all versions at https://hub.docker.com/r/oven/bun/tags
 FROM oven/bun:canary-alpine AS base
 WORKDIR /usr/src/bun-app
-# Install Python 3 and pip
-RUN apk add --no-cache python3 py3-pip
+# Install Python, build tools, and dependencies
+RUN apk add --no-cache python3 py3-pip build-base \
+    cairo-dev pixman-dev pkgconf
 
 # Verify installation
 RUN python3 --version && pip3 --version
+
+
 
 # Set the default command
 CMD ["python3"]
