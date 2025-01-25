@@ -2,6 +2,15 @@
 # see all versions at https://hub.docker.com/r/oven/bun/tags
 FROM oven/bun:canary-alpine AS base
 WORKDIR /usr/src/bun-app
+# Install Python 3 and pip
+RUN apk add --no-cache python3 py3-pip
+
+# Verify installation
+RUN python3 --version && pip3 --version
+
+# Set the default command
+CMD ["python3"]
+
 # RUN apt-get update && apt-get install -y python3 python3-pip
 # install dependencies into temp directory
 # this will cache them and speed up future builds
