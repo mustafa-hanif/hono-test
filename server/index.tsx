@@ -120,7 +120,7 @@ const app = new Hono().use('/*', timeout(30000)).use('/*', cors({
           - ${color1}
           - ${color2}
   
-          A social media post image ideally for a whatsapp template, do not write any text on the image, do not use any animals in the image, have a clean background meant for overlay text, and have a modern design.`,
+          A social media image post image ideally for a whatsapp template, do not write any text on the image, do not use any animals in the image`,
           output_format: 'jpg',
           aspect_ratio: "3:2",
           output_quality: 80,

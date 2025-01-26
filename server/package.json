@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "bun run --bun --watch --inspect index.tsx",
     "server-run": "NODE_ENV=production bun run --bun index.tsx",
-    "local-build": "bunx zenstack generate -o ./zenstack && bunx prisma db push && bunx openapi-typescript ./openapi.yaml -o ../client/lib/apitype.d.ts && cp -R ./prisma/generated/client ../client/prisma/generated",
+    "local-build": "bunx zenstack generate -o ./zenstack && bunx prisma db push && bunx openapi-typescript ./openapi.yaml -o ../client/lib/apitype.d.ts && cp -R ./prisma/generated/client ../client/prisma/",
     "server-build": "echo 1"
   },
   "zenstack": {

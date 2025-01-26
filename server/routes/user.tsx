@@ -33,6 +33,7 @@ const app = new Hono().get('/', async (c) => {
   password: z.string(),
 })), async (c) => {
   const { username, password } = c.req.valid('form');
+  console.time('login');
   const user = await db.users.findFirst({
     where: {
       username: username,
@@ -46,6 +47,7 @@ const app = new Hono().get('/', async (c) => {
       400
     )
   }
+  console.timeEnd('login');
   const valid = await Bun.password.verify(password, user.password, "argon2d");
   if (valid) {
     let { user: sUser, session } = await validateSessionToken(user.tokenKey);
