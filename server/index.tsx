@@ -1,5 +1,5 @@
 import OpenAI from 'openai';
-import { createCanvas, loadImage, registerFont } from 'canvas';
+import { createCanvas, loadImage, GlobalFonts } from '@napi-rs/canvas';
 import { timeout } from 'hono/timeout'
 
 
@@ -18,7 +18,8 @@ import { PrismaClient } from './prisma/generated/client';
 import { app as user} from './routes/user';
 
 const _font = './RobotoCondensed-SemiBold.ttf';
-registerFont(_font, { family: 'Roboto' });
+
+GlobalFonts.registerFromPath(_font, 'Roboto');
 
 const prisma = new PrismaClient();
 const replicate = new Replicate();
