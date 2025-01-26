@@ -106,7 +106,7 @@ const app = new Hono().use('/*', timeout(30000)).use('/*', cors({
   })
 ).post('/stuff', async (c) => {
   const body = await c.req.parseBody();
-  const { text } = body;
+  const { text, color1, color2 } = body;
   return streamText(c, async (stream) => {
     await stream.writeln('Running image generator');
     const output = await replicate.run(
@@ -117,8 +117,8 @@ const app = new Hono().use('/*', timeout(30000)).use('/*', cors({
           "${text}"
           
           And the using the following colors:
-          - #FFD700
-          - #000000
+          - ${color1}
+          - ${color2}
   
           A social media post image ideally for a whatsapp template, do not write any text on the image, do not use any animals in the image, have a clean background meant for overlay text, and have a modern design.`,
           output_format: 'jpg',
@@ -168,6 +168,8 @@ const app = new Hono().use('/*', timeout(30000)).use('/*', cors({
   get('/doc', serveStatic({ path: '/openapi.json' }))
  .use('/_generated/*', serveStatic({ root: './' }))
 ;
+
+
 
 export default {
   port: 3061,
