@@ -80,7 +80,7 @@ let subscribers: { tableName: string, ws: WSContext<ServerWebSocket<undefined>> 
 const app = new Hono().use('/*', timeout(30000)).use('/*', cors({
   origin: clientDomain,
   credentials: true,
-})).get('/ui', swaggerUI({ url: '/doc' })).use(
+})).use('/_generated/*', serveStatic({ root: './' })).get('/ui', swaggerUI({ url: '/doc' })).use(
   '/api/model/*',
   createHonoHandler({
     getPrisma: (ctx) => {
@@ -166,7 +166,6 @@ const app = new Hono().use('/*', timeout(30000)).use('/*', cors({
   })
 }).route('/users', user).
   get('/doc', serveStatic({ path: '/openapi.json' }))
- .use('/_generated/*', serveStatic({ root: './' }))
 ;
 
 
