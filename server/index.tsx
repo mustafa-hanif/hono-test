@@ -75,7 +75,7 @@ async function* asyncNumberGenerator(start = 1, end = 5, delay = 500) {
   }
 }
   
-const clientDomain = process.env['NODE_ENV'] === 'production' ? 'https://client.hashmani.taskmate.ae' : 'http://localhost:3001';
+const clientDomain = process.env['NODE_ENV'] === 'production' ? 'https://vite.uae.wetarseel.ai' : 'http://localhost:3001';
 let subscribers: { tableName: string, ws: WSContext<ServerWebSocket<undefined>> }[] = [];
 const app = new Hono().use('/*', timeout(30000)).use('/*', cors({
   origin: clientDomain,
