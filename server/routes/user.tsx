@@ -14,7 +14,7 @@ import type { CookieOptions } from 'hono/utils/cookie'
 const cookieConfig: CookieOptions = process.env['NODE_ENV'] === 'production' ? {
   sameSite: 'None',
   secure: true,
-  domain: '.hashmani.taskmate.ae',
+  domain: '.uae.wetarseel.ai',
   expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
 } : {
   sameSite: 'Lax',
