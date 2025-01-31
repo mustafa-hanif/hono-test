@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "bun run --bun --watch --inspect index.tsx",
     "server-run": "NODE_ENV=production bun run --bun index.tsx",
-    "local-build": "bunx zenstack generate -o ./zenstack && bunx prisma db push && bunx openapi-typescript ./openapi.yaml -o ../client/lib/apitype.d.ts && cp -R ./prisma/generated/client ../client/prisma/",
+    "local-build": "bunx zenstack generate -o ./zenstack && bunx prisma db push && bunx openapi-typescript ./openapi.yaml -o ../client/lib/apitype.d.ts && cp -R ./prisma/generated/client ../client/prisma/ && cp -R ./prisma/generated/zero ../client/prisma/zero",
     "server-build": "echo 1"
   },
   "zenstack": {
@@ -17,6 +17,8 @@
     "@napi-rs/canvas": "^0.1.65",
     "@oslojs/crypto": "^1.0.1",
     "@oslojs/encoding": "^1.1.0",
+    "@passionfroot/prisma-generator-zero": "^0.1.0",
+    "@rocicorp/zero": "^0.12.2025012501",
     "@types/bun": "latest",
     "@zenstackhq/openapi": "^2.11.4",
     "@zenstackhq/server": "^2.11.4",
@@ -34,5 +36,8 @@
   "devDependencies": {
     "@zenstackhq/runtime": "^2.11.4",
     "@prisma/client": "^6.2.1"
-  }
+  },
+  "trustedDependencies": [
+    "@rocicorp/zero-sqlite3"
+  ]
 }

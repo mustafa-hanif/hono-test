@@ -1,11 +1,9 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { Button } from '@/components/ui/button';
-import { hclient } from '@/lib/api';
 import { useEffect, useRef, useState } from 'react';
 
 export const Route = createFileRoute('/about')({
-  component: AboutComponent,
-  loader: async () => await (await hclient.stuff.$get()).json(),
+  component: AboutComponent
 })
 
 const TextEditor = () => {

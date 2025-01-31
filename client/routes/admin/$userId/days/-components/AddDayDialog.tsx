@@ -13,12 +13,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { client } from "@/lib/api";
 import { Form } from "@/lib/form";
-import { useRouter } from "@tanstack/react-router";
+import { useMyZero } from "@/lib/zeroDb";
+import { nanoid } from 'nanoid';
 import { useState } from "react";
 
 export function AddDayDialog() {
   const [dialog, setDialog] = useState(false);
-  const router = useRouter();
+  const z = useMyZero();
   return (
     <Dialog open={dialog} onOpenChange={setDialog}>
       <DialogTrigger asChild>
@@ -28,15 +29,22 @@ export function AddDayDialog() {
         <Form
           id="formattribute"
            handleSubmit={async (values) => {
-            await client.POST("/days/create", {
-              body: {
-                data: {
-                  name: values["name"]!,
-                  description: values["description"]!
-                }
-              }
+            z.mutate.days.insert({
+              id: nanoid(),
+              name: values["name"]!,
+              description: values["description"]!,
+              created: new Date().getTime(),
+              updated: new Date().getTime(),
+              active: false
             });
-            router.invalidate()
+            // await client.POST("/days/create", {
+            //   body: {
+            //     data: {
+            //       name: values["name"]!,
+            //       description: values["description"]!
+            //     }
+            //   }
+            // });
             setDialog(false);
           }}
         >

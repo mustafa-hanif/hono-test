@@ -4,6 +4,10 @@ generator client {
   output   = "./generated/client"
 }
 
+generator zero {
+  provider = "prisma-generator-zero"
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")

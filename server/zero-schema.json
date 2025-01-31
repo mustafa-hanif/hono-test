@@ -1,0 +1,431 @@
+{
+  "permissions": {
+    "days": {
+      "row": {
+        "update": {}
+      }
+    }
+  },
+  "schema": {
+    "version": 1,
+    "tables": {
+      "competition": {
+        "name": "competition",
+        "columns": {
+          "active": {
+            "type": "boolean",
+            "optional": false,
+            "customType": null
+          },
+          "created": {
+            "type": "number",
+            "optional": false,
+            "customType": null
+          },
+          "id": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "pause": {
+            "type": "boolean",
+            "optional": false,
+            "customType": null
+          },
+          "updated": {
+            "type": "number",
+            "optional": false,
+            "customType": null
+          },
+          "ended": {
+            "type": "boolean",
+            "optional": false,
+            "customType": null
+          }
+        },
+        "primaryKey": [
+          "id"
+        ]
+      },
+      "days": {
+        "name": "days",
+        "columns": {
+          "created": {
+            "type": "number",
+            "optional": false,
+            "customType": null
+          },
+          "description": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "id": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "name": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "updated": {
+            "type": "number",
+            "optional": false,
+            "customType": null
+          },
+          "active": {
+            "type": "boolean",
+            "optional": false,
+            "customType": null
+          }
+        },
+        "primaryKey": [
+          "id"
+        ]
+      },
+      "headings": {
+        "name": "headings",
+        "columns": {
+          "created": {
+            "type": "number",
+            "optional": false,
+            "customType": null
+          },
+          "id": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "name": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "updated": {
+            "type": "number",
+            "optional": false,
+            "customType": null
+          },
+          "day": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "active": {
+            "type": "boolean",
+            "optional": false,
+            "customType": null
+          },
+          "heading_number": {
+            "type": "number",
+            "optional": false,
+            "customType": null
+          }
+        },
+        "primaryKey": [
+          "id"
+        ]
+      },
+      "stocks": {
+        "name": "stocks",
+        "columns": {
+          "bank_name": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "created": {
+            "type": "number",
+            "optional": false,
+            "customType": null
+          },
+          "id": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "updated": {
+            "type": "number",
+            "optional": false,
+            "customType": null
+          }
+        },
+        "primaryKey": [
+          "id"
+        ]
+      },
+      "stocks_headings": {
+        "name": "stocks_headings",
+        "columns": {
+          "created": {
+            "type": "number",
+            "optional": false,
+            "customType": null
+          },
+          "headings": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "id": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "stocks": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "updated": {
+            "type": "number",
+            "optional": false,
+            "customType": null
+          },
+          "previous_price": {
+            "type": "number",
+            "optional": false,
+            "customType": null
+          },
+          "current_price": {
+            "type": "number",
+            "optional": false,
+            "customType": null
+          },
+          "change_in_price": {
+            "type": "number",
+            "optional": false,
+            "customType": null
+          },
+          "percentage_change_in_price": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          }
+        },
+        "primaryKey": [
+          "id"
+        ]
+      },
+      "stocks_users": {
+        "name": "stocks_users",
+        "columns": {
+          "created": {
+            "type": "number",
+            "optional": false,
+            "customType": null
+          },
+          "id": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "stocks": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "updated": {
+            "type": "number",
+            "optional": false,
+            "customType": null
+          },
+          "users": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "share_count": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "balance_when_shorting": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "short_share_count": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          }
+        },
+        "primaryKey": [
+          "id"
+        ]
+      },
+      "timer": {
+        "name": "timer",
+        "columns": {
+          "active": {
+            "type": "boolean",
+            "optional": false,
+            "customType": null
+          },
+          "competition_end": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "competition_start": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "created": {
+            "type": "number",
+            "optional": false,
+            "customType": null
+          },
+          "id": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "updated": {
+            "type": "number",
+            "optional": false,
+            "customType": null
+          },
+          "round_time": {
+            "type": "number",
+            "optional": false,
+            "customType": null
+          }
+        },
+        "primaryKey": [
+          "id"
+        ]
+      },
+      "users": {
+        "name": "users",
+        "columns": {
+          "avatar": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "created": {
+            "type": "number",
+            "optional": false,
+            "customType": null
+          },
+          "email": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "emailVisibility": {
+            "type": "boolean",
+            "optional": false,
+            "customType": null
+          },
+          "id": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "name": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "password": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "tokenKey": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "updated": {
+            "type": "number",
+            "optional": false,
+            "customType": null
+          },
+          "username": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "verified": {
+            "type": "boolean",
+            "optional": false,
+            "customType": null
+          },
+          "type": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "wallet": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          }
+        },
+        "primaryKey": [
+          "id"
+        ]
+      },
+      "session": {
+        "name": "session",
+        "columns": {
+          "id": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "userId": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          },
+          "expiresAt": {
+            "type": "string",
+            "optional": false,
+            "customType": null
+          }
+        },
+        "primaryKey": [
+          "id"
+        ]
+      }
+    },
+    "relationships": {
+      "users": {
+        "session": [
+          {
+            "sourceField": [
+              "id"
+            ],
+            "destField": [
+              "userId"
+            ],
+            "destSchema": "session",
+            "cardinality": "many"
+          }
+        ]
+      },
+      "session": {
+        "user": [
+          {
+            "sourceField": [
+              "userId"
+            ],
+            "destField": [
+              "id"
+            ],
+            "destSchema": "users",
+            "cardinality": "one"
+          }
+        ]
+      }
+    }
+  }
+}

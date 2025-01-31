@@ -21,9 +21,8 @@ import {
   TableRow
 } from "@/components/ui/table";
 
-import { Input } from "@/components/ui/input";
-import { days } from "@/prisma/client";
 import { Link, useParams } from "@tanstack/react-router";
+import { days } from "@/prisma/zero/schema";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -98,8 +97,9 @@ export function DataTable<TData, TValue>({
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
                 >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell
+                  {row.getVisibleCells().map((cell) => {
+                    const ShouldLink = cell.id.includes("_name") ? Link : "div";
+                    return <TableCell
                       className="py-2"
                       key={cell.id}
                       style={{
@@ -112,7 +112,7 @@ export function DataTable<TData, TValue>({
                         }
                       }}
                     >
-                      <Link to={'/admin/$userId/headings/$dayId'} params={{
+                      <ShouldLink to={'/admin/$userId/headings/$dayId'} params={{
                         userId: userId ?? '',
                         dayId: row.original.id
                       }}>
@@ -120,9 +120,9 @@ export function DataTable<TData, TValue>({
                           cell.column.columnDef.cell,
                           cell.getContext()
                         )}
-                      </Link>
+                      </ShouldLink>
                     </TableCell>
-                  ))}
+                })}
                 </TableRow>
               ))
             ) : (

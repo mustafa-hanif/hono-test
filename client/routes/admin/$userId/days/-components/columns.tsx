@@ -7,8 +7,11 @@ import { ArrowUpDown } from "lucide-react";
 
 // import utc from 'dayjs/plugin/utc'
 import { MarkAsActiveButton } from "./MarkAsActiveButton";
+import { useQuery } from "@rocicorp/zero/react";
+import { Schema } from "@/prisma/zero/schema";
 import { Badge } from "@/components/ui/badge";
-import { days } from "@/prisma/client";
+import { days } from "@/prisma/zero/schema";
+import { useMyZero } from "@/lib/zeroDb";
 
 export const columns: ColumnDef<days>[] = [
   {
@@ -100,8 +103,14 @@ export const columns: ColumnDef<days>[] = [
     id: "actions",
     size: 100,
     cell: ({ row }) => {
+      const z = useMyZero();
       return (
-        <MarkAsActiveButton status={row.original.active} day_id={row.id} />
+        <Button onClick={() => z.mutate.days.update({
+          id: row.id,
+          active: !row.original.active
+        })}>
+          {row.original.active ? <>Mark as Inactive</>: <>Mark as Active</>}
+        </Button>
       );
     }
   }

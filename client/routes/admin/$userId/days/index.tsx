@@ -3,19 +3,12 @@ import { createFileRoute } from '@tanstack/react-router'
 import { AddDayDialog } from "./-components/AddDayDialog";
 import { DataTable } from "./-components/data-table";
 import { columns } from "./-components/columns";
-import { client } from '@/lib/api';
+import { useQuery, useZero } from "@rocicorp/zero/react";
+import { Schema } from "@/prisma/zero/schema";
+import { useMyZero } from '@/lib/zeroDb';
 
 export const Route = createFileRoute('/admin/$userId/days/')({
   component: RouteComponent,
-  loader: async () => {
-    const days = (await client.GET('/days/findMany', { 
-      params: { 
-        query: { q: '', meta: '' }
-      }
-    }
-    )).data?.data;
-    return { days }
-  },
   validateSearch: (search: Record<string, unknown>): { 
     /**
      * Email address of the user.
@@ -27,7 +20,9 @@ export const Route = createFileRoute('/admin/$userId/days/')({
 })
 
 function RouteComponent() {
-  const { days } = Route.useLoaderData();
+  const z = useMyZero();
+  const [days] = useQuery(z.query.days.orderBy('created', 'desc'));
+  // const { days } = Route.useLoaderData();
   const { isStock } = Route.useSearch()
 
   return <ContentLayout title="Headings">
@@ -42,6 +37,6 @@ function RouteComponent() {
 
     <AddDayDialog />
   </div>
-  <DataTable columns={columns} data={days ?? []} />
+  <DataTable columns={columns} data={days} />
 </ContentLayout>
 }

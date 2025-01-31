@@ -14,6 +14,10 @@ generator client {
   output        = "./generated/client"
 }
 
+generator zero {
+  provider = "prisma-generator-zero"
+}
+
 model competition {
   active  Boolean  @default(false)
   created DateTime @default(now())
