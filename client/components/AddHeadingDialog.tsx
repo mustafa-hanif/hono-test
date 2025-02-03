@@ -13,15 +13,18 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { client } from "@/lib/api";
 import { Form } from "@/lib/form";
-import { useRouter } from "@tanstack/react-router";
+import { useMyZero } from "@/lib/zeroDb";
+import { useParams, useRouter } from "@tanstack/react-router";
+import { nanoid } from "nanoid";
 import { useState } from "react";
 
 export function AddHeadingDialog() {
+  const z = useMyZero();
   const [dialog, setDialog] = useState(false);
   const router = useRouter();
+  const { dayId } = useParams({ strict: false });
   const path = window.location.pathname
   const searchParams = new URLSearchParams(window.location.search);
-  const day_id = searchParams.get("day") as string;
   return (
     <Dialog open={dialog} onOpenChange={setDialog}>
       <DialogTrigger asChild>
@@ -31,15 +34,24 @@ export function AddHeadingDialog() {
         <Form
           id="formattribute"
           handleSubmit={async (values) => {
-            await client.POST("/headings/create", {
-              body: {
-                data: {
-                  name: values["name"]!,
-                  heading_number: values["heading_number"]!
-                }
-              }
-            });
-            router.invalidate()
+            z.mutate.headings.insert({
+              name: values["name"]!,
+              heading_number: Number(values["heading_number"]!),
+              day: dayId!,
+              id: nanoid(),
+              created: new Date().getTime(),
+              updated: new Date().getTime(),
+              active: true
+            })
+            // await client.POST("/headings/create", {
+            //   body: {
+            //     data: {
+            //       name: values["name"]!,
+            //       heading_number: values["heading_number"]!
+            //     }
+            //   }
+            // });
+            // router.invalidate()
             setDialog(false);
           }}
         >

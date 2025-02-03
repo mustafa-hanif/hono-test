@@ -10,48 +10,56 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
-import { client } from '@/lib/api'
+// import { client } from '@/lib/api'
 import { headings, timer } from '@/prisma/client'
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { columns } from './-components/columns'
 import { DataTable } from './-components/data-table'
+import { useMyZero } from '@/lib/zeroDb'
+import { useQuery } from "@rocicorp/zero/react";
 
 export const Route = createFileRoute('/admin/$userId/_layout/headings/$dayId')({
   component: RouteComponent,
-  loader: async () => {
-    const day = (
-      await client.GET('/days/findFirst', {
-        params: { query: { q: '', meta: '' } },
-      })
-    ).data?.data
-    const headings = (
-      await client.GET('/headings/findMany', {
-        params: { query: { q: '', meta: '' } },
-      })
-    ).data?.data
-    const heading = (
-      await client.GET('/headings/findUnique', {
-        params: { query: { q: '', meta: '' } },
-      })
-    ).data?.data
-    const competitionStatus = (
-      await client.GET('/competition/findFirst', {
-        params: { query: { q: '', meta: '' } },
-      })
-    ).data?.data
-    const timerData = (
-      await client.GET('/timer/findMany', {
-        params: { query: { q: '', meta: '' } },
-      })
-    ).data?.data
-    return { day, headings, heading, competitionStatus, timerData }
-  },
+  // loader: async () => {
+  //   const day = (
+  //     await client.GET('/days/findFirst', {
+  //       params: { query: { q: '', meta: '' } },
+  //     })
+  //   ).data?.data
+  //   const headings = (
+  //     await client.GET('/headings/findMany', {
+  //       params: { query: { q: '', meta: '' } },
+  //     })
+  //   ).data?.data
+  //   const heading = (
+  //     await client.GET('/headings/findUnique', {
+  //       params: { query: { q: '', meta: '' } },
+  //     })
+  //   ).data?.data
+  //   const competitionStatus = (
+  //     await client.GET('/competition/findFirst', {
+  //       params: { query: { q: '', meta: '' } },
+  //     })
+  //   ).data?.data
+  //   const timerData = (
+  //     await client.GET('/timer/findMany', {
+  //       params: { query: { q: '', meta: '' } },
+  //     })
+  //   ).data?.data
+  //   return { day, headings, heading, competitionStatus, timerData }
+  // },
 })
 
 function RouteComponent() {
-  const { day, headings, heading, competitionStatus, timerData } =
-    Route.useLoaderData()
-  const { userId } = Route.useParams()
+  const z = useMyZero();
+  const { userId, dayId } = Route.useParams()
+  const [heading] = useQuery(z.query.headings.orderBy('created', 'desc').one());
+  const [day] = useQuery(z.query.days.where('id', '=', dayId).one());
+  const [competitionStatus] = useQuery(z.query.competition.one());
+  const [headings, status] = useQuery(z.query.headings.where('day', '=', dayId).orderBy('created', 'desc'));
+  const [timerData] = useQuery(z.query.timer.orderBy('created', 'desc'));
+  
+  console.log(headings, status, dayId);
   return (
     <ContentLayout title="Headings">
       <Breadcrumb className="mb-2">
@@ -129,7 +137,7 @@ function RouteComponent() {
         </div>
       ) : null}
 
-      <DataTable columns={columns} data={headings as unknown as headings[]} />
+      <DataTable columns={columns} data={headings} />
     </ContentLayout>
   )
 }

@@ -81,6 +81,17 @@ export const columns: ColumnDef<days>[] = [
     }
   },
   {
+    accessorKey: "active",
+    header: ({ column }) => {
+      return <div>Headings</div>
+    },
+    cell: ({ row }) => {
+      const z = useMyZero();
+      const [headings] = useQuery(z.query.headings.where('day', '=', row.id));
+      return <div>{headings.length}</div>
+    }
+  },
+  {
     accessorKey: "created",
     size: 100,
     header: ({ column }) => {

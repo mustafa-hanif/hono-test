@@ -11,11 +11,13 @@ const z = new Zero({
   userID: "anon",
   server: "http://localhost:4848", // import.meta.env.CLIENT_URL,
   schema,
-  kvStore: "mem", // or "idb" for IndexedDB persistence
+  kvStore: "idb", // or "idb" for IndexedDB persistence
 });
 
 console.log(z)
 
+z.query.days.preload();
+z.query.headings.preload();
 // Set up a Router instance
 const router = createRouter({
   routeTree,
